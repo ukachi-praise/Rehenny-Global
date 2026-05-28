@@ -1,9 +1,10 @@
 'use client'
 
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { motion } from 'framer-motion'
+import { countries } from '@/lib/countries'
 
 // Animation variants
 const containerVariants = {
@@ -33,70 +34,82 @@ const FeatureIcon = ({ children, className = "" }) => (
 )
 
 const ContactPage = () => {
-  // Country code options
-  const countries = [
-    // Nigeria and African Countries
-    { code: '+234', flag: 'ng', name: 'Nigeria' },
-    { code: '+233', flag: 'gh', name: 'Ghana' },
-    { code: '+254', flag: 'ke', name: 'Kenya' },
-    { code: '+27', flag: 'za', name: 'South Africa' },
-    { code: '+20', flag: 'eg', name: 'Egypt' },
-    { code: '+251', flag: 'et', name: 'Ethiopia' },
-    { code: '+256', flag: 'ug', name: 'Uganda' },
-    { code: '+255', flag: 'tz', name: 'Tanzania' },
-    { code: '+212', flag: 'ma', name: 'Morocco' },
-    { code: '+216', flag: 'tn', name: 'Tunisia' },
-    
-    // European Countries
-    { code: '+44', flag: 'gb', name: 'United Kingdom' },
-    { code: '+49', flag: 'de', name: 'Germany' },
-    { code: '+33', flag: 'fr', name: 'France' },
-    { code: '+39', flag: 'it', name: 'Italy' },
-    { code: '+34', flag: 'es', name: 'Spain' },
-    { code: '+31', flag: 'nl', name: 'Netherlands' },
-    { code: '+32', flag: 'be', name: 'Belgium' },
-    { code: '+46', flag: 'se', name: 'Sweden' },
-    { code: '+47', flag: 'no', name: 'Norway' },
-    { code: '+41', flag: 'ch', name: 'Switzerland' },
-    { code: '+43', flag: 'at', name: 'Austria' },
-    { code: '+353', flag: 'ie', name: 'Ireland' },
-    { code: '+351', flag: 'pt', name: 'Portugal' },
-    { code: '+48', flag: 'pl', name: 'Poland' },
-    { code: '+420', flag: 'cz', name: 'Czech Republic' },
-    
-    // North American Countries
-    { code: '+1', flag: 'us', name: 'United States' },
-    { code: '+1', flag: 'ca', name: 'Canada' },
-    { code: '+52', flag: 'mx', name: 'Mexico' },
-    
-    // Asian Countries
-    { code: '+90', flag: 'tr', name: 'Turkey' },
-    { code: '+86', flag: 'cn', name: 'China' },
-    { code: '+91', flag: 'in', name: 'India' },
-    { code: '+65', flag: 'sg', name: 'Singapore' },
-    { code: '+82', flag: 'kr', name: 'South Korea' },
-    { code: '+81', flag: 'jp', name: 'Japan' },
-    { code: '+971', flag: 'ae', name: 'United Arab Emirates' },
-    { code: '+966', flag: 'sa', name: 'Saudi Arabia' },
-    { code: '+92', flag: 'pk', name: 'Pakistan' },
-    { code: '+880', flag: 'bd', name: 'Bangladesh' },
-    { code: '+60', flag: 'my', name: 'Malaysia' },
-    { code: '+63', flag: 'ph', name: 'Philippines' },
-    { code: '+62', flag: 'id', name: 'Indonesia' },
-    { code: '+66', flag: 'th', name: 'Thailand' },
-    
-    // Australasia
-    { code: '+61', flag: 'au', name: 'Australia' },
-    { code: '+64', flag: 'nz', name: 'New Zealand' },
-    
-    // South America
-    { code: '+55', flag: 'br', name: 'Brazil' },
-    { code: '+54', flag: 'ar', name: 'Argentina' },
-    { code: '+56', flag: 'cl', name: 'Chile' },
-    { code: '+57', flag: 'co', name: 'Colombia' },
-  ];
+  const [selectedCountry, setSelectedCountry] = useState(countries.find(c => c.name === 'Nigeria'));
+  const [isPhoneDropdownOpen, setIsPhoneDropdownOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  const phoneDropdownRef = useRef(null);
 
-  const [selectedCountry, setSelectedCountry] = React.useState(countries[0]);
+  const [formData, setFormData] = useState({
+    fullName: '',
+    phoneNumber: '',
+    email: '',
+    currentLocation: '',
+    studyDestination: '',
+    universityOfInterest: '',
+    fundingSource: '',
+    questions: '',
+  });
+
+  const [formStatus, setFormStatus] = useState('');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormStatus('sending');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          phone: `${selectedCountry?.code} ${formData.phoneNumber}`
+        }),
+      });
+
+      if (response.ok) {
+        setFormStatus('success');
+        setFormData({
+          fullName: '',
+          phoneNumber: '',
+          email: '',
+          currentLocation: '',
+          studyDestination: '',
+          universityOfInterest: '',
+          fundingSource: '',
+          questions: '',
+        });
+      } else {
+        setFormStatus('error');
+      }
+    } catch (error) {
+      setFormStatus('error');
+    }
+  };
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (phoneDropdownRef.current && !(phoneDropdownRef.current as any).contains(event.target)) {
+        setIsPhoneDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [phoneDropdownRef]);
+
+  const filteredCountries = countries.filter(country =>
+    country.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    country.code.includes(searchTerm)
+  );
+
 
   return (
     <main className="min-h-screen">
@@ -219,7 +232,7 @@ const ContactPage = () => {
               </motion.div>
 
               {/* Form Grid */}
-              <form action="#" method="POST">
+              <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                   {/* Full Name Field */}
                   <motion.div 
@@ -229,50 +242,80 @@ const ContactPage = () => {
                     <i className="fa-regular fa-user absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
                     <input
                       type="text"
+                      name="fullName"
                       placeholder="Full Name *"
                       required
+                      value={formData.fullName}
+                      onChange={handleChange}
                       className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm"
                     />
                   </motion.div>
 
                   {/* Phone Number Field */}
-                  <motion.div 
+                  <motion.div
+                    ref={phoneDropdownRef}
                     variants={itemVariants}
                     className="relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
                   >
-                    <i className="fa-solid fa-phone absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
+                    <i className="fa-solid fa-phone absolute left-4 text-[#dfb260] text-sm opacity-80 z-10"></i>
                     <div className="flex items-center w-full pl-12">
-                      <div className="flex items-center gap-1.5 text-sm text-white border-r border-[rgba(255,255,255,0.1)] pr-2">
-                        <img 
-                          src={`https://flagcdn.com/w20/${selectedCountry.flag}.png`} 
-                          alt={`${selectedCountry.name} Flag`} 
-                          className="w-4.5 h-3 object-cover rounded-sm" 
-                        />
-                        <select 
-                          value={`${selectedCountry.code}-${selectedCountry.flag}`}
-                          onChange={(e) => {
-                            const [code, flag] = e.target.value.split('-');
-                            const country = countries.find(c => c.code === code && c.flag === flag);
-                            if (country) setSelectedCountry(country);
-                          }}
-                          className="bg-transparent border-none outline-none text-white text-sm cursor-pointer"
+                      <div className="relative">
+                        <button
+                          type="button"
+                          onClick={() => setIsPhoneDropdownOpen(prev => !prev)}
+                          className="flex items-center gap-2 text-sm text-white border-r border-[rgba(255,255,255,0.1)] pr-3 py-4 h-full"
                         >
-                          {countries.map((country) => (
-                            <option 
-                              key={`${country.code}-${country.flag}`} 
-                              value={`${country.code}-${country.flag}`}
-                              className="bg-[#020b1e]"
-                            >
-                              {country.name} ({country.code})
-                            </option>
-                          ))}
-                        </select>
+                          <img
+                            src={`https://flagcdn.com/w20/${selectedCountry?.flag}.png`}
+                            alt={`${selectedCountry?.name} Flag`}
+                            className="w-5 h-auto object-cover rounded-sm"
+                          />
+                          <span className="text-sm">{selectedCountry?.code}</span>
+                          <i className={`fa-solid fa-chevron-down text-[10px] text-[#8b9bb4] transition-transform duration-200 ${isPhoneDropdownOpen ? 'rotate-180' : ''}`}></i>
+                        </button>
+                        {isPhoneDropdownOpen && (
+                          <div className="absolute top-full mt-2 -left-4 sm:-left-8 z-20 w-64 sm:w-72 bg-[#061127] border border-[rgba(255,255,255,0.1)] rounded-[10px] shadow-lg overflow-hidden">
+                            <div className="p-2">
+                              <input
+                                type="text"
+                                placeholder="Search country..."
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                                className="w-full bg-[rgba(10,25,54,0.8)] border border-[rgba(255,255,255,0.1)] rounded-md px-3 py-2 text-sm text-white outline-none focus:border-[rgba(223,178,96,0.5)]"
+                              />
+                            </div>
+                            <ul className="max-h-48 overflow-y-auto">
+                              {filteredCountries.length > 0 ? filteredCountries.map((country) => (
+                                <li
+                                  key={`${country.code}-${country.flag}`}
+                                  onClick={() => {
+                                    setSelectedCountry(country);
+                                    setIsPhoneDropdownOpen(false);
+                                    setSearchTerm('');
+                                  }}
+                                  className="flex items-center gap-3 px-4 py-2.5 cursor-pointer hover:bg-[rgba(223,178,96,0.1)]"
+                                >
+                                  <img
+                                    src={`https://flagcdn.com/w20/${country.flag}.png`}
+                                    alt={`${country.name} Flag`}
+                                    className="w-5 h-auto object-cover rounded-sm"
+                                  />
+                                  <span className="text-white text-sm flex-1">{country.name}</span>
+                                  <span className="text-[#8b9bb4] text-sm">{country.code}</span>
+                                </li>
+                              )) : <li className="text-center text-sm text-[#8b9bb4] py-3">No country found.</li>}
+                            </ul>
+                          </div>
+                        )}
                       </div>
                       <input
                         type="tel"
+                        name="phoneNumber"
                         placeholder="Phone Number *"
                         required
-                        className="flex-1 bg-transparent border-none outline-none text-white pl-2 py-4 text-sm"
+                        value={formData.phoneNumber}
+                        onChange={handleChange}
+                        className="flex-1 w-full bg-transparent border-none outline-none text-white px-3 py-4 text-sm"
                       />
                     </div>
                   </motion.div>
@@ -285,8 +328,11 @@ const ContactPage = () => {
                     <i className="fa-regular fa-envelope absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
                     <input
                       type="email"
+                      name="email"
                       placeholder="Email Address *"
                       required
+                      value={formData.email}
+                      onChange={handleChange}
                       className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm"
                     />
                   </motion.div>
@@ -299,8 +345,11 @@ const ContactPage = () => {
                     <i className="fa-solid fa-location-dot absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
                     <input
                       type="text"
+                      name="currentLocation"
                       placeholder="Your Current Location *"
                       required
+                      value={formData.currentLocation}
+                      onChange={handleChange}
                       className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm"
                     />
                   </motion.div>
@@ -311,8 +360,14 @@ const ContactPage = () => {
                     className="md:col-span-2 relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
                   >
                     <i className="fa-solid fa-graduation-cap absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
-                    <select required className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm appearance-none cursor-pointer">
-                      <option value="" disabled selected className="bg-[#020b1e]">Country You Wish To Study In *</option>
+                    <select 
+                      name="studyDestination"
+                      required 
+                      value={formData.studyDestination}
+                      onChange={handleChange}
+                      className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm appearance-none cursor-pointer"
+                    >
+                      <option value="" disabled className="bg-[#020b1e]">Country You Wish To Study In *</option>
                       <option value="uk" className="bg-[#020b1e]">United Kingdom</option>
                       <option value="us" className="bg-[#020b1e]">United States</option>
                       <option value="ca" className="bg-[#020b1e]">Canada</option>
@@ -328,7 +383,10 @@ const ContactPage = () => {
                     <i className="fa-solid fa-building-columns absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
                     <input
                       type="text"
+                      name="universityOfInterest"
                       placeholder="University of Interest"
+                      value={formData.universityOfInterest}
+                      onChange={handleChange}
                       className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm"
                     />
                   </motion.div>
@@ -339,8 +397,14 @@ const ContactPage = () => {
                     className="md:col-span-2 relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
                   >
                     <i className="fa-solid fa-wallet absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
-                    <select required className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm appearance-none cursor-pointer">
-                      <option value="" disabled selected className="bg-[#020b1e]">How Do You Plan To Fund Your Studies? *</option>
+                    <select 
+                      name="fundingSource"
+                      required 
+                      value={formData.fundingSource}
+                      onChange={handleChange}
+                      className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm appearance-none cursor-pointer"
+                    >
+                      <option value="" disabled className="bg-[#020b1e]">How Do You Plan To Fund Your Studies? *</option>
                       <option value="self" className="bg-[#020b1e]">Self Funded</option>
                       <option value="scholarship" className="bg-[#020b1e]">Scholarship</option>
                       <option value="sponsor" className="bg-[#020b1e]">Sponsor</option>
@@ -355,7 +419,10 @@ const ContactPage = () => {
                   >
                     <i className="fa-regular fa-comment-dots absolute left-4 top-4.5 text-[#dfb260] text-sm opacity-80"></i>
                     <textarea
+                      name="questions"
                       placeholder="Do You Have Any Questions Before We Contact You?"
+                      value={formData.questions}
+                      onChange={handleChange}
                       className="w-full bg-transparent border-none outline-none text-white pl-12 pt-4 pb-4 text-sm resize-none h-25"
                     ></textarea>
                   </motion.div>
@@ -367,13 +434,26 @@ const ContactPage = () => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   type="submit"
+                  disabled={formStatus === 'sending'}
                   className="w-full bg-gradient-to-r from-[#f5d797] via-[#dfb260] to-[#b88a3b] border-none outline-none py-4 px-6 rounded-[12px] text-base font-bold text-[#0b162a] cursor-pointer flex items-center justify-center gap-2.5 mt-6 shadow-[0_4px_20px_rgba(223,178,96,0.3)] hover:-translate-y-1 hover:shadow-[0_6px_25px_rgba(223,178,96,0.45)] transition-transform duration-200"
                 >
-                  Book Free Consultation
+                  {formStatus === 'sending' ? 'Booking...' : 'Book Free Consultation'}
                   <div className="bg-[#0b162a] text-[#dfb260] w-[22px] h-[22px] rounded-full flex items-center justify-center text-xs">
                     <i className="fa-solid fa-arrow-right"></i>
                   </div>
                 </motion.button>
+
+                {/* Status Messages */}
+                {formStatus === 'success' && (
+                  <motion.div variants={itemVariants} className="text-center text-sm text-green-400 mt-4">
+                    Thank you! Your consultation has been booked successfully.
+                  </motion.div>
+                )}
+                {formStatus === 'error' && (
+                  <motion.div variants={itemVariants} className="text-center text-sm text-red-400 mt-4">
+                    Something went wrong. Please try again later.
+                  </motion.div>
+                )}
 
                 {/* Privacy Footer */}
                 <motion.div variants={itemVariants} className="text-center text-xs text-[#8b9bb4] mt-5 flex items-center justify-center gap-1.5">
@@ -392,4 +472,3 @@ const ContactPage = () => {
 }
 
 export default ContactPage
-

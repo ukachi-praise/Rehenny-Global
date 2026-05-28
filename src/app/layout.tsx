@@ -26,6 +26,9 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
         />
+
+        {/* Favicon */}
+        <link rel="icon" href="/assets/Logo.png" />
       </head>
       <body className="antialiased" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{children}</body>
     </html>
