@@ -1,0 +1,46 @@
+{
+  "name": "rhinny-global",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@paper-design/shaders": "^0.0.76",
+    "@portabletext/react": "^6.2.0",
+    "@react-three/drei": "^9",
+    "@react-three/fiber": "^8",
+    "@sanity/image-url": "^2.1.1",
+    "@sanity/vision": "^5.27.0",
+    "clsx": "^2.1.1",
+    "flag-icons": "^7.5.0",
+    "framer-motion": "^11",
+    "gsap": "^3",
+    "lenis": "^1.1.14",
+    "lucide-react": "^1.16.0",
+    "next": "^14.2.23",
+    "next-sanity": "^13.0.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.6.0",
+    "sanity": "^5.27.0",
+    "styled-components": "^6.4.2",
+    "tailwind-merge": "^3.6.0",
+    "three": "^0.169.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/three": "^0.169.0",
+    "autoprefixer": "^10",
+    "eslint": "^8",
+    "eslint-config-next": "15.1.7",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}

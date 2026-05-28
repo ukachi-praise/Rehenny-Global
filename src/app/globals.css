@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Poppins:wght@600;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+@import "flag-icons/css/flag-icons.min.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #0D1B2A;
+  --royal-blue: #1E3A8A;
+  --gold: #D4AF37;
+  --soft-white: #F7F9FC;
+  --light-gray: #E6E9EE;
+  --teal: #0EA5A4;
+  --emerald: #22C55E;
+  --violet: #7C3AED;
+  --coral: #F97316;
+  --charcoal: #1F2937;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--navy);
+  color: var(--soft-white);
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  text-rendering: optimizeLegibility;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--navy);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 3px;
+}
+
+/* Glass card utility */
+.glass {
+  background: rgba(30, 58, 138, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+/* Gold glow text */
+.text-gold-glow {
+  color: var(--gold);
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.5), 0 0 60px rgba(212, 175, 55, 0.2);
+}
+
+/* Animated gradient background */
+.hero-bg {
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(30, 58, 138, 0.8) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 50% at 20% 80%, rgba(14, 165, 164, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 80% 10%, rgba(124, 58, 237, 0.1) 0%, transparent 60%),
+    linear-gradient(135deg, #0D1B2A 0%, #0a1520 50%, #0D1B2A 100%);
+}
+
+.will-change {
+  will-change: transform, opacity;
+}
+
+/* Particle dots */
+@keyframes particleFloat {
+  0%, 100% { transform: translateY(0) translateX(0) scale(1); opacity: 0.6; }
+  33% { transform: translateY(-30px) translateX(10px) scale(1.1); opacity: 1; }
+  66% { transform: translateY(-10px) translateX(-15px) scale(0.9); opacity: 0.4; }
+}
+
+.particle {
+  animation: particleFloat var(--duration, 5s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+/* Grid overlay */
+.grid-overlay {
+  background-image:
+    linear-gradient(rgba(212, 175, 55, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+/* Water Wave Flow Animations */
+@keyframes wave-flow-left {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes wave-flow-right {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-flow-left {
+  animation: wave-flow-left var(--duration, 20s) linear infinite;
+}
+
+.animate-flow-right {
+  animation: wave-flow-right var(--duration, 20s) linear infinite;
+}
+
+/* Vertical Sway & Breathing (Nested on group element) */
+@keyframes wave-sway-1 {
+  0%, 100% {
+    transform: translateY(0) scaleY(1);
+  }
+  50% {
+    transform: translateY(7px) scaleY(1.05);
+  }
+}
+
+@keyframes wave-sway-2 {
+  0%, 100% {
+    transform: translateY(2px) scaleY(1.02);
+  }
+  50% {
+    transform: translateY(-5px) scaleY(0.95);
+  }
+}
+
+@keyframes wave-sway-3 {
+  0%, 100% {
+    transform: translateY(-2px) scaleY(0.96);
+  }
+  50% {
+    transform: translateY(9px) scaleY(1.07);
+  }
+}
+
+@keyframes wave-sway-4 {
+  0%, 100% {
+    transform: translateY(1px) scaleY(1.01);
+  }
+  50% {
+    transform: translateY(-7px) scaleY(0.94);
+  }
+}
+
+.animate-sway-1 {
+  animation: wave-sway-1 8s ease-in-out infinite;
+}
+
+.animate-sway-2 {
+  animation: wave-sway-2 6.2s ease-in-out infinite;
+}
+
+.animate-sway-3 {
+  animation: wave-sway-3 4.8s ease-in-out infinite;
+}
+
+.animate-sway-4 {
+  animation: wave-sway-4 3.5s ease-in-out infinite;
+}

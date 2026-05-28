@@ -1,0 +1,15 @@
+node_modules
+.next
+.env
+*.mp4
+*.mov
+*.zip
+*.rar
+*.psd
+*.blend
+*.glb
+*.gltf
+*.fbx
+*.webm
+dist
+build
