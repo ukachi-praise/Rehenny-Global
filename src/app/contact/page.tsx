@@ -1,3 +1,4 @@
+
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react'
@@ -34,23 +35,29 @@ const FeatureIcon = ({ children, className = "" }) => (
 )
 
 const ContactPage = () => {
-  const [selectedCountry, setSelectedCountry] = useState(countries.find(c => c.name === 'Nigeria'));
+  const [selectedCountry, setSelectedCountry] = useState(countries.find(c => c.name === 'Nigeria') || countries[0]);
   const [isPhoneDropdownOpen, setIsPhoneDropdownOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const phoneDropdownRef = useRef(null);
 
   const [formData, setFormData] = useState({
-    fullName: '',
-    phoneNumber: '',
+    firstName: '',
+    lastName: '',
     email: '',
-    currentLocation: '',
-    studyDestination: '',
-    universityOfInterest: '',
-    fundingSource: '',
-    questions: '',
+    phone: '',
+    nationality: '',
+    residence: '',
+    education: '',
+    gpa: '',
+    destination: '',
+    program: '',
+    intake: '',
+    source: '',
+    message: '',
   });
 
   const [formStatus, setFormStatus] = useState('');
+  const [statusMessage, setStatusMessage] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -60,6 +67,12 @@ const ContactPage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormStatus('sending');
+    setStatusMessage('Booking...');
+
+    const submissionData = {
+        ...formData,
+        phone: `${selectedCountry?.code} ${formData.phone}`,
+      };
 
     try {
       const response = await fetch('/api/contact', {
@@ -67,31 +80,39 @@ const ContactPage = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          ...formData,
-          phone: `${selectedCountry?.code} ${formData.phoneNumber}`
-        }),
+        body: JSON.stringify(submissionData),
       });
+
+      const responseData = await response.json();
 
       if (response.ok) {
         setFormStatus('success');
-        setFormData({
-          fullName: '',
-          phoneNumber: '',
-          email: '',
-          currentLocation: '',
-          studyDestination: '',
-          universityOfInterest: '',
-          fundingSource: '',
-          questions: '',
+        setStatusMessage('Thank you! Your consultation has been booked successfully.');
+        setFormData({ // Reset form
+            firstName: '',
+            lastName: '',
+            email: '',
+            phone: '',
+            nationality: '',
+            residence: '',
+            education: '',
+            gpa: '',
+            destination: '',
+            program: '',
+            intake: '',
+            source: '',
+            message: '',
         });
       } else {
         setFormStatus('error');
+        setStatusMessage(responseData.message || 'An error occurred.');
       }
     } catch (error) {
       setFormStatus('error');
+      setStatusMessage('There was a problem connecting to the server. Please try again.');
     }
   };
+
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -110,12 +131,10 @@ const ContactPage = () => {
     country.code.includes(searchTerm)
   );
 
-
   return (
     <main className="min-h-screen">
       <Navbar />
       
-      {/* Responsive background positioning */}
       <style>{`
         @media (min-width: 768px) {
           .contact-section {
@@ -132,7 +151,6 @@ const ContactPage = () => {
         }}
       >
         
-        {/* Content wrapper with z-index */}
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -147,29 +165,24 @@ const ContactPage = () => {
             variants={containerVariants}
             className="flex flex-col gap-4 lg:items-start items-center text-center lg:text-left"
           >
-            {/* Logo Area */}
             <motion.div variants={itemVariants} className="flex items-center gap-2.5 text-2xl font-bold tracking-[1px]">
               <i className="fa-solid fa-graduation-cap text-[#dfb260]"></i>
               RHINNY<span className="text-[#dfb260]">GLOBAL</span>
             </motion.div>
 
-            {/* Badge */}
             <motion.div variants={itemVariants} className="flex items-center gap-2 border border-[#dfb260] text-[#dfb260] px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[1.5px] bg-[rgba(223,178,96,0.05)] self-start lg:self-start">
               <i className="fa-solid fa-headset"></i>
               Free Consultation
             </motion.div>
 
-            {/* Headline */}
             <motion.h1 variants={itemVariants} className="text-[36px] md:text-[44px] leading-[1.2] font-bold">
               Speak to a<br />Rhinny Global<span className="text-[#dfb260] block mt-1">Counsellor</span>
             </motion.h1>
 
-            {/* Subheadline */}
             <motion.p variants={itemVariants} className="text-[#8b9bb4] text-[15px] leading-[1.6] max-w-[450px]">
               Get expert guidance on universities, courses, admissions, scholarships, and everything you need to study abroad.
             </motion.p>
 
-            {/* Features List */}
             <motion.div variants={itemVariants} className="flex flex-col gap-5 mt-2">
               {[ 
                 { icon: 'fa-user-graduate', title: 'Personalized Guidance', text: 'Tailored advice based on your profile and aspirations.' },
@@ -206,7 +219,6 @@ const ContactPage = () => {
               variants={itemVariants}
               className="relative bg-[rgba(6,17,39,0.75)] rounded-[24px] p-[30px] backdrop-blur-[20px] shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
             >
-              {/* Luxury Gold Border */}
               <div
                 className="absolute inset-0 rounded-[24px] pointer-events-none"
                 style={{
@@ -218,7 +230,6 @@ const ContactPage = () => {
                 }}
               ></div>
 
-              {/* Stepper Header */}
               <motion.div variants={itemVariants} className="flex justify-center items-center gap-8 mb-[35px]">
                 <div className="flex items-center gap-2.5 text-sm font-medium text-white">
                   <div className="w-6.5 h-6.5 rounded-full flex items-center justify-center text-xs font-semibold border border-[#dfb260] text-[#dfb260]">1</div>
@@ -231,10 +242,8 @@ const ContactPage = () => {
                 </div>
               </motion.div>
 
-              {/* Form Grid */}
               <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                  {/* Full Name Field */}
                   <motion.div 
                     variants={itemVariants}
                     className="relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
@@ -242,20 +251,35 @@ const ContactPage = () => {
                     <i className="fa-regular fa-user absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
                     <input
                       type="text"
-                      name="fullName"
-                      placeholder="Full Name *"
+                      name="firstName"
+                      placeholder="First Name *"
                       required
-                      value={formData.fullName}
+                      value={formData.firstName}
                       onChange={handleChange}
                       className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm"
                     />
                   </motion.div>
 
-                  {/* Phone Number Field */}
+                  <motion.div 
+                    variants={itemVariants}
+                    className="relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
+                  >
+                    <i className="fa-regular fa-user absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
+                    <input
+                      type="text"
+                      name="lastName"
+                      placeholder="Last Name *"
+                      required
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm"
+                    />
+                  </motion.div>
+
                   <motion.div
                     ref={phoneDropdownRef}
                     variants={itemVariants}
-                    className="relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
+                    className="md:col-span-2 relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
                   >
                     <i className="fa-solid fa-phone absolute left-4 text-[#dfb260] text-sm opacity-80 z-10"></i>
                     <div className="flex items-center w-full pl-12">
@@ -310,20 +334,19 @@ const ContactPage = () => {
                       </div>
                       <input
                         type="tel"
-                        name="phoneNumber"
+                        name="phone"
                         placeholder="Phone Number *"
                         required
-                        value={formData.phoneNumber}
+                        value={formData.phone}
                         onChange={handleChange}
                         className="flex-1 w-full bg-transparent border-none outline-none text-white px-3 py-4 text-sm"
                       />
                     </div>
                   </motion.div>
 
-                  {/* Email Field */}
                   <motion.div 
                     variants={itemVariants}
-                    className="relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
+                    className="md:col-span-2 relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
                   >
                     <i className="fa-regular fa-envelope absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
                     <input
@@ -337,98 +360,162 @@ const ContactPage = () => {
                     />
                   </motion.div>
 
-                  {/* Current Location Field */}
                   <motion.div 
                     variants={itemVariants}
-                    className="relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
+                    className="md:col-span-2 relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
                   >
-                    <i className="fa-solid fa-location-dot absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
+                    <i className="fa-solid fa-flag absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
                     <input
                       type="text"
-                      name="currentLocation"
-                      placeholder="Your Current Location *"
+                      name="nationality"
+                      placeholder="Nationality *"
                       required
-                      value={formData.currentLocation}
+                      value={formData.nationality}
                       onChange={handleChange}
                       className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm"
                     />
                   </motion.div>
 
-                  {/* Country Selection Dropdown */}
+                  <motion.div 
+                    variants={itemVariants}
+                    className="md:col-span-2 relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
+                  >
+                    <i className="fa-solid fa-location-dot absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
+                    <input
+                      type="text"
+                      name="residence"
+                      placeholder="Country of Residence *"
+                      required
+                      value={formData.residence}
+                      onChange={handleChange}
+                      className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm"
+                    />
+                  </motion.div>
+
                   <motion.div 
                     variants={itemVariants}
                     className="md:col-span-2 relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
                   >
                     <i className="fa-solid fa-graduation-cap absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
-                    <select 
-                      name="studyDestination"
-                      required 
-                      value={formData.studyDestination}
-                      onChange={handleChange}
-                      className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm appearance-none cursor-pointer"
-                    >
-                      <option value="" disabled className="bg-[#020b1e]">Country You Wish To Study In *</option>
-                      <option value="uk" className="bg-[#020b1e]">United Kingdom</option>
-                      <option value="us" className="bg-[#020b1e]">United States</option>
-                      <option value="ca" className="bg-[#020b1e]">Canada</option>
-                    </select>
-                    <i className="fa-solid fa-chevron-down absolute right-4 text-[#8b9bb4] pointer-events-none"></i>
-                  </motion.div>
-
-                  {/* University of Interest Field */}
-                  <motion.div 
-                    variants={itemVariants}
-                    className="md:col-span-2 relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
-                  >
-                    <i className="fa-solid fa-building-columns absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
                     <input
                       type="text"
-                      name="universityOfInterest"
-                      placeholder="University of Interest"
-                      value={formData.universityOfInterest}
+                      name="education"
+                      placeholder="Level of Education *"
+                      required
+                      value={formData.education}
                       onChange={handleChange}
                       className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm"
                     />
                   </motion.div>
 
-                  {/* Funding Dropdown */}
                   <motion.div 
                     variants={itemVariants}
                     className="md:col-span-2 relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
                   >
-                    <i className="fa-solid fa-wallet absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
+                    <i className="fa-solid fa-star absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
+                    <input
+                      type="text"
+                      name="gpa"
+                      placeholder="GPA/Grades *"
+                      required
+                      value={formData.gpa}
+                      onChange={handleChange}
+                      className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm"
+                    />
+                  </motion.div>
+
+                  <motion.div 
+                    variants={itemVariants}
+                    className="md:col-span-2 relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
+                  >
+                    <i className="fa-solid fa-plane-departure absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
                     <select 
-                      name="fundingSource"
+                      name="destination"
                       required 
-                      value={formData.fundingSource}
+                      value={formData.destination}
                       onChange={handleChange}
                       className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm appearance-none cursor-pointer"
                     >
-                      <option value="" disabled className="bg-[#020b1e]">How Do You Plan To Fund Your Studies? *</option>
-                      <option value="self" className="bg-[#020b1e]">Self Funded</option>
-                      <option value="scholarship" className="bg-[#020b1e]">Scholarship</option>
-                      <option value="sponsor" className="bg-[#020b1e]">Sponsor</option>
+                      <option value="" disabled className="bg-[#020b1e]">Preferred Study Destination *</option>
+                      <option value="uk" className="bg-[#020b1e]">United Kingdom</option>
+                      <option value="us" className="bg-[#020b1e]">United States</option>
+                      <option value="ca" className="bg-[#020b1e]">Canada</option>
+                      <option value="au" className="bg-[#020b1e]">Australia</option>
                     </select>
                     <i className="fa-solid fa-chevron-down absolute right-4 text-[#8b9bb4] pointer-events-none"></i>
                   </motion.div>
 
-                  {/* Questions Text Area */}
+                  <motion.div 
+                    variants={itemVariants}
+                    className="md:col-span-2 relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
+                  >
+                    <i className="fa-solid fa-book-open absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
+                    <input
+                      type="text"
+                      name="program"
+                      placeholder="Program of Interest"
+                      value={formData.program}
+                      onChange={handleChange}
+                      className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm"
+                    />
+                  </motion.div>
+
+                  <motion.div 
+                    variants={itemVariants}
+                    className="md:col-span-2 relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
+                  >
+                    <i className="fa-solid fa-calendar-alt absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
+                    <select 
+                      name="intake"
+                      required 
+                      value={formData.intake}
+                      onChange={handleChange}
+                      className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm appearance-none cursor-pointer"
+                    >
+                      <option value="" disabled className="bg-[#020b1e]">Preferred Intake *</option>
+                      <option value="fall-2024" className="bg-[#020b1e]">Fall 2024</option>
+                      <option value="spring-2025" className="bg-[#020b1e]">Spring 2025</option>
+                      <option value="fall-2025" className="bg-[#020b1e]">Fall 2025</option>
+                    </select>
+                    <i className="fa-solid fa-chevron-down absolute right-4 text-[#8b9bb4] pointer-events-none"></i>
+                  </motion.div>
+
+                  <motion.div 
+                    variants={itemVariants}
+                    className="md:col-span-2 relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
+                  >
+                    <i className="fa-solid fa-bullhorn absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
+                    <select 
+                      name="source"
+                      value={formData.source}
+                      onChange={handleChange}
+                      className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm appearance-none cursor-pointer"
+                    >
+                      <option value="" disabled className="bg-[#020b1e]">How did you hear about us?</option>
+                      <option value="google" className="bg-[#020b1e]">Google</option>
+                      <option value="facebook" className="bg-[#020b1e]">Facebook</option>
+                      <option value="instagram" className="bg-[#020b1e]">Instagram</option>
+                      <option value="referral" className="bg-[#020b1e]">Referral</option>
+                      <option value="other" className="bg-[#020b1e]">Other</option>
+                    </select>
+                    <i className="fa-solid fa-chevron-down absolute right-4 text-[#8b9bb4] pointer-events-none"></i>
+                  </motion.div>
+
                   <motion.div 
                     variants={itemVariants}
                     className="md:col-span-2 relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-start transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
                   >
                     <i className="fa-regular fa-comment-dots absolute left-4 top-4.5 text-[#dfb260] text-sm opacity-80"></i>
                     <textarea
-                      name="questions"
-                      placeholder="Do You Have Any Questions Before We Contact You?"
-                      value={formData.questions}
+                      name="message"
+                      placeholder="Your message..."
+                      value={formData.message}
                       onChange={handleChange}
                       className="w-full bg-transparent border-none outline-none text-white pl-12 pt-4 pb-4 text-sm resize-none h-25"
                     ></textarea>
                   </motion.div>
                 </div>
 
-                {/* Submit Button */}
                 <motion.button
                   variants={itemVariants}
                   whileHover={{ scale: 1.02 }}
@@ -437,25 +524,18 @@ const ContactPage = () => {
                   disabled={formStatus === 'sending'}
                   className="w-full bg-gradient-to-r from-[#f5d797] via-[#dfb260] to-[#b88a3b] border-none outline-none py-4 px-6 rounded-[12px] text-base font-bold text-[#0b162a] cursor-pointer flex items-center justify-center gap-2.5 mt-6 shadow-[0_4px_20px_rgba(223,178,96,0.3)] hover:-translate-y-1 hover:shadow-[0_6px_25px_rgba(223,178,96,0.45)] transition-transform duration-200"
                 >
-                  {formStatus === 'sending' ? 'Booking...' : 'Book Free Consultation'}
-                  <div className="bg-[#0b162a] text-[#dfb260] w-[22px] h-[22px] rounded-full flex items-center justify-center text-xs">
-                    <i className="fa-solid fa-arrow-right"></i>
-                  </div>
+                  {formStatus === 'sending' ? ( <> <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div> Booking... </> ) : ( <> Book Free Consultation <div className="bg-[#0b162a] text-[#dfb260] w-[22px] h-[22px] rounded-full flex items-center justify-center text-xs"> <i className="fa-solid fa-arrow-right"></i> </div> </> )}
                 </motion.button>
 
                 {/* Status Messages */}
-                {formStatus === 'success' && (
-                  <motion.div variants={itemVariants} className="text-center text-sm text-green-400 mt-4">
-                    Thank you! Your consultation has been booked successfully.
-                  </motion.div>
-                )}
-                {formStatus === 'error' && (
-                  <motion.div variants={itemVariants} className="text-center text-sm text-red-400 mt-4">
-                    Something went wrong. Please try again later.
+                {(formStatus === 'success' || formStatus === 'error') && (
+                  <motion.div 
+                    variants={itemVariants} 
+                    className={`text-center text-sm mt-4 ${formStatus === 'success' ? 'text-green-400' : 'text-red-400'}`}>
+                    {statusMessage}
                   </motion.div>
                 )}
 
-                {/* Privacy Footer */}
                 <motion.div variants={itemVariants} className="text-center text-xs text-[#8b9bb4] mt-5 flex items-center justify-center gap-1.5">
                   <i className="fa-solid fa-lock text-[11px]"></i>
                   Your information is safe with us. We respect your privacy.

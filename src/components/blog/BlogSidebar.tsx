@@ -1,12 +1,12 @@
 'use client';
 
 import { Calendar, ArrowRight, TrendingUp } from 'lucide-react';
-import { blogPosts, scholarshipHighlights } from '@/data/blogData';
 import Link from 'next/link';
 
+const popularPosts: any[] = [];
+const urgentDeadlines: any[] = [];
+
 export default function BlogSidebar() {
-  const popularPosts = blogPosts.slice(1, 4); // Just mock some popular posts
-  const urgentDeadlines = scholarshipHighlights.slice(0, 3);
 
   return (
     <aside className="space-y-8">

@@ -1,15 +1,29 @@
+
 'use client';
 
 import { motion } from 'framer-motion';
 import { Clock, Calendar, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import { BlogPost } from '@/data/blogData';
+import { urlFor } from '@/sanity/lib/client';
 
 interface FeaturedPostProps {
-  post: BlogPost;
+  post: any;
 }
 
 export default function FeaturedPost({ post }: FeaturedPostProps) {
+  if (!post) {
+    return (
+      <section className="relative bg-[#071320] py-16 px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="text-center">
+          <p className="text-white text-lg">No featured post available at the moment.</p>
+        </div>
+      </section>
+    );
+  }
+
+  const coverImageUrl = post.coverImage ? urlFor(post.coverImage).url() : '/placeholder.jpg';
+  const authorAvatarUrl = post.author?.avatar ? urlFor(post.author.avatar).url() : '/avatar-placeholder.png';
+
   return (
     <section className="relative bg-[#071320] py-16 px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="mb-10">
@@ -19,7 +33,7 @@ export default function FeaturedPost({ post }: FeaturedPostProps) {
         <div className="h-1 w-20 bg-gradient-to-r from-[#D4AF37] to-transparent" />
       </div>
 
-      <Link href={`/blog/${post.slug}`}>
+      <Link href={`/blog/${post.slug?.current || post.slug}`}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -30,8 +44,8 @@ export default function FeaturedPost({ post }: FeaturedPostProps) {
           {/* Background Image with Parallax-like scale */}
           <div className="absolute inset-0 overflow-hidden">
             <img
-              src={post.coverImage}
-              alt={post.title}
+              src={coverImageUrl}
+              alt={post.title || 'Featured Post'}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
             {/* Gradient Overlays */}
@@ -44,7 +58,7 @@ export default function FeaturedPost({ post }: FeaturedPostProps) {
             {/* Badges */}
             <div className="flex flex-wrap items-center gap-4 mb-6">
               <span className="px-4 py-1.5 rounded-full bg-[#D4AF37] text-black text-sm font-bold tracking-wide">
-                {post.category}
+                {post.category || 'General'}
               </span>
               {post.scholarshipType && (
                 <span className="px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-white border border-white/20 text-sm font-medium">
@@ -63,13 +77,15 @@ export default function FeaturedPost({ post }: FeaturedPostProps) {
 
             <div className="flex items-center justify-between flex-wrap gap-6 mt-auto">
               <div className="flex items-center gap-6 text-sm text-[#B8C0CC]">
-                <div className="flex items-center gap-3">
-                  <img src={post.author.avatar} alt={post.author.name} className="w-10 h-10 rounded-full border-2 border-white/20" />
-                  <span className="font-medium text-white">{post.author.name}</span>
-                </div>
+                {post.author && (
+                  <div className="flex items-center gap-3">
+                    <img src={authorAvatarUrl} alt={post.author.name || 'Author'} className="w-10 h-10 rounded-full border-2 border-white/20" />
+                    <span className="font-medium text-white">{post.author.name}</span>
+                  </div>
+                )}
                 <div className="flex items-center gap-2">
                   <Calendar className="w-4 h-4" />
-                  <span>{post.date}</span>
+                  <span>{new Date(post.publishedAt).toLocaleDateString()}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Clock className="w-4 h-4" />

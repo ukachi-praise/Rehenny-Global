@@ -19,6 +19,7 @@ module.exports = {
         violet: '#7C3AED',
         coral: '#F97316',
         charcoal: '#1F2937',
+        foreground: '#0D1B2A'
       },
       fontFamily: {
         sans: ['Montserrat', 'sans-serif'],

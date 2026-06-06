@@ -1,13 +1,5 @@
 import React from 'react';
 import { PortableText, PortableTextComponents } from '@portabletext/react';
-import { client } from '@/sanity/lib/client';
-import imageUrlBuilder from '@sanity/image-url';
-
-const builder = imageUrlBuilder(client);
-
-function urlFor(source: any) {
-  return builder.image(source);
-}
 
 const customComponents: PortableTextComponents = {
   types: {
@@ -18,7 +10,7 @@ const customComponents: PortableTextComponents = {
       return (
         <div className="relative my-8 rounded-xl overflow-hidden border border-white/10 group">
           <img
-            src={urlFor(value).url()}
+            src={value.asset.url}
             alt={value.alt || 'Rhinny Global Education Hub'}
             className="w-full h-auto object-cover max-h-[500px]"
             loading="lazy"

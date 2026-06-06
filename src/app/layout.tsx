@@ -30,7 +30,7 @@ export default function RootLayout({
         {/* Favicon */}
         <link rel="icon" href="/assets/Logo.png" />
       </head>
-      <body className="antialiased" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{children}</body>
+      <body className="antialiased">{children}</body>
     </html>
   )
 }

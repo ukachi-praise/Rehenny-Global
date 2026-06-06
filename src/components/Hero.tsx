@@ -29,7 +29,7 @@ export default function HeroSection() {
       <motion.div
         initial={{ opacity: 0, x: 40 }}
         whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: false }}
+        viewport={{ once: true }}
 
         className="absolute bottom-0 right-[2%] md:right-[6%] lg:right-[10%] h-[55%] md:h-[92%] w-auto z-10 pointer-events-none flex justify-end will-change-[transform,opacity]"
       >
@@ -46,7 +46,7 @@ export default function HeroSection() {
         <motion.div
            initial={{ opacity: 0, y: 24 }}
            whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: false }}
+           viewport={{ once: true }}
            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
            className="will-change-transform inline-flex items-center gap-3 px-5 py-2 rounded-full border border-[#0A4EB5]/30 bg-[#0A4EB5]/10 backdrop-blur-md mb-[18px] w-max"
         >
@@ -90,7 +90,7 @@ export default function HeroSection() {
         <motion.p
            initial={{ opacity: 0, y: 24 }}
            whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: false }}
+           viewport={{ once: true }}
            transition={{ duration: 0.4, delay: 0.4 }}
            className="text-white/80 text-[17px] md:text-[19px] lg:text-[20px] font-sans font-normal leading-[1.6] max-w-[580px] mb-[40px]"
         >
@@ -101,19 +101,18 @@ export default function HeroSection() {
         <motion.div
            initial={{ opacity: 0, y: 24 }}
            whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: false }}
+           viewport={{ once: true }}
            transition={{ duration: 0.6, delay: 0.52 }}
            className="flex flex-wrap gap-[14px] mb-[30px]"
         >
-          <LiquidMetalButton label="Apply Now" />
-          <LiquidMetalButton label="Find a Course" />
+          <a href="/scholarships"><LiquidMetalButton>Book a consultation</LiquidMetalButton></a>
         </motion.div>
 
         {/* Stats Strip */}
         <motion.div
            initial={{ opacity: 0, y: 24 }}
            whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: false }}
+           viewport={{ once: true }}
            transition={{ duration: 0.6, delay: 0.65 }}
            className="flex bg-white/5 border border-white/10 rounded-xl backdrop-blur-md py-2 md:py-2.5 w-full max-w-[680px] justify-between relative"
         >

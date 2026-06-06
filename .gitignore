@@ -1,15 +1,40 @@
-node_modules
-.next
-.env
-*.mp4
-*.mov
-*.zip
-*.rar
-*.psd
-*.blend
-*.glb
-*.gltf
-*.fbx
-*.webm
-dist
-build
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Vercel
+.vercel
+
+# Next.js
+/.next/
+/out/
+
+# Production
+/build
+
+# SSR
+.next/cache
+
+# Misc
+.DS_Store
+*.pem
+
+# Local environment variables
+.env.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

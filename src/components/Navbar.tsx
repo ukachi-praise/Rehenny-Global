@@ -16,7 +16,7 @@ export default function StudyNavbar() {
             <a href="#hero" className="flex items-center cursor-pointer group">
               <div className="relative">
                 <img
-                  src="/assets/logo.png"
+                  src="/assets/Logo.png"
                   alt="Study Now Logo"
                   className="relative h-[55px] md:h-[65px] w-auto max-w-[240px] object-contain drop-shadow-lg"
                 />
@@ -47,7 +47,7 @@ export default function StudyNavbar() {
 
             {/* CTA Button */}
             <div className="hidden lg:flex items-center gap-4">
-              <LiquidMetalButton label="Apply Now" />
+              <LiquidMetalButton>Book a consultation</LiquidMetalButton>
             </div>
 
             {/* Mobile Menu Button */}

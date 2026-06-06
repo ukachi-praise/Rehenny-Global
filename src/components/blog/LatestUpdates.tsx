@@ -2,9 +2,13 @@
 
 import { motion } from 'framer-motion';
 import { Bell, ArrowRight } from 'lucide-react';
-import { latestUpdates } from '@/data/blogData';
+import Link from 'next/link';
+import { articles } from '@/data/articles';
 
 export default function LatestUpdates() {
+  const featuredArticle = articles.find(article => article.featured) || articles[0];
+  const latestUpdates = articles.filter(article => article.id !== featuredArticle.id).slice(0, 3);
+
   return (
     <section className="bg-[#071320] py-20 px-6 lg:px-8 relative max-w-7xl mx-auto">
       <div className="flex items-center gap-3 mb-12">
@@ -17,9 +21,9 @@ export default function LatestUpdates() {
       </div>
 
       <div className="relative border-l-2 border-white/10 pl-6 md:pl-10 ml-4 md:ml-6">
-        {latestUpdates.map((update, idx) => (
+        {latestUpdates.map((article, idx) => (
           <motion.div
-            key={update.id}
+            key={article.id}
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
@@ -31,23 +35,20 @@ export default function LatestUpdates() {
 
             <div className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors duration-300 relative overflow-hidden">
               <div className="flex flex-wrap items-center gap-4 mb-3">
-                <span className="text-sm font-semibold text-[#1E3A8A] bg-blue-100/10 px-3 py-1 rounded-full border border-blue-500/20">
-                  {update.category}
-                </span>
-                <span className="text-sm text-[#B8C0CC]">{update.date}</span>
+                <span suppressHydrationWarning className="text-sm text-[#B8C0CC]">{article.date}</span>
               </div>
               
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#D4AF37] transition-colors">
-                {update.title}
+                {article.title}
               </h3>
               
               <p className="text-[#B8C0CC] mb-4">
-                {update.description}
+                {article.desc}
               </p>
 
-              <button className="text-sm font-semibold text-white flex items-center gap-1 hover:text-[#D4AF37] transition-colors">
+              <Link href={`/blog/${article.slug}`} className="text-sm font-semibold text-white flex items-center gap-1 hover:text-[#D4AF37] transition-colors">
                 Read Details <ArrowRight className="w-4 h-4" />
-              </button>
+              </Link>
             </div>
           </motion.div>
         ))}
