@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Bell, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { articles } from '@/data/articles';
+import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
 
 export default function LatestUpdates() {
   const featuredArticle = articles.find(article => article.featured) || articles[0];
@@ -47,7 +48,7 @@ export default function LatestUpdates() {
               </p>
 
               <Link href={`/blog/${article.slug}`} className="text-sm font-semibold text-white flex items-center gap-1 hover:text-[#D4AF37] transition-colors">
-                Read Details <ArrowRight className="w-4 h-4" />
+                <LiquidMetalButton label="Read Details" />
               </Link>
             </div>
           </motion.div>

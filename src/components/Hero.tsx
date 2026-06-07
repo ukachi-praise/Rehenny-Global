@@ -5,6 +5,7 @@ import React from 'react'
 import 'flag-icons/css/flag-icons.min.css'
 import { Users, Building2, Globe, ShieldCheck } from "lucide-react"
 import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal"
+import { Button } from "@/components/button"
 import { LiquidMetalButton } from "@/components/ui/liquid-metal-button"
 
 
@@ -105,7 +106,8 @@ export default function HeroSection() {
            transition={{ duration: 0.6, delay: 0.52 }}
            className="flex flex-wrap gap-[14px] mb-[30px]"
         >
-          <a href="/scholarships"><LiquidMetalButton>Book a consultation</LiquidMetalButton></a>
+          <a href="/scholarships"><LiquidMetalButton label="Book a consultation" /></a>
+          <a href="/destinations"><Button variant="secondary">Explore Destinations</Button></a>
         </motion.div>
 
         {/* Stats Strip */}

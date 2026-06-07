@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { Search, GraduationCap, ShieldCheck, Building2, MapPin, Globe as GlobeIcon, LifeBuoy } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
@@ -15,7 +15,6 @@ export default function BlogHero() {
     const lenis = new Lenis({
       duration: 1.15,
       smoothWheel: true,
-      smoothTouch: false,
     });
 
     let rafId = 0;

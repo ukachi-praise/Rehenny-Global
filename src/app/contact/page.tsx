@@ -6,6 +6,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { motion } from 'framer-motion'
 import { countries } from '@/lib/countries'
+import { LiquidMetalButton } from '@/components/ui/liquid-metal-button'
 
 // Animation variants
 const containerVariants = {
@@ -28,7 +29,7 @@ const itemVariants = {
 }
 
 // Custom components
-const FeatureIcon = ({ children, className = "" }) => (
+const FeatureIcon = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => (
   <div className={`w-9 h-9 rounded-full border border-[rgba(223,178,96,0.3)] bg-[rgba(6,17,39,0.5)] flex items-center justify-center text-[#dfb260] ${className}`} style={{ fontSize: "14px" }}>
     {children}
   </div>
@@ -515,17 +516,15 @@ const ContactPage = () => {
                     ></textarea>
                   </motion.div>
                 </div>
-
-                <motion.button
+                <motion.div
                   variants={itemVariants}
                   whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  type="submit"
-                  disabled={formStatus === 'sending'}
-                  className="w-full bg-gradient-to-r from-[#f5d797] via-[#dfb260] to-[#b88a3b] border-none outline-none py-4 px-6 rounded-[12px] text-base font-bold text-[#0b162a] cursor-pointer flex items-center justify-center gap-2.5 mt-6 shadow-[0_4px_20px_rgba(223,178,96,0.3)] hover:-translate-y-1 hover:shadow-[0_6px_25px_rgba(223,178,96,0.45)] transition-transform duration-200"
-                >
-                  {formStatus === 'sending' ? ( <> <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div> Booking... </> ) : ( <> Book Free Consultation <div className="bg-[#0b162a] text-[#dfb260] w-[22px] h-[22px] rounded-full flex items-center justify-center text-xs"> <i className="fa-solid fa-arrow-right"></i> </div> </> )}
-                </motion.button>
+                  whileTap={{ scale: 0.98 }}>
+                    <button type="submit">
+                        <LiquidMetalButton label={formStatus === 'sending' ? 'Booking...' : "Book Free Consultation"} />
+                    </button>
+                </motion.div>
+
 
                 {/* Status Messages */}
                 {(formStatus === 'success' || formStatus === 'error') && (

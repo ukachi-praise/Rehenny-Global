@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import ExpandOnHover from '@/components/ui/expand-cards'
+import { Button } from "@/components/button"
 
 import { 
   Compass, 
@@ -295,15 +296,7 @@ export default function WhyChoose() {
               variants={textVariants} 
               className="w-full flex justify-center mt-8"
             >
-              <a 
-                href="#services" 
-                className="text-[#D4AF37] hover:text-[#e5c158] text-sm sm:text-base font-sans font-bold flex items-center gap-1.5 transition-colors duration-200 group/link"
-              >
-                <span>View all details</span>
-                <svg className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
+              <Button>Explore our services</Button>
             </motion.div>
 
           </motion.div>

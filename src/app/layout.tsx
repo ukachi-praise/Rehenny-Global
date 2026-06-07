@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { Providers } from './providers'
 
 export const metadata: Metadata = {
   title: 'Rhinny Global — Study Abroad Experts',
@@ -30,7 +31,9 @@ export default function RootLayout({
         {/* Favicon */}
         <link rel="icon" href="/assets/Logo.png" />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <Providers>{children}</Providers>
+      </body>
     </html>
   )
 }

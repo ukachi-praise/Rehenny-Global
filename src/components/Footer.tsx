@@ -78,7 +78,7 @@ export default function Footer() {
               {/* Logo container */}
               <div className="flex flex-col items-start mb-4">
                 <img
-                  src="/assets/logo.png"
+                  src="/assets/Logo.png"
                   alt="Rhinny Global Logo"
                   className="h-[60px] sm:h-[68px] w-auto object-contain drop-shadow-md"
                 />

@@ -11,6 +11,7 @@ import {
   TwitterIcon,
   LinkedinIcon,
 } from "react-share"
+import { LiquidMetalButton } from "@/components/ui/liquid-metal-button"
 
 // Custom components for Portable Text
 const ptComponents = {
@@ -36,7 +37,10 @@ const ptComponents = {
     normal: ({ children }: { children: any }) => <p className="mb-4">{children}</p>,
   },
   marks: {
-    link: ({ children, value }: { children: any; value: any }) => {
+    link: ({ children, value }: { children: any; value?: { href: string } }) => {
+      if (!value || !value.href) {
+        return <>{children}</>;
+      }
       const rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined
       return (
         <a href={value.href} rel={rel} className="text-blue-600 hover:underline">
@@ -86,7 +90,7 @@ const Post = ({ post, relatedPosts }: { post: any, relatedPosts: any[] }) => {
 
               {/* Post Body */}
               <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-                <PortableText value={post.body} components={ptComponents} />
+                <PortableText value={post.body} components={ptComponents as any} />
               </div>
             </article>
           </main>
@@ -128,11 +132,11 @@ const Post = ({ post, relatedPosts }: { post: any, relatedPosts: any[] }) => {
               </div>
 
               {/* CTA Box */}
-              <div className="bg-blue-600 text-white p-8 rounded-2xl shadow-lg mt-8 text-center">
+              <div className="bg-blue-600 text-white p-8 rounded-2xl shadow-lg mt-8 text.center">
                 <h3 className="text-2xl font-bold mb-4">Ready to take the next step?</h3>
                 <p className="mb-6">Our team of experts is here to help you on your journey. Get in touch for a free consultation.</p>
-                <Link href="/contact" className="inline-block bg-white text-blue-600 font-bold py-3 px-8 rounded-full hover:bg-blue-100 transition-colors duration-300 shadow-md">
-                    Book a consultation
+                <Link href="/contact">
+                    <LiquidMetalButton label="Book a consultation" />
                 </Link>
               </div>
             </div>

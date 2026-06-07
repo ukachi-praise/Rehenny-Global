@@ -29,8 +29,6 @@ import {
   MapPinned,
   Clock3,
   Plus,
-  Instagram,
-  Youtube,
   Printer,
   Link2,
   Check,
@@ -112,7 +110,7 @@ export default function BlogArticlePage() {
       <section className="bg-white">
         <div className="relative w-full h-[250px] sm:h-[320px] md:h-[400px] overflow-hidden">
           <img src={article.image} alt={article.title} className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-royal-blue/70 via-royal-blue/30 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-10">
               <Link href="/blog" className="flex items-center gap-1.5 text-white/70 text-sm mb-3 hover:text-white transition-colors">
@@ -408,9 +406,7 @@ export default function BlogArticlePage() {
                   and maximize your scholarship opportunities.
                 </p>
 
-                <LiquidMetalButton>
-                  Book a consultation
-                </LiquidMetalButton>
+                <LiquidMetalButton label="Book a consultation" />
               </div>
             </div>
 
@@ -484,9 +480,7 @@ export default function BlogArticlePage() {
               <p className="text-white/80 text-xs mb-5 leading-relaxed">
                 Our experts are here to guide you through every step of your study abroad journey.
               </p>
-              <LiquidMetalButton className="w-full text-xs py-3">
-                Book a consultation
-              </LiquidMetalButton>
+              <LiquidMetalButton label="Book a consultation" />
             </div>
           </aside>
         </div>
@@ -528,12 +522,7 @@ export default function BlogArticlePage() {
                 <p className="text-sm text-gray-500 mt-0.5">Get personalized guidance from our experts and take the first step towards your global future.</p>
               </div>
             </div>
-            <LiquidMetalButton className="text-sm font-medium px-6 py-3 rounded-lg whitespace-nowrap">
-                <span className="flex items-center gap-2">
-                    Book a consultation
-                    <ArrowRight className="w-4 h-4" />
-                </span>
-            </LiquidMetalButton>
+            <LiquidMetalButton label="Book a consultation" />
           </div>
         </div>
       </section>
@@ -562,9 +551,7 @@ function NewsletterCard() {
           onChange={(e) => setEmail(e.target.value)}
           className="w-full px-3 py-2.5 rounded-lg text-sm text-gray-800 placeholder-gray-400 outline-none"
         />
-        <button className="w-full bg-[#1E3A8A] border border-white/30 text-white text-xs font-semibold py-2.5 rounded-lg hover:bg-white/10 transition-colors">
-          SUBSCRIBE
-        </button>
+        <LiquidMetalButton label="SUBSCRIBE" />
       </div>
     </div>
   );

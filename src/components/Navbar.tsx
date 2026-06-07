@@ -47,7 +47,7 @@ export default function StudyNavbar() {
 
             {/* CTA Button */}
             <div className="hidden lg:flex items-center gap-4">
-              <LiquidMetalButton>Book a consultation</LiquidMetalButton>
+              <LiquidMetalButton label="Book a consultation" />
             </div>
 
             {/* Mobile Menu Button */}

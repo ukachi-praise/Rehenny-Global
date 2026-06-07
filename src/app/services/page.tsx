@@ -1,3 +1,4 @@
+
 'use client'
 
 import React from 'react'
@@ -16,6 +17,8 @@ import {
   MapPin,
   Clock
 } from 'lucide-react'
+import { Button } from '@/components/button'
+import { LiquidMetalButton } from '@/components/ui/liquid-metal-button'
 
 // Hero content
 const heroServices = [
@@ -150,13 +153,8 @@ export default function ServicesPage() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                <button className="flex items-center justify-center gap-2 bg-[#071320] hover:bg-[#0c1f30] text-white font-semibold px-8 py-4 rounded-full transition-all duration-300">
-                  Book Free Consultation
-                  <ArrowRight className="w-5 h-5" />
-                </button>
-                <button className="flex items-center justify-center gap-2 bg-white border-2 border-[#071320] hover:bg-[#071320] hover:text-white text-[#071320] font-semibold px-8 py-4 rounded-full transition-all duration-300">
-                  Explore Destinations
-                </button>
+                <LiquidMetalButton label="Book Free Consultation" />
+                <Button variant="secondary" className="px-8 py-4">Explore Destinations</Button>
               </div>
 
               {/* Small stats row */}
@@ -356,10 +354,7 @@ export default function ServicesPage() {
                   Book a free consultation today and take your first step towards studying abroad.
                 </p>
               </div>
-              <button className="bg-[#C89F2E] hover:bg-[#B69024] text-[#071320] font-bold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 flex items-center gap-2">
-                Book Free Consultation
-                <ArrowRight className="w-5 h-5" />
-              </button>
+              <LiquidMetalButton label="Book Free Consultation" />
             </div>
           </motion.div>
         </div>

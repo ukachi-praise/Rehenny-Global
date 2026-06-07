@@ -8,7 +8,6 @@ import Footer from '@/components/Footer';
 import Features from '@/components/Features';
 import Destinations from '@/components/Destinations';
 import WhyChoose from '@/components/WhyChoose';
-import FeaturedArticle from '@/components/FeaturedArticle';
 
 export default async function HomePage() {
   return (
@@ -16,8 +15,6 @@ export default async function HomePage() {
       <Navbar />
 
       <Hero />
-
-      <FeaturedArticle />
 
       <Sponsors />
 

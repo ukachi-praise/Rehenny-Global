@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
+import { LiquidMetalButton } from "@/components/ui/liquid-metal-button"
 
 
 export default function Newsletter() {
@@ -113,12 +114,7 @@ export default function Newsletter() {
                 className="bg-transparent border-none text-[#071320] placeholder-[#071320]/50 text-xs sm:text-sm px-4 w-full focus:outline-none font-medium font-sans"
                 required
               />
-              <button
-                type="submit"
-                className="bg-[#D4AF37] hover:bg-[#e5c158] active:scale-95 text-[#071320] font-[800] text-xs sm:text-sm px-5 py-2.5 rounded-full transition-all duration-300 shrink-0 shadow-md"
-              >
-                Subscribe
-              </button>
+              <LiquidMetalButton label="Subscribe" />
             </form>
           </motion.div>
         </motion.div>
