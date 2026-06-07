@@ -1,6 +1,5 @@
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
-import ScholarshipHighlights from '@/components/blog/ScholarshipHighlights';
 import LatestUpdates from '@/components/blog/LatestUpdates';
 import Sponsors from '@/components/Sponsors';
 import TestimonialsSection from '@/components/TestimonialsSection';
@@ -21,8 +20,6 @@ export default async function HomePage() {
       <Features />
 
       <WhyChoose />
-
-      <ScholarshipHighlights />
 
       <Destinations />
 

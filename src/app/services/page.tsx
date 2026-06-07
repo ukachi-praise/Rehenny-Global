@@ -1,4 +1,3 @@
-
 'use client'
 
 import React from 'react'
@@ -189,17 +188,17 @@ export default function ServicesPage() {
                   key={index}
                   variants={textVariants}
                   transition={{ delay: 0.4 + index * 0.08 }}
-                  className="absolute bg-white shadow-2xl rounded-2xl px-4 py-3 flex items-center gap-3 border border-gray-100"
+                  className="absolute bg-white shadow-2xl rounded-xl lg:rounded-2xl px-2 py-1.5 lg:px-4 lg:py-3 flex items-center gap-2 lg:gap-3 border border-gray-100"
                   style={{
                     top: index === 0 ? '10%' : index === 1 ? '20%' : index === 2 ? '70%' : index === 3 ? '60%' : '30%',
                     right: index === 0 ? '-5%' : index === 1 ? '10%' : index === 2 ? '-10%' : index === 3 ? '5%' : 'auto',
                     left: index === 4 ? '-10%' : 'auto'
                   }}
                 >
-                  <div className="w-10 h-10 rounded-full bg-[#C89F2E]/10 flex items-center justify-center">
-                    <service.icon className="w-5 h-5 text-[#C89F2E]" />
+                  <div className="w-7 h-7 lg:w-10 lg:h-10 rounded-full bg-[#C89F2E]/10 flex items-center justify-center">
+                    <service.icon className="w-3.5 h-3.5 lg:w-5 lg:h-5 text-[#C89F2E]" />
                   </div>
-                  <span className="text-gray-900 font-semibold text-sm">{service.title}</span>
+                  <span className="text-gray-900 font-semibold text-[10px] lg:text-sm">{service.title}</span>
                 </motion.div>
               ))}
             </motion.div>

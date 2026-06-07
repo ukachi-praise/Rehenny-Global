@@ -1,4 +1,3 @@
-
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react'
@@ -48,11 +47,6 @@ const ContactPage = () => {
     phone: '',
     nationality: '',
     residence: '',
-    education: '',
-    gpa: '',
-    destination: '',
-    program: '',
-    intake: '',
     source: '',
     message: '',
   });
@@ -96,11 +90,6 @@ const ContactPage = () => {
             phone: '',
             nationality: '',
             residence: '',
-            education: '',
-            gpa: '',
-            destination: '',
-            program: '',
-            intake: '',
             source: '',
             message: '',
         });
@@ -145,7 +134,7 @@ const ContactPage = () => {
       `}</style>
       
       <section 
-        className="contact-section relative w-full min-h-screen pt-28 px-4 md:px-[60px] py-8 flex flex-col md:flex-row justify-center items-center gap-10 overflow-hidden bg-[#020b1e] bg-cover bg-no-repeat"
+        className="contact-section relative w-full min-h-screen pt-28 px-4 py-8 flex flex-col md:flex-row justify-center items-center gap-10 overflow-hidden bg-[#020b1e] bg-cover bg-no-repeat"
         style={{
           backgroundImage: `url('/assets/contact_bg.jpg')`,
           backgroundPosition: '70% center'
@@ -156,7 +145,7 @@ const ContactPage = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="relative z-10 w-full max-w-[1200px] grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-[35px] items-center"
+          className="relative z-10 w-full max-w-[1400px] grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-10 md:gap-[40px] items-center mx-auto"
         >
           {/* LEFT TEXT SIDE */}
           <motion.div
@@ -166,21 +155,21 @@ const ContactPage = () => {
             variants={containerVariants}
             className="flex flex-col gap-4 lg:items-start items-center text-center lg:text-left"
           >
-            <motion.div variants={itemVariants} className="flex items-center gap-2.5 text-2xl font-bold tracking-[1px]">
+            <motion.div variants={itemVariants} className="flex items-center gap-2.5 text-2xl font-bold tracking-[1px] text-white">
               <i className="fa-solid fa-graduation-cap text-[#dfb260]"></i>
               RHINNY<span className="text-[#dfb260]">GLOBAL</span>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="flex items-center gap-2 border border-[#dfb260] text-[#dfb260] px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[1.5px] bg-[rgba(223,178,96,0.05)] self-start lg:self-start">
+            <motion.div variants={itemVariants} className="flex items-center gap-2 border border-[#dfb260] text-[#dfb260] px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[1.5px] bg-[rgba(223,178,96,0.05)] self-center lg:self-start">
               <i className="fa-solid fa-headset"></i>
               Free Consultation
             </motion.div>
 
-            <motion.h1 variants={itemVariants} className="text-[36px] md:text-[44px] leading-[1.2] font-bold">
+            <motion.h1 variants={itemVariants} className="text-[36px] md:text-[44px] leading-[1.2] font-bold text-white">
               Speak to a<br />Rhinny Global<span className="text-[#dfb260] block mt-1">Counsellor</span>
             </motion.h1>
 
-            <motion.p variants={itemVariants} className="text-[#8b9bb4] text-[15px] leading-[1.6] max-w-[450px]">
+            <motion.p variants={itemVariants} className="text-white/90 text-[15px] leading-[1.6] max-w-[450px]">
               Get expert guidance on universities, courses, admissions, scholarships, and everything you need to study abroad.
             </motion.p>
 
@@ -194,14 +183,14 @@ const ContactPage = () => {
                   key={idx}
                   variants={itemVariants}
                   transition={{ delay: idx * 0.1 }}
-                  className="flex items-start gap-3"
+                  className="flex items-start gap-3 text-left"
                 >
                   <FeatureIcon>
                     <i className={`fa-solid ${feature.icon}`}></i>
                   </FeatureIcon>
-                  <div>
+                  <div className="text-white">
                     <h4 className="text-sm font-semibold mb-1">{feature.title}</h4>
-                    <p className="text-[#8b9bb4] text-xs leading-[1.5]">{feature.text}</p>
+                    <p className="text-white/80 text-xs leading-[1.5]">{feature.text}</p>
                   </div>
                 </motion.div>
               ))}
@@ -214,12 +203,9 @@ const ContactPage = () => {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={containerVariants}
-            className="relative"
+            className="relative w-full"
           >
-            <motion.div 
-              variants={itemVariants}
-              className="relative bg-[rgba(6,17,39,0.75)] rounded-[24px] p-[30px] backdrop-blur-[20px] shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
-            >
+            <div className="relative bg-[rgba(13,27,42,0.6)] rounded-[24px] p-6 sm:p-[30px] backdrop-blur-[20px] shadow-[0_20px_50px_rgba(0,0,0,0.3)] w-full">
               <div
                 className="absolute inset-0 rounded-[24px] pointer-events-none"
                 style={{
@@ -237,8 +223,8 @@ const ContactPage = () => {
                   Your Details
                 </div>
                 <div className="h-[1px] w-[60px] bg-[rgba(255,255,255,0.15)]"></div>
-                <div className="flex items-center gap-2.5 text-sm font-medium text-[#8b9bb4]">
-                  <div className="w-6.5 h-6.5 rounded-full flex items-center justify-center text-xs font-semibold border border-[#8b9bb4] text-[#8b9bb4]">2</div>
+                <div className="flex items-center gap-2.5 text-sm font-medium text-white/70">
+                  <div className="w-6.5 h-6.5 rounded-full flex items-center justify-center text-xs font-semibold border border-white/50 text-white/50">2</div>
                   Your Goals
                 </div>
               </motion.div>
@@ -247,7 +233,7 @@ const ContactPage = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                   <motion.div 
                     variants={itemVariants}
-                    className="relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
+                    className="relative bg-[rgba(27,38,59,0.4)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
                   >
                     <i className="fa-regular fa-user absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
                     <input
@@ -257,13 +243,13 @@ const ContactPage = () => {
                       required
                       value={formData.firstName}
                       onChange={handleChange}
-                      className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm"
+                      className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm placeholder-white/60"
                     />
                   </motion.div>
 
                   <motion.div 
                     variants={itemVariants}
-                    className="relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
+                    className="relative bg-[rgba(27,38,59,0.4)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
                   >
                     <i className="fa-regular fa-user absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
                     <input
@@ -273,14 +259,14 @@ const ContactPage = () => {
                       required
                       value={formData.lastName}
                       onChange={handleChange}
-                      className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm"
+                      className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm placeholder-white/60"
                     />
                   </motion.div>
 
                   <motion.div
                     ref={phoneDropdownRef}
                     variants={itemVariants}
-                    className="md:col-span-2 relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
+                    className="md:col-span-2 relative bg-[rgba(27,38,59,0.4)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
                   >
                     <i className="fa-solid fa-phone absolute left-4 text-[#dfb260] text-sm opacity-80 z-10"></i>
                     <div className="flex items-center w-full pl-12">
@@ -340,14 +326,14 @@ const ContactPage = () => {
                         required
                         value={formData.phone}
                         onChange={handleChange}
-                        className="flex-1 w-full bg-transparent border-none outline-none text-white px-3 py-4 text-sm"
+                        className="flex-1 w-full bg-transparent border-none outline-none text-white px-3 py-4 text-sm placeholder-white/60"
                       />
                     </div>
                   </motion.div>
 
                   <motion.div 
                     variants={itemVariants}
-                    className="md:col-span-2 relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
+                    className="md:col-span-2 relative bg-[rgba(27,38,59,0.4)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
                   >
                     <i className="fa-regular fa-envelope absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
                     <input
@@ -357,13 +343,13 @@ const ContactPage = () => {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm"
+                      className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm placeholder-white/60"
                     />
                   </motion.div>
 
                   <motion.div 
                     variants={itemVariants}
-                    className="md:col-span-2 relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
+                    className="md:col-span-2 relative bg-[rgba(27,38,59,0.4)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
                   >
                     <i className="fa-solid fa-flag absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
                     <input
@@ -373,13 +359,13 @@ const ContactPage = () => {
                       required
                       value={formData.nationality}
                       onChange={handleChange}
-                      className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm"
+                      className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm placeholder-white/60"
                     />
                   </motion.div>
 
                   <motion.div 
                     variants={itemVariants}
-                    className="md:col-span-2 relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
+                    className="md:col-span-2 relative bg-[rgba(27,38,59,0.4)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
                   >
                     <i className="fa-solid fa-location-dot absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
                     <input
@@ -389,108 +375,20 @@ const ContactPage = () => {
                       required
                       value={formData.residence}
                       onChange={handleChange}
-                      className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm"
+                      className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm placeholder-white/60"
                     />
                   </motion.div>
 
                   <motion.div 
                     variants={itemVariants}
-                    className="md:col-span-2 relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
-                  >
-                    <i className="fa-solid fa-graduation-cap absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
-                    <input
-                      type="text"
-                      name="education"
-                      placeholder="Level of Education *"
-                      required
-                      value={formData.education}
-                      onChange={handleChange}
-                      className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm"
-                    />
-                  </motion.div>
-
-                  <motion.div 
-                    variants={itemVariants}
-                    className="md:col-span-2 relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
-                  >
-                    <i className="fa-solid fa-star absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
-                    <input
-                      type="text"
-                      name="gpa"
-                      placeholder="GPA/Grades *"
-                      required
-                      value={formData.gpa}
-                      onChange={handleChange}
-                      className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm"
-                    />
-                  </motion.div>
-
-                  <motion.div 
-                    variants={itemVariants}
-                    className="md:col-span-2 relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
-                  >
-                    <i className="fa-solid fa-plane-departure absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
-                    <select 
-                      name="destination"
-                      required 
-                      value={formData.destination}
-                      onChange={handleChange}
-                      className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm appearance-none cursor-pointer"
-                    >
-                      <option value="" disabled className="bg-[#020b1e]">Preferred Study Destination *</option>
-                      <option value="uk" className="bg-[#020b1e]">United Kingdom</option>
-                      <option value="us" className="bg-[#020b1e]">United States</option>
-                      <option value="ca" className="bg-[#020b1e]">Canada</option>
-                      <option value="au" className="bg-[#020b1e]">Australia</option>
-                    </select>
-                    <i className="fa-solid fa-chevron-down absolute right-4 text-[#8b9bb4] pointer-events-none"></i>
-                  </motion.div>
-
-                  <motion.div 
-                    variants={itemVariants}
-                    className="md:col-span-2 relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
-                  >
-                    <i className="fa-solid fa-book-open absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
-                    <input
-                      type="text"
-                      name="program"
-                      placeholder="Program of Interest"
-                      value={formData.program}
-                      onChange={handleChange}
-                      className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm"
-                    />
-                  </motion.div>
-
-                  <motion.div 
-                    variants={itemVariants}
-                    className="md:col-span-2 relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
-                  >
-                    <i className="fa-solid fa-calendar-alt absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
-                    <select 
-                      name="intake"
-                      required 
-                      value={formData.intake}
-                      onChange={handleChange}
-                      className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm appearance-none cursor-pointer"
-                    >
-                      <option value="" disabled className="bg-[#020b1e]">Preferred Intake *</option>
-                      <option value="fall-2024" className="bg-[#020b1e]">Fall 2024</option>
-                      <option value="spring-2025" className="bg-[#020b1e]">Spring 2025</option>
-                      <option value="fall-2025" className="bg-[#020b1e]">Fall 2025</option>
-                    </select>
-                    <i className="fa-solid fa-chevron-down absolute right-4 text-[#8b9bb4] pointer-events-none"></i>
-                  </motion.div>
-
-                  <motion.div 
-                    variants={itemVariants}
-                    className="md:col-span-2 relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
+                    className="md:col-span-2 relative bg-[rgba(27,38,59,0.4)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
                   >
                     <i className="fa-solid fa-bullhorn absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
                     <select 
                       name="source"
                       value={formData.source}
                       onChange={handleChange}
-                      className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm appearance-none cursor-pointer"
+                      className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm appearance-none cursor-pointer placeholder-white/60"
                     >
                       <option value="" disabled className="bg-[#020b1e]">How did you hear about us?</option>
                       <option value="google" className="bg-[#020b1e]">Google</option>
@@ -504,7 +402,7 @@ const ContactPage = () => {
 
                   <motion.div 
                     variants={itemVariants}
-                    className="md:col-span-2 relative bg-[rgba(10,25,54,0.6)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-start transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
+                    className="md:col-span-2 relative bg-[rgba(27,38,59,0.4)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-start transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
                   >
                     <i className="fa-regular fa-comment-dots absolute left-4 top-4.5 text-[#dfb260] text-sm opacity-80"></i>
                     <textarea
@@ -512,17 +410,22 @@ const ContactPage = () => {
                       placeholder="Your message..."
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-full bg-transparent border-none outline-none text-white pl-12 pt-4 pb-4 text-sm resize-none h-25"
+                      className="w-full bg-transparent border-none outline-none text-white pl-12 pt-4 pb-4 text-sm resize-none h-25 placeholder-white/60"
                     ></textarea>
                   </motion.div>
                 </div>
+                
                 <motion.div
                   variants={itemVariants}
                   whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}>
-                    <button type="submit">
-                        <LiquidMetalButton label={formStatus === 'sending' ? 'Booking...' : "Book Free Consultation"} />
-                    </button>
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full"
+                >
+                  <LiquidMetalButton 
+                    label={formStatus === 'sending' ? 'Booking...' : "Book Free Consultation"} 
+                    className="w-full"
+                    onClick={() => {}} // Form submission is handled by the onSubmit handler
+                  />
                 </motion.div>
 
 
@@ -535,12 +438,12 @@ const ContactPage = () => {
                   </motion.div>
                 )}
 
-                <motion.div variants={itemVariants} className="text-center text-xs text-[#8b9bb4] mt-5 flex items-center justify-center gap-1.5">
+                <motion.div variants={itemVariants} className="text-center text-xs text-white/70 mt-5 flex items-center justify-center gap-1.5">
                   <i className="fa-solid fa-lock text-[11px]"></i>
                   Your information is safe with us. We respect your privacy.
                 </motion.div>
               </form>
-            </motion.div>
+            </div>
           </motion.div>
         </motion.div>
       </section>
