@@ -1,11 +1,14 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { LiquidMetalButton } from "@/components/ui/liquid-metal-button"
 import PremiumMobileMenu from "@/components/ui/premium-mobile-menu"
 
 export default function StudyNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
+
   return (
     <>
       <nav className="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 border border-white/10 bg-[#071320]/75 backdrop-blur-xl rounded-3xl shadow-2xl shadow-black/50">
@@ -33,16 +36,23 @@ export default function StudyNavbar() {
                 { name: 'Scholarships', href: '/#scholarships' },
                 { name: 'Blog', href: '/blog' },
                 { name: 'Contact', href: '/contact' },
-              ].map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="relative text-white/90 text-[14px] font-medium tracking-wide transition-all duration-300 hover:text-[#D4AF37] group"
-                >
-                  {item.name}
-                  <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-[#D4AF37] transition-all duration-300 group-hover:w-full" />
-                </Link>
-              ))}
+              ].map((item) => {
+                const isActive = pathname === item.href;
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className={`relative text-[14px] font-medium tracking-wide transition-all duration-300 group ${
+                      isActive ? 'text-[#D4AF37]' : 'text-white/90 hover:text-[#D4AF37]'
+                    }`}
+                  >
+                    {item.name}
+                    <span className={`absolute -bottom-2 left-0 w-full h-[2px] bg-[#D4AF37] transition-all duration-300 ${
+                      isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                    }`} />
+                  </Link>
+                )
+              })}
             </div>
 
             {/* CTA Button */}

@@ -10,6 +10,7 @@ interface LiquidMetalButtonProps {
   onClick?: () => void;
   viewMode?: "text" | "icon";
   className?: string; // Added className for better integration
+  type?: "button" | "submit" | "reset";
 }
 
 export function LiquidMetalButton({
@@ -17,6 +18,7 @@ export function LiquidMetalButton({
   onClick,
   viewMode = "text",
   className,
+  type = "button",
 }: LiquidMetalButtonProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [isPressed, setIsPressed] = useState(false);
@@ -304,6 +306,7 @@ export function LiquidMetalButton({
 
           <button
             ref={buttonRef}
+            type={type}
             onClick={handleClick}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}

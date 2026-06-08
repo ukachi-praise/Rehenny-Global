@@ -134,7 +134,7 @@ const ContactPage = () => {
       `}</style>
       
       <section 
-        className="contact-section relative w-full min-h-screen pt-28 px-4 py-8 flex flex-col md:flex-row justify-center items-center gap-10 overflow-hidden bg-[#020b1e] bg-cover bg-no-repeat"
+        className="contact-section relative w-full min-h-screen pt-28 px-4 md:px-8 py-8 flex flex-col md:flex-row justify-center items-center gap-10 overflow-hidden bg-[#020b1e] bg-cover bg-no-repeat"
         style={{
           backgroundImage: `url('/assets/contact_bg.jpg')`,
           backgroundPosition: '70% center'
@@ -145,7 +145,7 @@ const ContactPage = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="relative z-10 w-full max-w-[1400px] grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-10 md:gap-[40px] items-center mx-auto"
+          className="relative z-10 w-full max-w-[1400px] grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-20 items-center mx-auto"
         >
           {/* LEFT TEXT SIDE */}
           <motion.div
@@ -160,7 +160,7 @@ const ContactPage = () => {
               RHINNY<span className="text-[#dfb260]">GLOBAL</span>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="flex items-center gap-2 border border-[#dfb260] text-[#dfb260] px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[1.5px] bg-[rgba(223,178,96,0.05)] self-center lg:self-start">
+            <motion.div variants={itemVariants} className="flex items-center gap-2 border border-[#dfb260] text-[#dfb260] px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[1.5px] bg-[rgba(223,178,96,0.05)] self-start lg:self-start">
               <i className="fa-solid fa-headset"></i>
               Free Consultation
             </motion.div>
@@ -183,7 +183,7 @@ const ContactPage = () => {
                   key={idx}
                   variants={itemVariants}
                   transition={{ delay: idx * 0.1 }}
-                  className="flex items-start gap-3 text-left"
+                  className="flex items-start gap-3"
                 >
                   <FeatureIcon>
                     <i className={`fa-solid ${feature.icon}`}></i>
@@ -205,7 +205,10 @@ const ContactPage = () => {
             variants={containerVariants}
             className="relative w-full"
           >
-            <div className="relative bg-[rgba(13,27,42,0.6)] rounded-[24px] p-6 sm:p-[30px] backdrop-blur-[20px] shadow-[0_20px_50px_rgba(0,0,0,0.3)] w-full">
+            <motion.div 
+              variants={itemVariants}
+              className="relative bg-[rgba(13,27,42,0.6)] rounded-[24px] p-[30px] backdrop-blur-[20px] shadow-[0_20px_50px_rgba(0,0,0,0.3)] w-full"
+            >
               <div
                 className="absolute inset-0 rounded-[24px] pointer-events-none"
                 style={{
@@ -417,14 +420,12 @@ const ContactPage = () => {
                 
                 <motion.div
                   variants={itemVariants}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
                   className="w-full"
                 >
                   <LiquidMetalButton 
+                    type="submit" 
                     label={formStatus === 'sending' ? 'Booking...' : "Book Free Consultation"} 
-                    className="w-full"
-                    onClick={() => {}} // Form submission is handled by the onSubmit handler
+                    className="w-full" 
                   />
                 </motion.div>
 
@@ -443,7 +444,7 @@ const ContactPage = () => {
                   Your information is safe with us. We respect your privacy.
                 </motion.div>
               </form>
-            </div>
+            </motion.div>
           </motion.div>
         </motion.div>
       </section>
