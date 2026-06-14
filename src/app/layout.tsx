@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { Providers } from './providers'
 import WhatsAppButton from '@/components/WhatsAppButton';
+import { ThemeProvider } from 'next-themes';
 
 export const metadata: Metadata = {
   title: 'Rhinny Global — Study Abroad Experts',
@@ -15,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         {/* Font Awesome */}
         <link
@@ -33,10 +34,12 @@ export default function RootLayout({
         <link rel="icon" href="/assets/Logo.png" />
       </head>
       <body className="antialiased">
-        <Providers>
-          {children}
-          <WhatsAppButton />
-        </Providers>
+        <ThemeProvider attribute="class" defaultTheme="light">
+          <Providers>
+            {children}
+            <WhatsAppButton />
+          </Providers>
+        </ThemeProvider>
       </body>
     </html>
   )

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { LiquidMetalButton } from "@/components/ui/liquid-metal-button"
 import PremiumMobileMenu from "@/components/ui/premium-mobile-menu"
+import { ThemeSwitcher } from '@/components/ThemeSwitcher'
 
 export default function StudyNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -11,7 +12,7 @@ export default function StudyNavbar() {
 
   return (
     <>
-      <nav className="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 border border-white/10 bg-[#071320]/75 backdrop-blur-xl rounded-3xl shadow-2xl shadow-black/50">
+      <nav className="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 border border-white/10 bg-white/80 dark:bg-[#071320]/75 backdrop-blur-xl rounded-3xl shadow-2xl shadow-black/5">
       
         <div className="mx-auto px-6 lg:px-10">
           <div className="flex items-center justify-between h-20">
@@ -35,6 +36,7 @@ export default function StudyNavbar() {
                 { name: 'Services', href: '/services' },
                 { name: 'Scholarships', href: '/#scholarships' },
                 { name: 'Blog', href: '/blog' },
+                { name: 'Referral', href: '/referral' },
                 { name: 'Contact', href: '/contact' },
               ].map((item) => {
                 const isActive = pathname === item.href;
@@ -43,11 +45,11 @@ export default function StudyNavbar() {
                     key={item.name}
                     href={item.href}
                     className={`relative text-[14px] font-medium tracking-wide transition-all duration-300 group ${
-                      isActive ? 'text-[#D4AF37]' : 'text-white/90 hover:text-[#D4AF37]'
+                      isActive ? 'text-accent' : 'text-slate-800 dark:text-white/90 hover:text-accent dark:hover:text-accent'
                     }`}
                   >
                     {item.name}
-                    <span className={`absolute -bottom-2 left-0 w-full h-[2px] bg-[#D4AF37] transition-all duration-300 ${
+                    <span className={`absolute -bottom-2 left-0 w-full h-[2px] bg-accent transition-all duration-300 ${
                       isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                     }`} />
                   </Link>
@@ -55,9 +57,10 @@ export default function StudyNavbar() {
               })}
             </div>
 
-            {/* CTA Button */}
+            {/* CTA and Theme Switcher */}
             <div className="hidden lg:flex items-center gap-4">
               <LiquidMetalButton label="Book a consultation" />
+              <ThemeSwitcher />
             </div>
 
             {/* Mobile Menu Button */}
@@ -66,24 +69,19 @@ export default function StudyNavbar() {
               className="lg:hidden flex flex-col gap-1.5 group relative justify-center items-center w-6 h-5"
               aria-label="Toggle menu"
             >
-              <span className={`w-6 h-[2px] bg-white rounded-full transition-all duration-300 ${
+              <span className={`w-6 h-[2px] bg-slate-800 dark:bg-white rounded-full transition-all duration-300 ${
                 mobileMenuOpen ? 'rotate-45 translate-y-[8px]' : ''
-              } group-hover:bg-[#D4AF37]`} />
-              <span className={`w-4 h-[2px] bg-white rounded-full ml-auto transition-all duration-300 ${
+              } group-hover:bg-accent`} />
+              <span className={`w-4 h-[2px] bg-slate-800 dark:bg-white rounded-full ml-auto transition-all duration-300 ${
                 mobileMenuOpen ? 'opacity-0 scale-x-0' : ''
-              } group-hover:bg-[#D4AF37]`} />
-              <span className={`w-6 h-[2px] bg-white rounded-full transition-all duration-300 ${
+              } group-hover:bg-accent`} />
+              <span className={`w-6 h-[2px] bg-slate-800 dark:bg-white rounded-full transition-all duration-300 ${
                 mobileMenuOpen ? '-rotate-45 -translate-y-[8px]' : ''
-              } group-hover:bg-[#D4AF37]`} />
+              } group-hover:bg-accent`} />
             </button>
           </div>
         </div>
 
-        {/* Ambient Glow */}
-        <section id="hero" className="absolute inset-0 pointer-events-none overflow-hidden rounded-3xl">
-          <div className="absolute top-0 left-1/3 w-96 h-32 bg-[#1E3A8A]/20 blur-3xl" />
-          <div className="absolute top-0 right-1/4 w-72 h-24 bg-[#D4AF37]/10 blur-3xl" />
-        </section>
       </nav>
       {mobileMenuOpen && <PremiumMobileMenu onClose={() => setMobileMenuOpen(false)} />}
     </>

@@ -1,14 +1,24 @@
-'use client'
-import { useParams } from 'next/navigation';
+import { getArticleBySlug, getRelatedArticles } from '@/data/articles';
+import ArticleClientPage from './ArticleClientPage';
+import { notFound } from 'next/navigation';
 
-const ArticlePage = () => {
-  const { slug } = useParams();
+interface ArticlePageProps {
+  params: {
+    slug: string;
+  };
+}
 
-  return (
-    <div>
-      <h1>Article Slug: {slug}</h1>
-    </div>
-  );
+const ArticlePage = ({ params }: ArticlePageProps) => {
+  const { slug } = params;
+  const article = getArticleBySlug(slug);
+
+  if (!article) {
+    notFound();
+  }
+
+  const relatedArticles = getRelatedArticles(slug, article.tag);
+
+  return <ArticleClientPage article={article} relatedArticles={relatedArticles} />;
 };
 
 export default ArticlePage;
