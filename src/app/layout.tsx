@@ -3,6 +3,12 @@ import './globals.css'
 import { Providers } from './providers'
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { ThemeProvider } from 'next-themes';
+import { Noto_Sans, Playfair_Display } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const playfairDisplayHeading = Playfair_Display({subsets:['latin'],variable:'--font-heading'});
+
+const notoSans = Noto_Sans({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
   title: 'Rhinny Global — Study Abroad Experts',
@@ -16,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={cn("font-sans", notoSans.variable, playfairDisplayHeading.variable)}>
       <head>
         {/* Font Awesome */}
         <link

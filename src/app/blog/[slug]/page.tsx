@@ -2,14 +2,8 @@ import { getArticleBySlug, getRelatedArticles } from '@/data/articles';
 import ArticleClientPage from './ArticleClientPage';
 import { notFound } from 'next/navigation';
 
-interface ArticlePageProps {
-  params: {
-    slug: string;
-  };
-}
-
-const ArticlePage = ({ params }: ArticlePageProps) => {
-  const { slug } = params;
+const ArticlePage = async ({ params }: { params: Promise<{ slug: string }> }) => {
+  const { slug } = await params;
   const article = getArticleBySlug(slug);
 
   if (!article) {

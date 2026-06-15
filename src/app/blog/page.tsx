@@ -223,12 +223,13 @@ export default function Home() {
 
 function ArticleCard({ article, layout }: { article: Article; layout: 'grid' | 'list' }) {
     const slug = article.slug;
+    const imageUrl = typeof article.image === 'string' ? article.image : article.image.src;
     if (layout === 'list') {
       return (
         <Link href={`/blog/${slug}`}>
           <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 flex">
             <div className="w-[140px] sm:w-[160px] flex-shrink-0">
-              <img src={article.image} alt={article.title} className="w-full h-full object-cover" />
+              <img src={imageUrl} alt={article.title} className="w-full h-full object-cover" />
             </div>
             <div className="flex-1 p-4">
               <span className="inline-block bg-blue-100 text-blue-800 text-[10px] font-semibold px-2.5 py-1 rounded-md mb-2">
@@ -256,7 +257,7 @@ function ArticleCard({ article, layout }: { article: Article; layout: 'grid' | '
         <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all hover:-translate-y-1 group">
           <div className="relative aspect-[16/10] overflow-hidden">
             <img
-              src={article.image}
+              src={imageUrl}
               alt={article.title}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
@@ -334,10 +335,12 @@ function SidebarContent() {
       <div className="bg-white rounded-xl p-5 shadow-sm">
         <h3 className="text-base font-bold text-gray-900 mb-4">Popular Articles</h3>
         <div className="space-y-4">
-          {popularArticles.map((article, idx) => (
+          {popularArticles.map((article, idx) => {
+            const imageUrl = typeof article.image === 'string' ? article.image : article.image.src;
+            return (
             <a key={idx} href={`/blog/${article.slug}`} className="flex items-start gap-3 group">
               <img
-                src={article.image}
+                src={imageUrl}
                 alt={article.title}
                 className="w-14 h-14 rounded-lg object-cover flex-shrink-0"
               />
@@ -351,7 +354,7 @@ function SidebarContent() {
                 </span>
               </div>
             </a>
-          ))}
+          )})}
         </div>
       </div>
 
