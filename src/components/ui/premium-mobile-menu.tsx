@@ -20,7 +20,7 @@ const menuItems = [
   { name: "About Us", icon: User, href: "/#about" },
   { name: "Destinations", icon: Globe, href: "/#destinations" },
   { name: "Services", icon: Briefcase, href: "/services" },
-  { name: "Scholarships", icon: GraduationCap, href: "/#scholarships" },
+  { name: "Scholarships", icon: GraduationCap, href: "/scholarships" },
   { name: "Blog", icon: FileText, href: "/blog" },
   { name: "Referral", icon: Gift, href: "/referral" },
   { name: "Contact", icon: Phone, href: "/contact" },

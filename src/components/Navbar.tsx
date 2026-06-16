@@ -9,6 +9,17 @@ export default function StudyNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = usePathname()
 
+  const navLinks = [
+    { name: 'Home', href: '/' },
+    { name: 'About Us', href: '/#about' },
+    { name: 'Destinations', href: '/#destinations' },
+    { name: 'Services', href: '/services' },
+    { name: 'Scholarships', href: '/scholarships' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Referral', href: '/referral' },
+    { name: 'Contact', href: '/contact' },
+  ];
+
   return (
     <>
       <nav className="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 border border-white/10 bg-white/80 dark:bg-[#071320]/75 backdrop-blur-xl rounded-3xl shadow-2xl shadow-black/5">
@@ -16,7 +27,7 @@ export default function StudyNavbar() {
         <div className="mx-auto px-6 lg:px-10">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <a href="#hero" className="flex items-center cursor-pointer group">
+            <Link href="/" className="flex items-center cursor-pointer group">
               <div className="relative">
                 <img
                   src="/assets/Logo.png"
@@ -24,20 +35,11 @@ export default function StudyNavbar() {
                   className="relative h-[55px] md:h-[65px] w-auto max-w-[240px] object-contain drop-shadow-lg"
                 />
               </div>
-            </a>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-8">
-              {[
-                { name: 'Home', href: '/' },
-                { name: 'About Us', href: '/#about' },
-                { name: 'Destinations', href: '/#destinations' },
-                { name: 'Services', href: '/services' },
-                { name: 'Scholarships', href: '/#scholarships' },
-                { name: 'Blog', href: '/blog' },
-                { name: 'Referral', href: '/referral' },
-                { name: 'Contact', href: '/contact' },
-              ].map((item) => {
+              {navLinks.map((item) => {
                 const isActive = pathname === item.href;
                 return (
                   <Link

@@ -82,7 +82,7 @@ export default function DestinationsSection() {
   }
 
   return (
-    <section className="relative z-30 px-4 sm:px-6 lg:px-8 pt-20 pb-28 sm:pb-32 bg-[#071320] overflow-hidden">
+    <section id="destinations" className="relative z-30 px-4 sm:px-6 lg:px-8 pt-20 pb-28 sm:pb-32 bg-[#071320] overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[350px] bg-[#1E3A8A]/10 blur-[140px] pointer-events-none rounded-full" />
       <div className="absolute top-1/3 right-1/4 w-[400px] h-[200px] bg-[#D4AF37]/5 blur-[100px] pointer-events-none rounded-full" />
@@ -97,7 +97,7 @@ export default function DestinationsSection() {
           </div>
           <div>
             <a
-              href="#"
+              href="/scholarships"
               className="inline-flex items-center gap-2 text-[#D4AF37] hover:text-[#e5c158] transition-colors duration-300 font-semibold text-sm sm:text-base group"
             >
               View All Destinations
@@ -126,7 +126,7 @@ export default function DestinationsSection() {
                 location={dest.name}
                 flag={dest.flag}
                 stats={dest.stats}
-                href="#"
+                href="/scholarships"
                 themeColor={dest.themeColor}
               />
             </motion.div>
