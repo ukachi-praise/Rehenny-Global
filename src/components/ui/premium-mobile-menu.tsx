@@ -10,10 +10,10 @@ import {
   FileText,
   Phone,
   User,
+  Gift
 } from "lucide-react";
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ThemeSwitcher } from '@/components/ThemeSwitcher';
 
 const menuItems = [
   { name: "Home", icon: Home, href: "/" },
@@ -22,6 +22,7 @@ const menuItems = [
   { name: "Services", icon: Briefcase, href: "/services" },
   { name: "Scholarships", icon: GraduationCap, href: "/#scholarships" },
   { name: "Blog", icon: FileText, href: "/blog" },
+  { name: "Referral", icon: Gift, href: "/referral" },
   { name: "Contact", icon: Phone, href: "/contact" },
 ];
 
@@ -53,13 +54,12 @@ export default function PremiumMobileMenu({ onClose }: { onClose: () => void }) 
             {/* LOGO */}
             <div className="flex items-center">
               <img
-                src="/assets/logo.png"
+                src="/assets/Logo.png"
                 alt="Rhinny Global Logo"
                 className="h-[55px] w-auto max-w-[180px] object-contain drop-shadow-lg"
               />
             </div>
             <div className="flex items-center gap-2">
-              <ThemeSwitcher />
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -93,7 +93,7 @@ export default function PremiumMobileMenu({ onClose }: { onClose: () => void }) 
                     <Link
                       href={item.href}
                       onClick={onClose}
-                      className="group relative w-full h-[58px] rounded-[20px] px-4 flex items-center justify-between transition-all duration-500 border border-slate-200/80 dark:border-[rgba(44,66,102,0.45)] cursor-pointer bg-slate-100/50 dark:bg-[linear-gradient(180deg,rgba(6,20,45,0.55),rgba(3,12,30,0.4))] hover:border-accent/50 dark:hover:border-[rgba(255,215,0,0.25)]"
+                      className="group relative w-full h-[58px] rounded-[20px] px-4 flex items-center justify-between transition-all duration-500 border border-slate-200/80 dark:border-[rgba(44,66,102,0.45)] cursor-pointer bg-slate-100/50 dark:bg-[hsl(var(--theme-color)/0.15)] backdrop-blur-md dark:hover:border-[rgba(255,215,0,0.25)]"
                     >
                       {/* LEFT */}
                       <div className="flex items-center gap-3 relative z-10">

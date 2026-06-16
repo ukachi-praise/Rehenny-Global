@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { LiquidMetalButton } from "@/components/ui/liquid-metal-button"
 import PremiumMobileMenu from "@/components/ui/premium-mobile-menu"
-import { ThemeSwitcher } from '@/components/ThemeSwitcher'
 
 export default function StudyNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -60,7 +59,6 @@ export default function StudyNavbar() {
             {/* CTA and Theme Switcher */}
             <div className="hidden lg:flex items-center gap-4">
               <LiquidMetalButton label="Book a consultation" />
-              <ThemeSwitcher />
             </div>
 
             {/* Mobile Menu Button */}

@@ -188,7 +188,22 @@ export function ReferralForm({ label }: { label: string }) {
                 </FormItem>
               )}
             />
-            <Button type="submit">Submit</Button>
+            <div>
+              <Button type="submit" className="w-full">Submit</Button>
+              <div className="flex items-center my-4">
+                <div className="flex-grow border-t border-gray-300"></div>
+                <span className="flex-shrink mx-4 text-gray-400">OR</span>
+                <div className="flex-grow border-t border-gray-300"></div>
+              </div>
+              <Button
+                type="button"
+                variant="outline"
+                className="w-full bg-green-500 hover:bg-green-600 text-white"
+                onClick={() => window.open('https://wa.me/1234567890', '_blank')}
+              >
+                Chat with us on WhatsApp
+              </Button>
+            </div>
           </form>
         </Form>
       </DialogContent>

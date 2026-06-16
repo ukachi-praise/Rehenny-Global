@@ -160,7 +160,7 @@ const ContactPage = () => {
               RHINNY<span className="text-[#dfb260]">GLOBAL</span>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="flex items-center gap-2 border border-[#dfb260] text-[#dfb260] px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[1.5px] bg-[rgba(223,178,96,0.05)] self-start lg:self-start">
+            <motion.div variants={itemVariants} className="flex items-center gap-2 border border-[#dfb260] text-[#dfb260] px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-[1.5px] bg-[rgba(223,178,96,0.05)] lg:self-start">
               <i className="fa-solid fa-headset"></i>
               Free Consultation
             </motion.div>
@@ -391,8 +391,7 @@ const ContactPage = () => {
                       name="source"
                       value={formData.source}
                       onChange={handleChange}
-                      className="w-full bg-transparent border-none outline-none text-white pl-12 py-4 text-sm appearance-none cursor-pointer placeholder-white/60"
-                    >
+                      className={`w-full bg-transparent border-none outline-none pl-12 py-4 text-sm appearance-none cursor-pointer ${formData.source ? 'text-white' : 'text-white/60'}`}>
                       <option value="" disabled className="bg-[#020b1e]">How did you hear about us?</option>
                       <option value="google" className="bg-[#020b1e]">Google</option>
                       <option value="facebook" className="bg-[#020b1e]">Facebook</option>

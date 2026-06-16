@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import Features from '@/components/Features';
 import Destinations from '@/components/Destinations';
 import WhyChoose from '@/components/WhyChoose';
+import ReferralCTA from '@/components/ReferralCTA';
 
 export default async function HomePage() {
   return (
@@ -19,6 +20,8 @@ export default async function HomePage() {
       <WhyChoose />
 
       <Destinations />
+
+      <ReferralCTA />
 
       <TestimonialsSection />
 
