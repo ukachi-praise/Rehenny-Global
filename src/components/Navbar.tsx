@@ -12,7 +12,7 @@ export default function StudyNavbar() {
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'About Us', href: '/#about' },
-    { name: 'Destinations', href: '/#destinations' },
+    { name: 'Destinations', href: '/destinations' },
     { name: 'Services', href: '/services' },
     { name: 'Scholarships', href: '/scholarships' },
     { name: 'Blog', href: '/blog' },

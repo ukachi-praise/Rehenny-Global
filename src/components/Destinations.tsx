@@ -97,7 +97,7 @@ export default function DestinationsSection() {
           </div>
           <div>
             <a
-              href="/scholarships"
+              href="/destinations"
               className="inline-flex items-center gap-2 text-[#D4AF37] hover:text-[#e5c158] transition-colors duration-300 font-semibold text-sm sm:text-base group"
             >
               View All Destinations
@@ -126,7 +126,7 @@ export default function DestinationsSection() {
                 location={dest.name}
                 flag={dest.flag}
                 stats={dest.stats}
-                href="/scholarships"
+                href="/destinations"
                 themeColor={dest.themeColor}
               />
             </motion.div>
