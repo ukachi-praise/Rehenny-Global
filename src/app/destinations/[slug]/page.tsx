@@ -45,7 +45,7 @@ export default function DestinationDetailPage() {
       <section className="relative pt-40 pb-20 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <h1 className="text-4xl md:text-6xl font-playfair font-bold text-white mb-4 leading-tight flex items-center">
-            Universities in {FlagComponent && <FlagComponent className="w-12 h-12 ml-4" />}
+            Discover universities in {countryName} {FlagComponent && <FlagComponent className="w-12 h-12 ml-4" />}
           </h1>
           <p className="text-lg text-[#B8C0CC] max-w-3xl mb-12">
             Explore top-tier universities and programs available in {countryName}.
@@ -55,7 +55,6 @@ export default function DestinationDetailPage() {
             {universities.map(uni => (
               <UniversityCard 
                 key={uni.name} 
-                logoUrl={uni.logo} 
                 universityName={uni.name} 
                 ranking={uni.ranking} 
                 description={`Explore programs in ${uni.programs}.`} 
