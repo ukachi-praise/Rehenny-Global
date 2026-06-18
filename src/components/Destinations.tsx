@@ -4,7 +4,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { DestinationCard } from '@/components/ui/card-21'
-
+import { destinations } from '@/data/destinations'
 
 export default function DestinationsSection() {
   const [isMobile, setIsMobile] = React.useState(false)
@@ -17,43 +17,6 @@ export default function DestinationsSection() {
     window.addEventListener('resize', checkMobile)
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
-  const destinations = [
-    {
-      name: "Canada",
-      flag: "🇨🇦",
-      image: "/assets/destinations/canada.png",
-      stats: "120+ Universities • 98% Visa Rate",
-      themeColor: "0 75% 25%", // deep red
-    },
-    {
-      name: "UK",
-      flag: "🇬🇧",
-      image: "/assets/destinations/uk.png",
-      stats: "150+ Universities • No IELTS Options",
-      themeColor: "215 60% 25%", // royal blue
-    },
-    {
-      name: "USA",
-      flag: "🇺🇸",
-      image: "/assets/destinations/usa.png",
-      stats: "200+ Universities • STEM Extensions",
-      themeColor: "210 80% 20%", // dark navy
-    },
-    {
-      name: "Australia",
-      flag: "🇦🇺",
-      image: "/assets/destinations/australia.png",
-      stats: "80+ Universities • Post-Study Work",
-      themeColor: "175 70% 20%", // teal
-    },
-    {
-      name: "China",
-      flag: "🇨🇳",
-      image: "/assets/destinations/china.png",
-      stats: "60+ Universities • Scholarships",
-      themeColor: "5 80% 22%", // crimson
-    }
-  ]
 
   const containerVariants = {
     hidden: {},
@@ -126,7 +89,7 @@ export default function DestinationsSection() {
                 location={dest.name}
                 flag={dest.flag}
                 stats={dest.stats}
-                href="/destinations"
+                href={`/destinations/${dest.name.toLowerCase().replace(/ /g, '-')}`}
                 themeColor={dest.themeColor}
               />
             </motion.div>

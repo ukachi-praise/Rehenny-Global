@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { Providers } from './providers'
 import WhatsAppButton from '@/components/WhatsAppButton';
-import { ThemeProvider } from 'next-themes';
+import { ThemeProvider } from "./theme-provider";
 import { Noto_Sans, Playfair_Display } from "next/font/google";
 import { cn } from "@/lib/utils";
 

@@ -16,7 +16,7 @@ export default function ScholarshipHighlights() {
         {scholarships.length > 0 ? (
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {scholarships.map((scholarship: any) => (
-              <ScholarshipCard key={scholarship.id} scholarship={scholarship} />
+              <ScholarshipCard key={scholarship._id} scholarship={scholarship} />
             ))}
           </div>
         ) : (
