@@ -6,6 +6,7 @@ import { ArrowRight } from 'lucide-react'
 import { DestinationCard } from '@/components/ui/card-21'
 import { destinations } from '@/data/destinations'
 
+
 export default function DestinationsSection() {
   const [isMobile, setIsMobile] = React.useState(false)
 

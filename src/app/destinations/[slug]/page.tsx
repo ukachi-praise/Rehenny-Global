@@ -5,7 +5,7 @@ import { useParams } from 'next/navigation'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { UniversityCard } from '@/components/ui/university-card'
-import { destinations } from '@/data/destinations' // Centralized data
+import { destinations } from '@/data/destinations'
 
 // Mock data for universities
 const allUniversities = [
@@ -36,6 +36,7 @@ export default function DestinationDetailPage() {
 
   const destination = destinations.find(d => d.name.toLowerCase() === countryName.toLowerCase());
   const universities = allUniversities.filter(uni => uni.country.toLowerCase() === countryName.toLowerCase());
+  const FlagComponent = destination?.flag;
 
   return (
     <main className="bg-[#071320] min-h-screen flex flex-col font-montserrat">
@@ -44,8 +45,7 @@ export default function DestinationDetailPage() {
       <section className="relative pt-40 pb-20 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <h1 className="text-4xl md:text-6xl font-playfair font-bold text-white mb-4 leading-tight flex items-center">
-            {destination?.flag && <span className="mr-4 text-5xl md:text-7xl">{destination.flag}</span>}
-            Universities in <span className="text-[#D4AF37] ml-3">{countryName}</span>
+            Universities in {FlagComponent && <FlagComponent className="w-12 h-12 ml-4" />}
           </h1>
           <p className="text-lg text-[#B8C0CC] max-w-3xl mb-12">
             Explore top-tier universities and programs available in {countryName}.

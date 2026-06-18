@@ -1,43 +1,37 @@
 'use client'
 
-import React from 'react'
-import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import React from 'react';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 interface UniversityCardProps {
   logoUrl: string;
   universityName: string;
   ranking: string;
-  description: string;
 }
 
-export function UniversityCard({ logoUrl, universityName, ranking, description }: UniversityCardProps) {
+export function UniversityCard({ logoUrl, universityName, ranking }: UniversityCardProps) {
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
   };
 
   return (
-    <motion.div 
+    <motion.div
       variants={cardVariants}
-      initial="hidden"
-      animate="visible"
-      className="bg-white/5 rounded-2xl overflow-hidden shadow-lg border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-300 group"
+      className="bg-[#0E1A2A] rounded-lg shadow-lg p-6 flex flex-col items-center text-center transition-all duration-300 hover:shadow-xl hover:scale-105 h-full"
     >
-      <div className="p-6">
-        <div className="flex items-center mb-4">
-          <img src={logoUrl} alt={`${universityName} logo`} className="w-16 h-16 mr-4 object-contain"/>
-          <div>
-            <h3 className="text-xl font-bold text-white group-hover:text-[#D4AF37] transition-colors">{universityName}</h3>
-            <p className="text-sm text-[#D4AF37]">{ranking}</p>
-          </div>
-        </div>
-        <p className="text-gray-400 mb-6 text-sm">{description}</p>
-        <a href="#" className="flex items-center text-sm font-semibold text-white group-hover:text-[#D4AF37] transition-colors">
-          View Details
-          <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-        </a>
+      <div className="flex-grow flex flex-col items-center">
+        <img src={logoUrl} alt={`${universityName} Logo`} className="h-20 w-20 mb-4 object-contain" />
+        <h3 className="text-xl font-bold text-white mb-2">{universityName}</h3>
+        <p className="text-[#B8C0CC] text-sm mb-6">{ranking}</p>
       </div>
+      <Link
+        href="/contact"
+        className="bg-[#D4AF37] hover:bg-[#E6B84E] text-black px-6 py-2 rounded-full font-bold transition-all duration-300 transform hover:scale-105 shadow-md shadow-[#D4AF37]/20 mt-auto"
+      >
+        Apply Now
+      </Link>
     </motion.div>
   );
 }

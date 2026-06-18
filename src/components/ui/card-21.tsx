@@ -1,21 +1,19 @@
 import * as React from "react";
-import { cn } from "@/lib/utils"; // Your utility for merging class names
+import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 
-// Define the props for the DestinationCard component
 interface DestinationCardProps extends React.HTMLAttributes<HTMLDivElement> {
   imageUrl: string;
   location: string;
-  flag: string;
+  flag: React.ComponentType<{ className?: string }>;
   stats: string;
   href: string;
-  themeColor: string; // e.g., "150 50% 25%" for a deep green
+  themeColor: string;
 }
 
 const DestinationCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
-  ({ className, imageUrl, location, flag, stats, href, themeColor, ...props }, ref) => {
+  ({ className, imageUrl, location, flag: Flag, stats, href, themeColor, ...props }, ref) => {
     return (
-      // The 'group' class enables hover effects on child elements
       <div
         ref={ref}
         style={{
@@ -35,14 +33,11 @@ const DestinationCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
              boxShadow: `0 0 40px -15px hsl(var(--theme-color) / 0.5)`
           }}
         >
-          {/* Background Image with Parallax Zoom */}
           <div
             className="absolute inset-0 bg-cover bg-center 
                        transition-transform duration-700 ease-out group-hover:scale-110"
             style={{ backgroundImage: `url(${imageUrl})` }}
           />
-
-          {/* Themed Gradient Overlay */}
           <div
             className="absolute inset-0 transition-opacity duration-700 group-hover:opacity-90"
             style={{
@@ -50,16 +45,17 @@ const DestinationCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
             }}
           />
           
-          {/* Content */}
           <div className="relative flex flex-col justify-end h-full p-6 text-white overflow-hidden">
-            <h3 className="text-3xl font-bold tracking-tight transform transition-transform duration-500 ease-out group-hover:-translate-y-1">
-              {location} <span className="text-2xl ml-1 inline-block transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-6">{flag}</span>
-            </h3>
+            <div className="flex items-center gap-3">
+              <h3 className="text-3xl font-bold tracking-tight transform transition-transform duration-500 ease-out group-hover:-translate-y-1">
+                {location}
+              </h3>
+              <Flag className="w-8 h-auto rounded-md transform transition-all duration-500 ease-out group-hover:scale-110 group-hover:rotate-6" />
+            </div>
             <p className="text-sm text-white/80 mt-1 font-medium transform transition-all duration-500 ease-out translate-y-1 group-hover:translate-y-0 group-hover:text-white">
               {stats}
             </p>
 
-            {/* Explore Button */}
             <div className="mt-5 flex items-center justify-between bg-[hsl(var(--theme-color)/0.15)] backdrop-blur-md border border-[hsl(var(--theme-color)/0.25)] 
                            rounded-lg px-4 py-3 
                            opacity-0 transform translate-y-6 scale-95
