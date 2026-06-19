@@ -11,8 +11,8 @@ export async function generateStaticParams() {
   }))
 }
 
-export default function DestinationDetailPage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+export default async function DestinationDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
 
   if (!slug) {
     return null;
