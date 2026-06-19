@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { UniversityCard } from '@/components/ui/university-card'
 import { universityDescriptionTemplates } from '@/data/university-data'
 
@@ -15,8 +15,37 @@ const categoryDisplayNames = {
   General: 'Reputable Universities',
 };
 
+const UNIVERSITIES_PER_LOAD = 3;
+
 export default function DestinationClientPage({ universities, groupedUniversities }) {
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [visibleCounts, setVisibleCounts] = useState({});
+  const [visibleSingleCategoryCount, setVisibleSingleCategoryCount] = useState(UNIVERSITIES_PER_LOAD);
+
+  useEffect(() => {
+    const initialCounts = {};
+    if (groupedUniversities) {
+      Object.keys(groupedUniversities).forEach(category => {
+        initialCounts[category] = UNIVERSITIES_PER_LOAD;
+      });
+    }
+    setVisibleCounts(initialCounts);
+  }, [groupedUniversities]);
+
+  useEffect(() => {
+    setVisibleSingleCategoryCount(UNIVERSITIES_PER_LOAD);
+  }, [selectedCategory]);
+
+  const handleLoadMore = (category) => {
+    setVisibleCounts(prev => ({
+      ...prev,
+      [category]: (prev[category] || 0) + UNIVERSITIES_PER_LOAD
+    }));
+  };
+
+  const handleSingleCategoryLoadMore = () => {
+    setVisibleSingleCategoryCount(prev => prev + UNIVERSITIES_PER_LOAD);
+  };
 
   const filteredUniversities = selectedCategory === 'All' 
     ? universities 
@@ -44,7 +73,7 @@ export default function DestinationClientPage({ universities, groupedUniversitie
               <p className="text-md text-[#B8C0CC] mt-2">{universityDescriptionTemplates[category as keyof typeof universityDescriptionTemplates]}</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {unis.map(uni => (
+              {unis.slice(0, visibleCounts[category]).map(uni => (
                 <UniversityCard
                   key={uni.name}
                   universityName={uni.name}
@@ -55,6 +84,16 @@ export default function DestinationClientPage({ universities, groupedUniversitie
                 />
               ))}
             </div>
+            {unis.length > visibleCounts[category] && (
+              <div className="mt-8 text-center">
+                <button
+                  onClick={() => handleLoadMore(category)}
+                  className="bg-transparent border border-white/30 text-white font-semibold py-2 px-6 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  Load More
+                </button>
+              </div>
+            )}
           </section>
         ))
       ) : (
@@ -64,7 +103,7 @@ export default function DestinationClientPage({ universities, groupedUniversitie
             <p className="text-md text-[#B8C0CC] mt-2">{universityDescriptionTemplates[selectedCategory as keyof typeof universityDescriptionTemplates]}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredUniversities.map(uni => (
+            {filteredUniversities.slice(0, visibleSingleCategoryCount).map(uni => (
               <UniversityCard
                 key={uni.name}
                 universityName={uni.name}
@@ -75,6 +114,16 @@ export default function DestinationClientPage({ universities, groupedUniversitie
               />
             ))}
           </div>
+          {filteredUniversities.length > visibleSingleCategoryCount && (
+            <div className="mt-8 text-center">
+                <button
+                    onClick={handleSingleCategoryLoadMore}
+                    className="bg-transparent border border-white/30 text-white font-semibold py-2 px-6 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                    Load More
+                </button>
+            </div>
+          )}
         </section>
       )}
     </div>

@@ -89,7 +89,7 @@ export const articles: Article[] = [
     {
         id: 16,
         slug: "schwarzman-scholars-program-guide",
-        image: "https://images.unsplash.com/photo-1599529364234-5c9b6b713a35?w=1920&q=80",
+        image: "/assets/blog/schwarzman.png",
         tag: "Scholarship",
         title: "Inside the Schwarzman Scholars Program: An Elite Opportunity",
         desc: "An in-depth look at the prestigious Schwarzman Scholars master's program at Tsinghua University in Beijing.",
@@ -108,7 +108,7 @@ export const articles: Article[] = [
     {
         id: 17,
         slug: "study-in-shanghai-scholarships",
-        image: "https://images.unsplash.com/photo-1594251105934-e3a4597a7a3b?w=1920&q=80",
+        image: "/assets/blog/shanghai.png",
         tag: "Scholarship",
         title: "Top 5 Scholarships to Study in Shanghai",
         desc: "Discover the best scholarship opportunities available for international students in the vibrant city of Shanghai.",
@@ -127,7 +127,7 @@ export const articles: Article[] = [
     {
         id: 18,
         slug: "beijing-normal-university-overview",
-        image: "https://images.unsplash.com/photo-1582533341935-d227a69b222f?w=1920&q=80",
+        image: "/assets/blog/beijing .png",
         tag: "University",
         title: "A Guide to Beijing Normal University (BNU)",
         desc: "Explore one of China's leading institutions for education and humanities.",

@@ -27,7 +27,7 @@ export default function Navbar() {
         <div className="mx-auto px-6 lg:px-10">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <a href="#hero" className="flex items-center cursor-pointer group">
+            <Link href="/" className="flex items-center cursor-pointer group">
               <div className="relative">
                 <img
                   src="/assets/Logo.png"
@@ -35,7 +35,7 @@ export default function Navbar() {
                   className="relative h-[55px] md:h-[65px] w-auto max-w-[240px] object-contain drop-shadow-lg"
                 />
               </div>
-            </a>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-8">

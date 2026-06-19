@@ -82,7 +82,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-soft-white font-sans">
+    <div className="min-h-screen bg-white font-sans">
       <Navbar />
       {/* ========== HERO SECTION ========== */}
       <section className="relative w-full">
