@@ -46,7 +46,7 @@ export default async function DestinationDetailPage({ params }: { params: Promis
             <h1 className="text-4xl md:text-6xl font-playfair font-bold text-white leading-tight">
               Discover universities in {countryName}
             </h1>
-            {FlagComponent && <FlagComponent className="w-12 h-12 ml-4" />}
+            {FlagComponent && <span className="text-4xl ml-4">{FlagComponent}</span>}
           </div>
           <p className="text-lg text-[#B8C0CC] max-w-3xl mx-auto">
             Explore {universities.length} partner institutions in {countryName}, from world-renowned research universities to career-focused colleges.

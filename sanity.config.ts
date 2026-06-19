@@ -1,0 +1,17 @@
+// import { defineConfig } from "sanity";
+// import { structureTool } from "sanity/structure";
+// // import { schemaTypes } from "./src/sanity/schemaTypes";
+//
+// export default defineConfig({
+//   name: 'default',
+//   title: 'Rehenny Global',
+//
+//   projectId: 'z90y7v4b',
+//   dataset: 'production',
+//
+//   plugins: [structureTool()],
+//
+//   schema: {
+//     types: [],
+//   },
+// })
