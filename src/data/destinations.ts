@@ -1,40 +1,61 @@
-import { CanadaFlag, UkFlag, UsaFlag, AustraliaFlag, ChinaFlag } from '@/components/icons/flags';
+import { CanadaFlag, UkFlag, UsaFlag, AustraliaFlag, ChinaFlag, FranceFlag, LithuaniaFlag, NetherlandsFlag, NewZealandFlag, PolandFlag } from '@/components/icons/flags';
 
 export const destinations = [
     {
       name: "Canada",
       flag: CanadaFlag,
       image: "/assets/destinations/canada.png",
-      stats: "120+ Universities • 98% Visa Rate",
+      stats: "98 Institutions",
       themeColor: "0 75% 25%",
     },
     {
       name: "United Kingdom",
       flag: UkFlag,
       image: "/assets/destinations/uk.png",
-      stats: "150+ Universities • No IELTS Options",
+      stats: "47 Institutions",
       themeColor: "215 60% 25%",
     },
     {
-      name: "USA",
-      flag: UsaFlag,
-      image: "/assets/destinations/usa.png",
-      stats: "200+ Universities • STEM Extensions",
+      name: "France",
+      flag: FranceFlag,
+      image: "/assets/destinations/france.png",
+      stats: "46 Institutions",
       themeColor: "210 80% 20%",
     },
     {
-      name: "Australia",
-      flag: AustraliaFlag,
-      image: "/assets/destinations/australia.png",
-      stats: "80+ Universities • Post-Study Work",
+      name: "New Zealand",
+      flag: NewZealandFlag,
+      image: "/assets/destinations/new-zealand.png",
+      stats: "32 Institutions",
       themeColor: "175 70% 20%",
     },
     {
-      name: "China",
-      flag: ChinaFlag,
-      image: "/assets/destinations/china.png",
-      stats: "60+ Universities • Scholarships",
-      themeColor: "5 80% 22%",
-    }
+      name: "Netherlands",
+      flag: NetherlandsFlag,
+      image: "/assets/destinations/netherlands.png",
+      stats: "20 Institutions",
+      themeColor: "15 80% 22%",
+    },
+    {
+        name: "Poland",
+        flag: PolandFlag,
+        image: "/assets/destinations/poland.png",
+        stats: "20 Institutions",
+        themeColor: "0 80% 25%",
+    },
+    {
+        name: "Australia",
+        flag: AustraliaFlag,
+        image: "/assets/destinations/australia.png",
+        stats: "7 Institutions",
+        themeColor: "200 60% 25%",
+    },
+    {
+        name: "Lithuania",
+        flag: LithuaniaFlag,
+        image: "/assets/destinations/lithuania.png",
+        stats: "3 Institutions",
+        themeColor: "45 80% 20%",
+    },
   ];
   

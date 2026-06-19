@@ -1,5 +1,6 @@
 'use client';
 
+import React, { useState } from 'react';
 import {
   X,
   ArrowRight,
@@ -10,15 +11,22 @@ import {
   FileText,
   Phone,
   User,
-  Gift
+  Gift,
+  ChevronDown
 } from "lucide-react";
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
+import { destinations } from '@/data/destinations'; // Import destinations data
 
 const menuItems = [
   { name: "Home", icon: Home, href: "/" },
   { name: "About Us", icon: User, href: "/#about" },
-  { name: "Destinations", icon: Globe, href: "/#destinations" },
+  {
+    name: "Destinations",
+    icon: Globe,
+    href: "/#destinations",
+    subItems: destinations.map(d => ({ name: d.name, href: `/destinations/${d.name.toLowerCase().replace(/ /g, '-')}` }))
+  },
   { name: "Services", icon: Briefcase, href: "/services" },
   { name: "Scholarships", icon: GraduationCap, href: "/scholarships" },
   { name: "Blog", icon: FileText, href: "/blog" },
@@ -27,6 +35,16 @@ const menuItems = [
 ];
 
 export default function PremiumMobileMenu({ onClose }: { onClose: () => void }) {
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+
+  const toggleDropdown = (name: string) => {
+    if (openDropdown === name) {
+      setOpenDropdown(null);
+    } else {
+      setOpenDropdown(name);
+    }
+  };
+
   return (
     <AnimatePresence>
       <motion.div
@@ -76,12 +94,14 @@ export default function PremiumMobileMenu({ onClose }: { onClose: () => void }) 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-            className="rounded-[32px] border border-slate-200 dark:border-[#1d3157] p-4 bg-white/50 dark:bg-gradient-to-b from-[rgba(3,18,46,0.96)] to-[rgba(2,10,30,0.96)]"
+            className="rounded-[32px] border border-slate-200 dark:border-[#1d3157] p-4 bg-white/50 dark:bg-gradient-to-b from-[rgba(3,18,46,0.96)] to-[rgba(2,10,30,0.96)] overflow-y-auto"
           >
             {/* MENU ITEMS */}
             <div className="space-y-2">
               {menuItems.map((item, index) => {
                 const Icon = item.icon;
+                const isDropdown = item.subItems && item.subItems.length > 0;
+                const isOpen = openDropdown === item.name;
 
                 return (
                   <motion.div
@@ -90,31 +110,52 @@ export default function PremiumMobileMenu({ onClose }: { onClose: () => void }) 
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 + index * 0.08, ease: [0.23, 1, 0.32, 1] }}
                   >
-                    <Link
-                      href={item.href}
-                      onClick={onClose}
+                    <div
+                      onClick={() => isDropdown && toggleDropdown(item.name)}
                       className="group relative w-full h-[58px] rounded-[20px] px-4 flex items-center justify-between transition-all duration-500 border border-slate-200/80 dark:border-[rgba(44,66,102,0.45)] cursor-pointer bg-slate-100/50 dark:bg-[hsl(var(--theme-color)/0.15)] backdrop-blur-md dark:hover:border-[rgba(255,215,0,0.25)]"
                     >
-                      {/* LEFT */}
-                      <div className="flex items-center gap-3 relative z-10">
-                        <div className="w-9 h-9 rounded-xl flex items-center justify-center bg-white/50 dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))]">
-                          <Icon
-                            size={20}
-                            className="text-slate-600 dark:text-[#D7DCE5] group-hover:text-accent dark:group-hover:text-[#E6B84E] transition-colors duration-300"
-                          />
+                       <Link href={item.href} onClick={!isDropdown ? onClose : (e) => e.preventDefault()}>
+                        <div className="flex items-center gap-3 relative z-10">
+                          <div className="w-9 h-9 rounded-xl flex items-center justify-center bg-white/50 dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))]">
+                            <Icon
+                              size={20}
+                              className="text-slate-600 dark:text-[#D7DCE5] group-hover:text-accent dark:group-hover:text-[#E6B84E] transition-colors duration-300"
+                            />
+                          </div>
+                          <span className="text-[16px] font-medium text-slate-700 dark:text-[#D7DCE5] group-hover:text-slate-900 dark:group-hover:text-white transition-colors duration-300">
+                            {item.name}
+                          </span>
                         </div>
-
-                        <span className="text-[16px] font-medium text-slate-700 dark:text-[#D7DCE5] group-hover:text-slate-900 dark:group-hover:text-white transition-colors duration-300">
-                          {item.name}
-                        </span>
-                      </div>
-
-                      {/* RIGHT */}
-                      <ArrowRight
-                        size={18}
-                        className="relative z-10 text-accent/50 dark:text-[#C9A048] group-hover:text-accent dark:group-hover:text-[#E6B84E] transition-colors duration-300"
-                      />
-                    </Link>
+                      </Link>
+                      {isDropdown ? (
+                        <ChevronDown
+                          size={18}
+                          className={`relative z-10 text-accent/50 dark:text-[#C9A048] group-hover:text-accent dark:group-hover:text-[#E6B84E] transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+                        />
+                      ) : (
+                        <ArrowRight
+                          size={18}
+                          className="relative z-10 text-accent/50 dark:text-[#C9A048] group-hover:text-accent dark:group-hover:text-[#E6B84E] transition-colors duration-300"
+                        />
+                      )}
+                    </div>
+                    <AnimatePresence>
+                      {isDropdown && isOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          className="pl-8 pt-2 space-y-2"
+                        >
+                          {item.subItems?.map((subItem, subIndex) => (
+                            <Link key={subIndex} href={subItem.href} onClick={onClose} className="flex items-center gap-3 text-slate-500 dark:text-slate-400 hover:text-accent dark:hover:text-[#E6B84E]">
+                              <ArrowRight size={16} />
+                              <span>{subItem.name}</span>
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </motion.div>
                 );
               })}

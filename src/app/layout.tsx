@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { Providers } from './providers'
 import WhatsAppButton from '@/components/WhatsAppButton';
+import ApplyNowButton from '@/components/ApplyNowButton'; // Import the new component
 import { ThemeProvider } from "./theme-provider";
 import { Noto_Sans, Playfair_Display } from "next/font/google";
 import { cn } from "@/lib/utils";
@@ -44,6 +45,7 @@ export default function RootLayout({
           <Providers>
             {children}
             <WhatsAppButton />
+            <ApplyNowButton />
           </Providers>
         </ThemeProvider>
       </body>

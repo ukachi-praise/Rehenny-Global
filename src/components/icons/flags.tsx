@@ -31,3 +31,38 @@ export const ChinaFlag = ({ className }: { className?: string }) => (
     <path fill="#FF0" transform="rotate(80 10 9)" d="m10 9l.5 2-2-1h2.5l-2 1z"/>
   </svg>
 );
+
+export const FranceFlag = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" className={className}>
+    <path fill="#002395" d="M0 0h1v2H0z"/>
+    <path fill="#FFFFFF" d="M1 0h1v2H1z"/>
+    <path fill="#ED2939" d="M2 0h1v2H2z"/>
+  </svg>
+);
+
+export const LithuaniaFlag = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 3" className={className}>
+    <path fill="#FDB913" d="M0 0h5v1H0z"/>
+    <path fill="#006A44" d="M0 1h5v1H0z"/>
+    <path fill="#C1272D" d="M0 2h5v1H0z"/>
+  </svg>
+);
+
+export const NetherlandsFlag = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 1" className={className}>
+    <path fill="#AE1C28" d="M0 0h2v.33H0z"/>
+    <path fill="#FFFFFF" d="M0 .33h2v.33H0z"/>
+    <path fill="#21468B" d="M0 .67h2v.33H0z"/>
+  </svg>
+);
+
+export const NewZealandFlag = ({ className }: { className?: string }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" className={className}><path d="M0 0h60v30H0z" fill="#012169"/><path d="M0 0l30 15m0-15L0 15M15 0v15M0 7.5h30" stroke="#fff" stroke-width="1.5"/><path d="M0 0l30 15m0-15L0 15" stroke="#C8102E" stroke-width="1"/><path d="M15 0v15M0 7.5h30" stroke="#C8102E" stroke-width="1"/><g fill="#CC142E" stroke="#fff" stroke-width=".5"><path d="M45 15l-3-1-3 1 1-3-2-2 3 .5 1-3 1 3 3-.5-2 2z"/><path d="M45 6l-2-1-2 1 .5-2-1-1.5 2 .5.5-2 .5 2 2-.5-1 1.5z"/><path d="M52.5 22.5l-1.5-1-1.5 1 .5-2-1-1 1.5 .5.5-2 .5 2 1.5-.5-1 1z"/></g></svg>
+);
+
+export const PolandFlag = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 5" className={className}>
+    <path fill="#FFFFFF" d="M0 0h8v2.5H0z"/>
+    <path fill="#DC143C" d="M0 2.5h8v2.5H0z"/>
+  </svg>
+);
