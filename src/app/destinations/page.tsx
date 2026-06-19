@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import { DestinationCard } from '@/components/ui/card-21';
 import { motion } from 'framer-motion';
 import { destinations } from '@/data/destinations';
+import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
 
 export default function DestinationsPage() {
   const [isMobile, setIsMobile] = React.useState(false)
@@ -32,13 +33,15 @@ export default function DestinationsPage() {
       opacity: 0,
       x: custom.isMobile ? (custom.index % 2 === 0 ? -60 : 60) : 0,
       y: custom.isMobile ? 0 : 40,
+      scale: 0.95,
     }),
     visible: {
       opacity: 1,
       x: 0,
       y: 0,
+      scale: 1,
       transition: {
-        duration: 0.65,
+        duration: 0.8,
         ease: [0.16, 1, 0.3, 1],
       },
     },
@@ -48,8 +51,30 @@ export default function DestinationsPage() {
     <main className="bg-[#071320] min-h-screen flex flex-col font-montserrat">
       <Navbar />
 
+      <header className="relative pt-40 pb-20 overflow-hidden bg-cover bg-center">
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="text-4xl md:text-6xl font-playfair font-bold text-white leading-tight mb-4"
+          >
+            Explore Your Global Future
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+            className="text-lg text-[#B8C0CC] max-w-3xl mx-auto"
+          >
+            Discover world-class universities in the most sought-after study destinations. Each country offers a unique blend of culture, innovation, and academic excellence.
+          </motion.p>
+        </div>
+      </header>
+
       {/* Grid Section */}
-      <section className="py-24 relative overflow-hidden pt-40">
+      <section className="py-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             variants={containerVariants}
@@ -87,9 +112,7 @@ export default function DestinationsPage() {
           <p className="text-[#B8C0CC] mb-10 max-w-2xl mx-auto">
             Our expert consultants provide personalized guidance based on your academic background and career goals.
           </p>
-          <button className="bg-[#D4AF37] hover:bg-[#E6B84E] text-black px-10 py-4 rounded-full font-bold transition-all duration-300 transform hover:scale-105 shadow-xl shadow-[#D4AF37]/20">
-            Get Free Consultation
-          </button>
+          <LiquidMetalButton label="Get Free Consultation" />
         </div>
       </section>
 

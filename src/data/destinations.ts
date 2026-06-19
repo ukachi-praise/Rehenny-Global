@@ -25,7 +25,7 @@ export const destinations = [
     {
       name: "New Zealand",
       flag: NewZealandFlag,
-      image: "/assets/destinations/new-zealand.png",
+      image: "/assets/destinations/new_zealand.png",
       stats: "32 Institutions",
       themeColor: "175 70% 20%",
     },
