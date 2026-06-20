@@ -150,7 +150,7 @@ const ReferralPage = () => {
             <h2 className="font-playfair text-3xl md:text-4xl font-bold text-white">Know a student ready to study abroad?</h2>
             <p className="text-lg text-white/80 mt-4 max-w-3xl mx-auto leading-relaxed">Send them our way and earn when they succeed. That's the Rhinny Global community working exactly as it should.</p>
             <div className="mt-10 flex justify-center">
-                <ReferralForm label="Contact Us Today" />
+                <ReferralForm label="Refer a Friend" />
             </div>
         </div>
       </section>

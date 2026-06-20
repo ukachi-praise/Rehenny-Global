@@ -2,10 +2,10 @@
 
 import { motion } from 'framer-motion'
 import React from 'react'
+import Link from 'next/link';
 import 'flag-icons/css/flag-icons.min.css'
 import { Users, Building2, Globe, ShieldCheck } from "lucide-react"
 import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal"
-import { Button } from "@/components/button"
 import { LiquidMetalButton } from "@/components/ui/liquid-metal-button"
 
 
@@ -16,7 +16,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-0">
         <img
           src="/assets/hero_bg.png"
-          alt="Background"
+          alt="Abstract background with blue and gold gradients"
           className="w-full h-full object-cover object-left md:object-top"
         />
         {/* Dark overlay specifically layered with the original gradient */}
@@ -36,7 +36,7 @@ export default function HeroSection() {
       >
         <img
           src="/assets/Hero_image.png"
-          alt="Student"
+          alt="Happy student looking at a laptop, representing a successful study abroad journey"
           className="h-full w-auto max-w-[320px] md:max-w-[440px] lg:max-w-[540px] xl:max-w-[620px] object-contain object-bottom opacity-95 md:opacity-100"
         />
       </motion.div>
@@ -57,7 +57,7 @@ export default function HeroSection() {
         </motion.div>
 
         {/* Heading */}
-        <div className="text-[28px] md:text-[42px] lg:text-[52px] font-display font-[800] leading-[1.15] mb-[28px] flex flex-col items-start">
+        <h1 className="text-[28px] md:text-[42px] lg:text-[52px] font-display font-[800] leading-[1.15] mb-[28px] flex flex-col items-start">
           <VerticalCutReveal
             splitBy="characters"
             staggerDuration={0.015}
@@ -85,7 +85,7 @@ export default function HeroSection() {
           >
             {`Future Without Borders.`}
           </VerticalCutReveal>
-        </div>
+        </h1>
 
         {/* Sub Text */}
         <motion.p
@@ -104,10 +104,19 @@ export default function HeroSection() {
            whileInView={{ opacity: 1, y: 0 }}
            viewport={{ once: true }}
            transition={{ duration: 0.6, delay: 0.52 }}
-           className="flex flex-wrap gap-[14px] mb-[30px]"
+           className="flex flex-wrap items-center gap-[14px] mb-[30px]"
         >
-          <a href="/scholarships"><LiquidMetalButton label="Book a consultation" /></a>
-          <a href="/destinations"><Button variant="secondary">Explore Destinations</Button></a>
+          <Link href="/contact">
+            <LiquidMetalButton label="Book a consultation" />
+          </Link>
+          <a
+            href="/destinations"
+            className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full border border-white/20 bg-white/5 px-6 font-sans font-medium text-white backdrop-blur-md transition-all duration-300 hover:border-white/30 hover:bg-white/10"
+          >
+            <span className="relative z-10">Explore Destinations</span>
+            {/* Subtle animated background shine */}
+            <div className="absolute inset-0 z-0 h-full w-full bg-gradient-to-br from-white/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          </a>
         </motion.div>
 
         {/* Stats Strip */}
@@ -119,7 +128,6 @@ export default function HeroSection() {
            className="flex bg-white/5 border border-white/10 rounded-xl backdrop-blur-md py-2 md:py-2.5 w-full max-w-[680px] justify-between relative"
         >
           {[
-            { Icon: Users, number: '5,000+', label: 'Students Placed' },
             { Icon: Building2, number: '150+', label: 'Top Universities' },
             { Icon: Globe, number: '13+', label: 'Countries' },
             { Icon: ShieldCheck, number: '99%', label: 'Success Rate' },

@@ -6,6 +6,7 @@ import Footer from '@/components/Footer'
 import { motion } from 'framer-motion'
 import { countries } from '@/lib/countries'
 import { LiquidMetalButton } from '@/components/ui/liquid-metal-button'
+import { Dialog, DialogContent, DialogHeader } from '@/components/ui/dialog'
 
 // Animation variants
 const containerVariants = {
@@ -39,6 +40,7 @@ const ContactPage = () => {
   const [isPhoneDropdownOpen, setIsPhoneDropdownOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const phoneDropdownRef = useRef(null);
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false)
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -82,7 +84,8 @@ const ContactPage = () => {
 
       if (response.ok) {
         setFormStatus('success');
-        setStatusMessage('Thank you! Your consultation has been booked successfully.');
+        setStatusMessage('Our team will contact you shortly');
+        setIsSuccessModalOpen(true); // Open the success modal
         setFormData({ // Reset form
             firstName: '',
             lastName: '',
@@ -130,6 +133,20 @@ const ContactPage = () => {
           .contact-section {
             background-position: center center !important;
           }
+        }
+
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+          -webkit-text-fill-color: #fff !important;
+          -webkit-box-shadow: 0 0 0px 1000px rgba(27, 38, 59, 0.4) inset !important;
+          transition: background-color 5000s ease-in-out 0s;
+        }
+
+        .input-container:focus-within {
+          transform: scale(1.02);
+          box-shadow: 0 0 20px rgba(223, 178, 96, 0.3);
         }
       `}</style>
       
@@ -236,7 +253,7 @@ const ContactPage = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                   <motion.div 
                     variants={itemVariants}
-                    className="relative bg-[rgba(27,38,59,0.4)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
+                    className="input-container relative bg-[rgba(27,38,59,0.4)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)]"
                   >
                     <i className="fa-regular fa-user absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
                     <input
@@ -252,7 +269,7 @@ const ContactPage = () => {
 
                   <motion.div 
                     variants={itemVariants}
-                    className="relative bg-[rgba(27,38,59,0.4)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
+                    className="input-container relative bg-[rgba(27,38,59,0.4)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)]"
                   >
                     <i className="fa-regular fa-user absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
                     <input
@@ -269,7 +286,7 @@ const ContactPage = () => {
                   <motion.div
                     ref={phoneDropdownRef}
                     variants={itemVariants}
-                    className="md:col-span-2 relative bg-[rgba(27,38,59,0.4)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
+                    className="input-container md:col-span-2 relative bg-[rgba(27,38,59,0.4)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)]"
                   >
                     <i className="fa-solid fa-phone absolute left-4 text-[#dfb260] text-sm opacity-80 z-10"></i>
                     <div className="flex items-center w-full pl-12">
@@ -336,7 +353,7 @@ const ContactPage = () => {
 
                   <motion.div 
                     variants={itemVariants}
-                    className="md:col-span-2 relative bg-[rgba(27,38,59,0.4)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
+                    className="input-container md:col-span-2 relative bg-[rgba(27,38,59,0.4)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)]"
                   >
                     <i className="fa-regular fa-envelope absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
                     <input
@@ -352,7 +369,7 @@ const ContactPage = () => {
 
                   <motion.div 
                     variants={itemVariants}
-                    className="md:col-span-2 relative bg-[rgba(27,38,59,0.4)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
+                    className="input-container md:col-span-2 relative bg-[rgba(27,38,59,0.4)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)]"
                   >
                     <i className="fa-solid fa-flag absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
                     <input
@@ -368,7 +385,7 @@ const ContactPage = () => {
 
                   <motion.div 
                     variants={itemVariants}
-                    className="md:col-span-2 relative bg-[rgba(27,38,59,0.4)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
+                    className="input-container md:col-span-2 relative bg-[rgba(27,38,59,0.4)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)]"
                   >
                     <i className="fa-solid fa-location-dot absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
                     <input
@@ -384,7 +401,7 @@ const ContactPage = () => {
 
                   <motion.div 
                     variants={itemVariants}
-                    className="md:col-span-2 relative bg-[rgba(27,38,59,0.4)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
+                    className="input-container md:col-span-2 relative bg-[rgba(27,38,59,0.4)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-center transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)]"
                   >
                     <i className="fa-solid fa-bullhorn absolute left-4 text-[#dfb260] text-sm opacity-80"></i>
                     <select 
@@ -404,7 +421,7 @@ const ContactPage = () => {
 
                   <motion.div 
                     variants={itemVariants}
-                    className="md:col-span-2 relative bg-[rgba(27,38,59,0.4)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-start transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)] focus-within:shadow-[0_0_10px_rgba(223,178,96,0.15)]"
+                    className="input-container md:col-span-2 relative bg-[rgba(27,38,59,0.4)] border border-[rgba(255,255,255,0.1)] rounded-[10px] flex items-start transition-all duration-300 focus-within:border-[rgba(223,178,96,0.5)]"
                   >
                     <i className="fa-regular fa-comment-dots absolute left-4 top-4.5 text-[#dfb260] text-sm opacity-80"></i>
                     <textarea
@@ -430,10 +447,10 @@ const ContactPage = () => {
 
 
                 {/* Status Messages */}
-                {(formStatus === 'success' || formStatus === 'error') && (
+                {(formStatus === 'error') && (
                   <motion.div 
                     variants={itemVariants} 
-                    className={`text-center text-sm mt-4 ${formStatus === 'success' ? 'text-green-400' : 'text-red-400'}`}>
+                    className={`text-center text-sm mt-4 text-red-400`}>
                     {statusMessage}
                   </motion.div>
                 )}
@@ -447,6 +464,28 @@ const ContactPage = () => {
           </motion.div>
         </motion.div>
       </section>
+      
+      {/* Success Modal */}
+      <Dialog open={isSuccessModalOpen} onOpenChange={setIsSuccessModalOpen}>
+        <DialogContent className="bg-[#0A1A2E] border-[#dfb260] text-white p-8 rounded-lg max-w-sm mx-auto">
+          <DialogHeader className="text-center">
+            <motion.div initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ delay: 0.2, duration: 0.5, type: 'spring', stiffness: 200 }}>
+              <i className="fas fa-check-circle text-5xl text-green-400 mb-4"></i>
+            </motion.div>
+            <h2 className="text-2xl font-bold font-playfair mb-2">Success!</h2>
+          </DialogHeader>
+          <p className="text-center text-gray-300 mb-6">
+            {statusMessage}
+          </p>
+          <div className="flex justify-center">
+            <LiquidMetalButton 
+              label="Close" 
+              onClick={() => setIsSuccessModalOpen(false)}
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
+
 
       <Footer />
     </main>

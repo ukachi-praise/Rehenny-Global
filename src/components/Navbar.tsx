@@ -45,7 +45,7 @@ export default function Navbar() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`relative text-[14px] font-medium tracking-wide transition-all duration-300 group ${isActive ? 'text-[#D4AF37]' : 'text-white/90 hover:text-[#D4AF37]'}`}>
+                    className={`relative text-[14px] font-medium tracking-wide transition-all duration-300 group ${isActive ? 'text-[#D4AF37]' : 'text-white/90 hover:text-[#D4AF37]'} transform hover:-translate-y-0.5 transition-transform`}>
                     {item.name}
                     <span className={`absolute -bottom-2 left-0 h-[2px] bg-[#D4AF37] transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`} />
                   </Link>
@@ -64,12 +64,12 @@ export default function Navbar() {
               className="lg:hidden flex flex-col gap-1.5 group relative justify-center items-center w-6 h-5"
               aria-label="Toggle menu"
             >
-              <span className={`w-6 h-[2px] bg-white rounded-full transition-all duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-[8px]' : ''
-                } group-hover:bg-[#D4AF37]`} />
-              <span className={`w-4 h-[2px] bg-white rounded-full ml-auto transition-all duration-300 ${mobileMenuOpen ? 'opacity-0 scale-x-0' : ''
-                } group-hover:bg-[#D4AF37]`} />
-              <span className={`w-6 h-[2px] bg-white rounded-full transition-all duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-[8px]' : ''
-                } group-hover:bg-[#D4AF37]`} />
+              <span className={`w-6 h-[2px] bg-[#D4AF37] rounded-full transition-all duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-[8px]' : ''
+                } `} />
+              <span className={`w-4 h-[2px] bg-[#D4AF37] rounded-full ml-auto transition-all duration-300 ${mobileMenuOpen ? 'opacity-0 scale-x-0' : ''
+                } `} />
+              <span className={`w-6 h-[2px] bg-[#D4AF37] rounded-full transition-all duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-[8px]' : ''
+                } `} />
             </button>
           </div>
         </div>

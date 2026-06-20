@@ -125,7 +125,9 @@ export default function Home() {
                   </button>
                 </div>
                 <div className="mt-4">
-                  <LiquidMetalButton label="Book a Free Consultation" />
+                  <Link href="/contact">
+                    <LiquidMetalButton label="Book a Free Consultation" />
+                  </Link>
                 </div>
               </div>
             </div>
@@ -212,7 +214,9 @@ export default function Home() {
                 <p className="text-sm text-gray-500 mt-0.5">Get personalized guidance from our experts and take the first step towards your global future.</p>
               </div>
             </div>
-            <LiquidMetalButton label="Book a Free Consultation" />
+            <Link href="/contact">
+                <LiquidMetalButton label="Book a Free Consultation" />
+            </Link>
           </div>
         </div>
       </section>
@@ -308,9 +312,11 @@ function SidebarContent() {
         <p className="text-xs text-gray-500 leading-relaxed mb-4">
           At GlobalPathways, we believe information empowers decisions. Our blog is your go-to resource for trusted insights, real stories, and expert tips on studying abroad.
         </p>
-        <button className="border border-gray-300 text-gray-700 text-xs font-semibold px-4 py-2 rounded-lg hover:border-royal-blue hover:text-royal-blue transition-colors">
-          ABOUT US
-        </button>
+        <Link href="/#about">
+            <button className="border border-gray-300 text-gray-700 text-xs font-semibold px-4 py-2 rounded-lg hover:border-royal-blue hover:text-royal-blue transition-colors">
+            ABOUT US
+            </button>
+        </Link>
       </div>
 
       <div className="bg-white rounded-xl p-5 shadow-sm">

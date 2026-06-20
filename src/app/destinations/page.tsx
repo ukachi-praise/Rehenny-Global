@@ -1,11 +1,16 @@
 'use client'
 import React from 'react';
+import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { DestinationCard } from '@/components/ui/card-21';
 import { motion } from 'framer-motion';
 import { destinations } from '@/data/destinations';
-import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
+import dynamic from 'next/dynamic';
+
+const LiquidMetalButton = dynamic(() => import('@/components/ui/liquid-metal-button').then(mod => mod.LiquidMetalButton), {
+  ssr: false,
+});
 
 export default function DestinationsPage() {
   const [isMobile, setIsMobile] = React.useState(false)
@@ -80,7 +85,7 @@ export default function DestinationsPage() {
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
             {destinations.map((dest, i) => (
                <motion.div
@@ -92,7 +97,7 @@ export default function DestinationsPage() {
                 <DestinationCard
                   imageUrl={dest.image}
                   location={dest.name}
-                  flag={dest.flag}
+                  flagIcon={dest.flag}
                   stats={dest.stats}
                   href={`/destinations/${dest.name.toLowerCase().replace(/ /g, '-')}`}
                   themeColor={dest.themeColor}
@@ -112,7 +117,9 @@ export default function DestinationsPage() {
           <p className="text-[#B8C0CC] mb-10 max-w-2xl mx-auto">
             Our expert consultants provide personalized guidance based on your academic background and career goals.
           </p>
-          <LiquidMetalButton label="Get Free Consultation" />
+          <Link href="/contact">
+            <LiquidMetalButton label="Get Free Consultation" />
+          </Link>
         </div>
       </section>
 

@@ -76,9 +76,9 @@ export default function DestinationsSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, margin: "-100px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
         >
-          {destinations.map((dest, i) => (
+          {destinations.slice(0, 4).map((dest, i) => (
             <motion.div
               key={dest.name}
               custom={{ isMobile, index: i }}
@@ -88,7 +88,7 @@ export default function DestinationsSection() {
               <DestinationCard
                 imageUrl={dest.image}
                 location={dest.name}
-                flag={dest.flag}
+                flagIcon={dest.flag}
                 stats={dest.stats}
                 href={`/destinations/${dest.name.toLowerCase().replace(/ /g, '-')}`}
                 themeColor={dest.themeColor}

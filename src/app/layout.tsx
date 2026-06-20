@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { Providers } from './providers'
 import WhatsAppButton from '@/components/WhatsAppButton';
-import { ThemeProvider } from "./theme-provider";
 import { Noto_Sans, Playfair_Display } from "next/font/google";
 import { cn } from "@/lib/utils";
 
@@ -10,11 +8,65 @@ const playfairDisplayHeading = Playfair_Display({subsets:['latin'],variable:'--f
 
 const notoSans = Noto_Sans({subsets:['latin'],variable:'--font-sans'});
 
+const siteConfig = {
+  name: "Rhinny Global",
+  url: "https://rhinnyglobal.com",
+  ogImage: "https://rhinnyglobal.com/og.png", // Replace with your actual OG image URL
+  description:
+    "Your journey. Our expertise. Global opportunities. Premium study abroad consultancy helping students achieve international education dreams.",
+  links: {
+    twitter: "https://twitter.com/rhinnyglobal", // Replace with your actual Twitter URL
+    instagram: "https://instagram.com/rhinnyglobal",
+  },
+  keywords: `study abroad, international education, university admissions, scholarships, visa assistance, Rhinny Global, Canada, UK, USA, Australia, student services`,
+};
+
 export const metadata: Metadata = {
-  title: 'Rhinny Global — Study Abroad Experts',
-  description: 'Your journey. Our expertise. Global opportunities. Premium study abroad consultancy helping students achieve international education dreams.',
-  keywords: 'study abroad, international education, scholarships, university admissions, Rhinny Global',
-}
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  authors: [
+    {
+      name: "Rhinny Global",
+      url: siteConfig.url,
+    },
+  ],
+  creator: "Rhinny Global",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
+    creator: "@rhinnyglobal", // Replace with your actual Twitter handle
+  },
+  icons: {
+    icon: "/assets/Logo.png",
+    shortcut: "/assets/Logo.png",
+    apple: "/assets/Logo.png",
+  },
+  manifest: `${siteConfig.url}/site.webmanifest`,
+};
+
 
 export default function RootLayout({
   children,
@@ -22,7 +74,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className={cn("font-sans", notoSans.variable, playfairDisplayHeading.variable)}>
+    <html lang="en" className={cn("font-sans", notoSans.variable, playfairDisplayHeading.variable)}>
       <head>
         {/* Font Awesome */}
         <link
@@ -35,17 +87,10 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
         />
-
-        {/* Favicon */}
-        <link rel="icon" href="/assets/Logo.png" />
       </head>
       <body className="antialiased">
-        <ThemeProvider attribute="class" defaultTheme="light">
-          <Providers>
-            {children}
-            <WhatsAppButton />
-          </Providers>
-        </ThemeProvider>
+        {children}
+        {/* <WhatsAppButton /> */}
       </body>
     </html>
   )

@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { motion } from 'framer-motion'
@@ -152,8 +153,12 @@ export default function ServicesPage() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                <LiquidMetalButton label="Book Free Consultation" />
-                <Button variant="secondary" className="px-8 py-4">Explore Destinations</Button>
+                <Link href="/contact">
+                  <LiquidMetalButton label="Book Free Consultation" />
+                </Link>
+                <Link href="/destinations">
+                  <Button variant="secondary" className="px-8 py-4">Explore Destinations</Button>
+                </Link>
               </div>
 
               {/* Small stats row */}
@@ -353,7 +358,9 @@ export default function ServicesPage() {
                   Book a free consultation today and take your first step towards studying abroad.
                 </p>
               </div>
-              <LiquidMetalButton label="Book Free Consultation" />
+              <Link href="/contact">
+                <LiquidMetalButton label="Book Free Consultation" />
+              </Link>
             </div>
           </motion.div>
         </div>

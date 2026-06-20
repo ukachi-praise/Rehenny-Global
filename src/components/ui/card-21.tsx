@@ -5,14 +5,14 @@ import { ArrowRight } from "lucide-react";
 interface DestinationCardProps extends React.HTMLAttributes<HTMLDivElement> {
   imageUrl: string;
   location: string;
-  flag: string;
+  flagIcon: string;
   stats: string;
   href: string;
   themeColor: string;
 }
 
 const DestinationCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
-  ({ className, imageUrl, location, flag, stats, href, themeColor, ...props }, ref) => {
+  ({ className, imageUrl, location, flagIcon, stats, href, themeColor, ...props }, ref) => {
     return (
       <div
         ref={ref}
@@ -50,7 +50,7 @@ const DestinationCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
               <h3 className="text-3xl font-bold tracking-tight transform transition-transform duration-500 ease-out group-hover:-translate-y-1">
                 {location}
               </h3>
-              <span className="w-8 h-auto rounded-md transform transition-all duration-500 ease-out group-hover:scale-110 group-hover:rotate-6">{flag}</span>
+              <span className={cn("fi", `fi-${flagIcon}`, "text-2xl rounded-md transform transition-all duration-500 ease-out group-hover:scale-110 group-hover:rotate-6")}></span>
             </div>
             <p className="text-sm text-white/80 mt-1 font-medium transform transition-all duration-500 ease-out translate-y-1 group-hover:translate-y-0 group-hover:text-white">
               {stats}

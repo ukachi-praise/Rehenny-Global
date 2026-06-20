@@ -6,7 +6,7 @@ import Footer from '@/components/Footer'
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="bg-[#071320] min-h-screen flex flex-col font-montserrat">
+    <div className="flex flex-col font-montserrat">
       <Navbar />
       {children}
       <Footer />

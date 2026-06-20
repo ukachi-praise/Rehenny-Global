@@ -1,6 +1,5 @@
 import { DestinationCard } from "@/components/ui/card-21"; // Adjust the import path
 import InteractiveSelector from "@/components/ui/interactive-selector";
-import ExpandOnHover from "@/components/ui/expand-cards";
 
 const DestinationCardDemo = () => {
   return (
@@ -9,7 +8,7 @@ const DestinationCardDemo = () => {
         <DestinationCard
           imageUrl="https://images.unsplash.com/photo-1524675053444-52c3ca294ad2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGluZG9uZXNpYXxlbnwwfHwwfHx8MA%3D%3D?q=80&w=1887"
           location="Indonesia"
-          flag="🇮🇩"
+          flagIcon="id"
           stats="1,345 Hotels • 24 Packages"
           href="#"
           // A deep, lush green HSL value
@@ -20,7 +19,7 @@ const DestinationCardDemo = () => {
         <DestinationCard
           imageUrl="https://images.unsplash.com/photo-1526495124232-a04e1849168c?q=80&w=1887"
           location="Dubai"
-          flag="🇦🇪"
+          flagIcon="ae"
           stats="2,345 Hotels • 54 Packages"
           href="#"
           // A rich, twilight purple HSL value
@@ -39,13 +38,6 @@ const DemoOne = () => {
   );
 };
 
-export function ExpandHoverPage() {
-  return (
-    <div className="min-h-screen">
-      <ExpandOnHover />
-    </div>
-  );
-}
 
 export { DemoOne };
 export default DestinationCardDemo;

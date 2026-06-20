@@ -90,6 +90,9 @@ export default function FeaturesSection() {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
+        <h2 className="text-3xl font-bold tracking-tight text-center text-gray-900 sm:text-4xl mb-16">
+          Your Journey to International Education, Simplified
+        </h2>
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
           variants={containerVariants}
