@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const WhatsAppButton = () => {
-  const whatsappLink = "https://wa.me/1234567890"; // Replace with your WhatsApp number
+  const whatsappLink = "https://wa.me/2348161609452"; // Replace with your WhatsApp number
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {

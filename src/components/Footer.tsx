@@ -251,10 +251,10 @@ export default function Footer() {
                   Phone
                 </span>
                 <a
-                  href="tel:+14375883585"
+                  href="tel:+2348161609452"
                   className="text-white hover:text-[#D4AF37] transition-colors duration-300 text-[14px] font-semibold"
                 >
-                  +1 (437) 588-3585
+                  +234 816 160 9452
                 </a>
               </div>
               <div>
@@ -269,7 +269,7 @@ export default function Footer() {
               {/* WhatsApp chat pill */}
               <div className="pt-2">
                 <a
-                  href="https://wa.me/14375883585"
+                  href="https://wa.me/2348161609452"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2 bg-transparent border border-[#D4AF37] hover:bg-[#D4AF37]/10 text-white font-bold text-[10px] uppercase tracking-wider rounded-full transition-all duration-300 shadow-[0_0_15px_rgba(212,175,55,0.1)]"
