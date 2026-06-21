@@ -90,7 +90,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         {children}
-        {/* <WhatsAppButton /> */}
+        <WhatsAppButton />
       </body>
     </html>
   )
