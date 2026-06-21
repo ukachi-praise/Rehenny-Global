@@ -1,150 +1,95 @@
-"use client";
+'use client';
 
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionDivider from '@/components/SectionDivider';
 import { motion, AnimatePresence, useInView } from "framer-motion";
+import Image from 'next/image';
+import { UkFlag } from "@/components/icons/flags";
 
 gsap.registerPlugin(ScrollTrigger);
 
-/* ────────────────────────────────────────
-   TESTIMONIAL DATA
-   Replace image paths with actual uploads later.
-─────────────────────────────────────── */
 const TESTIMONIALS = [
   {
     id: 1,
-    name: "Adaeze Okonkwo",
-    image: "/assets/Testimonials/African_female1.jpg",
-    avatarInitials: "AO",
-    origin: "Lagos, Nigeria",
-    originFlag: "🇳🇬",
-    destination: "University of Toronto, Canada",
-    destinationFlag: "🇨🇦",
-    programme: "MSc Computer Science",
-    fullProgramme: "Master of Science in Computer Science",
-    intake: "September 2024",
-    quote: "I had no idea where to start with Canadian applications. Rhinny Global gave me a shortlist of 5 universities within 48 hours and walked me through every single document. I got my offer letter in 6 weeks.",
-    bio: "Adaeze came to us overwhelmed with visa concerns and confusing requirements. Our team guided her through every step — from document preparation to interview coaching. Today, she's pursuing her MSc in Canada and building the future she dreamed of.",
+    name: "Moroof Adekunle Raheem",
+    avatarInitials: "MR",
+    destination: "University of Dundee, UK",
+    destinationFlag: <UkFlag className="w-5 h-auto rounded-sm flex-shrink-0" />,
+    programme: "MSc International Business",
+    fullProgramme: "MSc International Business",
+    quote: "Rhinny Global made my dream of studying abroad a reality. From university selection to visa application, they handled ev...",
+    bio: "Rhinny Global made my dream of studying abroad a complete reality. Their comprehensive support, from selecting the right university to meticulously handling the visa application, was thoroughly professional. Thanks to their expert guidance, I'm now pursuing my MSc at a top UK university and couldn't be more grateful.",
     rating: 5,
-    visaStatus: "Canadian Study Permit - 2024",
-    duration: "6 Weeks from Application to Offer",
+    visaStatus: "UK Student Visa - 2025",
+    duration: "4-6 Months from Consultation to Arrival",
     badgeIcon: "cap",
+    origin: "Nigeria",
   },
   {
     id: 2,
-    name: "Emeka Nwosu",
-    image: "/assets/Testimonials/African_male1.jpg",
-    avatarInitials: "EN",
-    origin: "Abuja, Nigeria",
-    originFlag: "🇳🇬",
-    destination: "The University of Manchester, UK",
-    destinationFlag: "🇬🇧",
-    programme: "MBA",
-    fullProgramme: "Master of Business Administration (MBA)",
-    intake: "January 2024",
-    quote: "The visa process was what scared me most. My counsellor at Rhinny prepared me for every question, reviewed my documents three times, and I got my UK visa approved on the first try!",
-    bio: "Emeka came to us overwhelmed with visa concerns and confusing requirements. Our team guided him through every step — from document preparation to interview coaching. Today, he's pursuing his MBA in the UK and building the future he dreamed of.",
+    name: "Hafeez Olawale",
+    avatarInitials: "HO",
+    destination: "University of Hull, UK",
+    destinationFlag: <UkFlag className="w-5 h-auto rounded-sm flex-shrink-0" />,
+    programme: "MSc Logistics and Supply Chain Management",
+    fullProgramme: "MSc Logistics and Supply Chain Management",
+    quote: "The team at Rhinny Global was incredibly supportive throughout my entire application journey. They helped me secure admi...",
+    bio: "The team at Rhinny Global was incredibly supportive and dedicated throughout my entire application journey. They were instrumental in helping me secure admission and patiently guided me through every single step of the complex visa process, making it feel effortless.",
     rating: 5,
-    visaStatus: "UK Student Visa - 2024",
-    duration: "3 Months from Consultation to Visa Approval",
+    visaStatus: "UK Student Visa - 2025",
+    duration: "4-6 Months from Consultation to Arrival",
     badgeIcon: "check",
+    origin: "Nigeria",
   },
   {
     id: 3,
-    name: "Wei Chen",
-    image: "/assets/Testimonials/asian.jpg",
-    avatarInitials: "WC",
-    origin: "Shanghai, China",
-    originFlag: "🇨🇳",
-    destination: "Australian National University, Australia",
-    destinationFlag: "🇦🇺",
-    programme: "BSc Engineering",
-    fullProgramme: "Bachelor of Science in Engineering",
-    intake: "February 2024",
-    quote: "I applied to Australia because Rhinny showed me the post-study work visa pathway. They handled my application, scholarship search, and pre-departure briefing. I'm now in Melbourne and loving it!",
-    bio: "Wei was looking for a destination with strong post-study opportunities. We mapped out an Australian pathway, secured partial funding, and handled the complex visa application seamlessly. He is now thriving in his engineering program.",
+    name: "Ibukun Akintayo",
+    avatarInitials: "IA",
+    destination: "University of Dundee, UK",
+    destinationFlag: <UkFlag className="w-5 h-auto rounded-sm flex-shrink-0" />,
+    programme: "MSc Social Work",
+    fullProgramme: "MSc Social Work",
+    quote: "I couldn't have navigated the UK admission process without Rhinny Global. Their expertise and personalized guidance made...",
+    bio: "I genuinely believe I couldn't have navigated the complex UK admission process without the help of Rhinny Global. Their deep expertise and highly personalized guidance truly made all the difference, ultimately leading to my acceptance into the dream program I had always hoped for.",
     rating: 5,
-    visaStatus: "Australian Student Visa - 2024",
-    duration: "4 Months from Application to Arrival",
+    visaStatus: "UK Student Visa - 2025",
+    duration: "4-6 Months from Consultation to Arrival",
     badgeIcon: "plane",
+    origin: "Nigeria",
   },
   {
     id: 4,
-    name: "Fatima Al-Hassan",
-    image: "/assets/Testimonials/african_female2.avif",
-    avatarInitials: "FA",
-    origin: "Kano, Nigeria",
-    originFlag: "🇳🇬",
-    destination: "George Mason University, USA",
-    destinationFlag: "🇺🇸",
-    programme: "MPH Public Health",
-    fullProgramme: "Master of Public Health (MPH)",
-    intake: "August 2023",
-    quote: "From my first free consultation to landing in Virginia, Rhinny Global was with me every step. They even helped me find partial scholarship funding I didn't know existed.",
-    bio: "Fatima had strong academic credentials but needed guidance on funding. We matched her with a program offering a 40% tuition scholarship and prepared her extensively for her F-1 visa interview.",
+    name: "Chinyere Durojaye",
+    avatarInitials: "CD",
+    destination: "University of Gloucestershire, UK",
+    destinationFlag: <UkFlag className="w-5 h-auto rounded-sm flex-shrink-0" />,
+    programme: "MSc by Research International Business",
+    fullProgramme: "MSc by Research International Business",
+    quote: "Rhinny Global's attention to detail and commitment to my success was outstanding. They ensured my research proposal was ...",
+    bio: "The team's attention to detail and unwavering commitment to my success was nothing short of outstanding. They worked closely with me to ensure my research proposal was strong, compelling, and that my overall application stood out from the rest. I felt supported at every stage.",
     rating: 5,
-    visaStatus: "US F-1 Student Visa - 2023",
-    duration: "5 Months from Consultation to Arrival",
+    visaStatus: "UK Student Visa - 2025",
+    duration: "4-6 Months from Consultation to Arrival",
     badgeIcon: "cap",
+    origin: "Nigeria",
   },
   {
     id: 5,
-    name: "Ayesha Tariq",
-    image: "/assets/Testimonials/pakisten.jpg",
-    avatarInitials: "AT",
-    origin: "Lahore, Pakistan",
-    originFlag: "🇵🇰",
-    destination: "University of Toronto, Canada",
-    destinationFlag: "🇨🇦",
-    programme: "MSc Data Science",
-    fullProgramme: "Master of Science in Data Science",
-    intake: "September 2023",
-    quote: "Rhinny counselled me on the best programs for my profile. They found a course that perfectly matched my career goals. I've been studying here and the support was incredible.",
-    bio: "Ayesha was looking for top-tier Data Science programs. We helped her apply to leading universities in Canada, resulting in multiple offers and a smooth visa process.",
+    name: "Omobolanle Ayobami",
+    avatarInitials: "OA",
+    destination: "University of Roehampton, UK",
+    destinationFlag: <UkFlag className="w-5 h-auto rounded-sm flex-shrink-0" />,
+    programme: "MSc Web Development",
+    fullProgramme: "MSc Web Development",
+    quote: "From the first consultation to landing in the UK, Rhinny Global was with me every step. They helped me find the perfect ...",
+    bio: "From our very first consultation to the moment I landed in the UK, the Rhinny Global team was with me every step of the way. Their counselors helped me find the perfect program that aligned with my career goals and prepared me thoroughly for the exciting academic journey ahead.",
     rating: 5,
-    visaStatus: "Canadian Study Permit - 2023",
-    duration: "6 Months from Application to Arrival",
+    visaStatus: "UK Student Visa - 2025",
+    duration: "4-6 Months from Consultation to Arrival",
     badgeIcon: "check",
-  },
-  {
-    id: 6,
-    name: "Chisom Eze",
-    image: "/assets/Testimonials/african%20male2.jpg",
-    avatarInitials: "CE",
-    origin: "Port Harcourt, Nigeria",
-    originFlag: "🇳🇬",
-    destination: "University of Edinburgh, UK",
-    destinationFlag: "🇬🇧",
-    programme: "LLM International Law",
-    fullProgramme: "Master of Laws (LLM) in International Law",
-    intake: "September 2024",
-    quote: "I was rejected twice before finding Rhinny. They reviewed my personal statement, matched me to the right universities for my profile, and I got into Edinburgh. Exceptional service.",
-    bio: "Chisom had faced previous rejections. We completely overhauled his application strategy, refined his personal statement, and he secured admission to a prestigious Russell Group university.",
-    rating: 5,
-    visaStatus: "UK Student Visa - 2024",
-    duration: "4 Months from Consultation to Visa Approval",
-    badgeIcon: "cap",
-  },
-  {
-    id: 7,
-    name: "Blessing Okafor",
-    image: "/assets/Testimonials/african_female3.jpg",
-    avatarInitials: "BO",
-    origin: "Enugu, Nigeria",
-    originFlag: "🇳🇬",
-    destination: "Beijing Language & Culture University, China",
-    destinationFlag: "🇨🇳",
-    programme: "BA Chinese Studies",
-    fullProgramme: "Bachelor of Arts in Chinese Language and Culture",
-    intake: "September 2023",
-    quote: "China wasn't even on my radar until Rhinny counselled me on the full government scholarship options. They found a programme that was 100% funded. I've been studying here debt-free.",
-    bio: "Blessing was looking for fully funded opportunities abroad. We helped her apply for the Chinese Government Scholarship (CSC), resulting in a full ride covering tuition, accommodation, and a monthly stipend.",
-    rating: 5,
-    visaStatus: "Chinese X1 Student Visa - 2023",
-    duration: "6 Months from Application to Scholarship Award",
-    badgeIcon: "plane",
+    origin: "Nigeria",
   }
 ];
 
@@ -193,7 +138,7 @@ function BadgeIcon({ type }: { type: string }) {
 
 export default function TestimonialsSection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const [activeIndex, setActiveIndex] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const total = TESTIMONIALS.length;
 
@@ -206,15 +151,8 @@ export default function TestimonialsSection() {
     return () => clearInterval(timer);
   }, [isPaused, activeIndex]);
 
-  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    e.currentTarget.style.display = 'none';
-    e.currentTarget.nextElementSibling?.classList.remove('hidden');
-    e.currentTarget.nextElementSibling?.classList.add('flex');
-  };
+  const activeTestimonial = TESTIMONIALS[activeIndex];
 
-  const activeStudent = TESTIMONIALS[activeIndex];
-
-  // Modified to spread the inactive cards side-by-side using larger translate-x values
   const getCardPositionClass = (index: number) => {
     if (index === activeIndex) {
       return "opacity-100 z-20 scale-100 bg-white border-blue-500 shadow-[0_15px_40px_rgba(59,130,246,0.15)]";
@@ -223,12 +161,10 @@ export default function TestimonialsSection() {
     const diff = (index - activeIndex + total) % total;
     
     if (diff === 1 || diff === -(total - 1)) {
-      // Next item - position entirely to the right
       return "opacity-60 z-10 scale-[0.85] translate-x-[115%] bg-slate-100 border-slate-200 hidden md:block";
     }
     
     if (diff === total - 1 || diff === -1) {
-      // Prev item - position entirely to the left
       return "opacity-60 z-10 scale-[0.85] -translate-x-[115%] bg-slate-100 border-slate-200 hidden md:block";
     }
 
@@ -237,17 +173,16 @@ export default function TestimonialsSection() {
 
   return (
     <section ref={sectionRef} id="testimonials" className="relative w-full min-h-[100vh] pb-24 overflow-visible font-sans">
-      {/* Background Image with Blur */}
       <div className="absolute inset-0 z-0">
-        <img 
+        <Image 
           src="/assets/Testimonials/bg.png" 
           alt="Testimonials background" 
-          className="w-full h-full object-cover"
+          layout="fill"
+          objectFit="cover"
         />
         <div className="absolute inset-0 bg-[#f1f5f9]/65 backdrop-blur-sm" />
       </div>
 
-      {/* Top Divider — dark flows in from WhyChoose */}
       <div className="absolute top-0 left-0 w-full z-20 pointer-events-none">
         <SectionDivider
           fromColor="transparent"
@@ -258,12 +193,10 @@ export default function TestimonialsSection() {
         />
       </div>
 
-      {/* Bottom gradient fade — cleanly merges into Destinations dark bg */}
       <div className="absolute bottom-0 left-0 w-full h-40 z-20 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent 0%, #071320 100%)" }} />
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         
-        {/* Header Section */}
         <motion.div
           className="text-center mb-12"
           initial="hidden"
@@ -275,23 +208,22 @@ export default function TestimonialsSection() {
             variants={{ hidden: { opacity: 0, y: 20, scale: 0.9 }, visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } } }}
             className="inline-block px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 mb-6"
           >
-            <span className="text-[10px] tracking-[0.2em] uppercase font-bold text-blue-600">Student Stories</span>
+            <span className="text-[10px] tracking-[0.2em] uppercase font-bold text-blue-600">Success Stories</span>
           </motion.div>
           <motion.h2
             variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } } }}
             className="text-4xl md:text-5xl font-bold text-gray-900 mb-2 tracking-tight"
           >
-            Trusted by Students, Proven Around the World.
+            Success Stories From Around the World.
           </motion.h2>
           <motion.p
             variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } } }}
             className="text-gray-600 max-w-2xl mx-auto text-sm md:text-base leading-relaxed"
           >
-            From your first free consultation to landing at your dream university — we guide every student through a seamless, end-to-end study abroad journey.
+            From your first free consultation to landing at your dream university — we guide you through a seamless, end-to-end study abroad journey.
           </motion.p>
         </motion.div>
 
-        {/* Carousel Section */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -301,7 +233,6 @@ export default function TestimonialsSection() {
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          {/* Nav Prev */}
           <motion.button
             whileHover={{ scale: 1.1, x: -2 }}
             whileTap={{ scale: 0.95 }}
@@ -314,34 +245,24 @@ export default function TestimonialsSection() {
             </svg>
           </motion.button>
 
-          {/* Cards Container */}
-                    <div className="relative flex justify-center items-center h-[300px] w-full max-w-5xl perspective-1000 will-change">
+          <div className="relative flex justify-center items-center h-[300px] w-full max-w-5xl perspective-1000 will-change">
             {TESTIMONIALS.map((t, index) => (
               <div
                 key={t.id}
                 onClick={() => setActiveIndex(index)}
                 className={`absolute transition-all duration-700 ease-in-out cursor-pointer border rounded-[2rem] p-8 pt-12 w-full max-w-[340px] md:max-w-[380px] ${getCardPositionClass(index)}`}
               >
-                {/* Avatar Overlap */}
                 <div className="absolute -top-10 left-1/2 -translate-x-1/2">
                   <div className="relative w-20 h-20 rounded-full border-4 border-white bg-gray-100 flex items-center justify-center shadow-lg">
-                    <img
-                      src={t.image}
-                      alt={t.name}
-                      onError={handleImageError}
-                      className="w-full h-full object-cover rounded-full"
-                    />
-                    <div className="hidden w-full h-full items-center justify-center rounded-full bg-gradient-to-br from-blue-100 to-gray-200">
+                    <div className="w-full h-full flex items-center justify-center rounded-full bg-gradient-to-br from-blue-100 to-gray-200">
                       <span className="text-xl text-gray-700 font-bold">{t.avatarInitials}</span>
                     </div>
-                    {/* Tiny Icon Badge */}
                     <div className="absolute bottom-0 -right-1 w-7 h-7 rounded-full bg-blue-600 flex items-center justify-center border-[3px] border-white">
                       <BadgeIcon type={t.badgeIcon} />
                     </div>
                   </div>
                 </div>
 
-                {/* Card Content */}
                 <div className="flex flex-col items-center text-center mt-2 h-full">
                   <div className="mb-4">
                     <StarRating count={t.rating} />
@@ -352,15 +273,15 @@ export default function TestimonialsSection() {
                   <div className="w-full h-px bg-gray-100 mb-4" />
                   <strong className="text-gray-900 font-bold text-[15px] tracking-wide mb-1">{t.name}</strong>
                   <p className="text-gray-500 text-xs mb-2">{t.programme}</p>
-                  <div className="flex items-center gap-1.5 text-[11px] text-gray-400 font-medium tracking-wide">
-                    <span>{t.destinationFlag}</span> <span>{t.destination}</span>
+                  <div className="flex items-center justify-center gap-1.5 text-[11px] text-gray-400 font-medium tracking-wide">
+                    {t.destinationFlag}
+                    <span className="truncate">{t.destination}</span>
                   </div>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Nav Next */}
           <motion.button
             whileHover={{ scale: 1.1, x: 2 }}
             whileTap={{ scale: 0.95 }}
@@ -374,7 +295,6 @@ export default function TestimonialsSection() {
           </motion.button>
         </motion.div>
 
-        {/* Pagination Dots */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -395,7 +315,6 @@ export default function TestimonialsSection() {
           ))}
         </motion.div>
 
-        {/* Expanded Active Student Panel */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -405,45 +324,31 @@ export default function TestimonialsSection() {
         >
           <div className="flex flex-col lg:flex-row gap-8 items-start lg:items-center">
             
-            {/* Left: Large Photo */}
-            <div className="w-full lg:w-56 shrink-0 aspect-[4/5] rounded-2xl overflow-hidden bg-gray-100 border border-gray-100 relative shadow-md">
-              <img 
-                src={activeStudent.image} 
-                alt={activeStudent.name} 
-                onError={handleImageError}
-                className="w-full h-full object-cover transition-opacity duration-500" 
-              />
-              <div className="hidden absolute inset-0 items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
-                <span className="text-5xl text-gray-400 font-bold">{activeStudent.avatarInitials}</span>
-              </div>
-            </div>
-
-            {/* Middle: Bio/Info */}
             <div className="flex-1 min-w-0">
               <div className="flex flex-wrap items-center gap-3 mb-3">
-                <strong className="text-2xl md:text-3xl font-bold text-gray-900">{activeStudent.name}</strong>
+                <strong className="text-2xl md:text-3xl font-bold text-gray-900">{activeTestimonial.name}</strong>
                 <span className="inline-flex items-center gap-1 text-[10px] font-semibold tracking-wider uppercase text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-100">
                   <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M6.267 3.441A1.5 1.5 0 017.65 2.5h4.7a1.5 1.5 0 011.383.941l.983 2.559h1.784A2.5 2.5 0 0119 8.5v6a2.5 2.5 0 01-2.5 2.5H3.5A2.5 2.5 0 011 14.5v-6a2.5 2.5 0 012.5-2.5h1.784l.983-2.559zM8.5 11.5a2.5 2.5 0 105 0 2.5 2.5 0 00-5 0z" clipRule="evenodd" /></svg>
-                  Verified Student
+                  Verified Story
                 </span>
               </div>
               
               <div className="mb-6 flex flex-col gap-1">
                 <p className="text-gray-700 text-sm font-medium flex items-center gap-2">
                   <svg className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /><path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" /></svg>
-                  {activeStudent.programme}
+                  {activeTestimonial.programme}
                 </p>
                 <p className="text-gray-500 text-sm flex items-center gap-2">
-                  <span>{activeStudent.destinationFlag}</span> {activeStudent.destination}
+                  {activeTestimonial.destinationFlag} 
+                  <span>{activeTestimonial.destination}</span>
                 </p>
               </div>
 
               <p className="text-gray-600 text-sm leading-relaxed pr-0 lg:pr-8">
-                {activeStudent.bio}
+                {activeTestimonial.bio}
               </p>
             </div>
 
-            {/* Right: Stats Grid */}
             <div className="w-full lg:w-[320px] shrink-0 lg:border-l border-gray-100 lg:pl-8 flex flex-col gap-6 pt-6 lg:pt-0 border-t lg:border-t-0">
               
               <div className="flex gap-4 items-start">
@@ -452,7 +357,7 @@ export default function TestimonialsSection() {
                 </div>
                 <div>
                   <strong className="text-gray-900 font-medium text-sm mb-0.5">Visa Approved</strong>
-                  <p className="text-gray-500 text-[13px]">{activeStudent.visaStatus}</p>
+                  <p className="text-gray-500 text-[13px]">{activeTestimonial.visaStatus}</p>
                 </div>
               </div>
 
@@ -462,7 +367,7 @@ export default function TestimonialsSection() {
                 </div>
                 <div>
                   <strong className="text-gray-900 font-medium text-sm mb-0.5">Program</strong>
-                  <p className="text-gray-500 text-[13px]">{activeStudent.fullProgramme}</p>
+                  <p className="text-gray-500 text-[13px]">{activeTestimonial.fullProgramme}</p>
                 </div>
               </div>
 
@@ -472,7 +377,7 @@ export default function TestimonialsSection() {
                 </div>
                 <div>
                   <strong className="text-gray-900 font-medium text-sm mb-0.5">Hometown</strong>
-                  <p className="text-gray-500 text-[13px]">{activeStudent.origin}</p>
+                  <p className="text-gray-500 text-[13px]">{activeTestimonial.origin}</p>
                 </div>
               </div>
 
@@ -482,7 +387,7 @@ export default function TestimonialsSection() {
                 </div>
                 <div>
                   <strong className="text-gray-900 font-medium text-sm mb-0.5">Journey Duration</strong>
-                  <p className="text-gray-500 text-[13px]">{activeStudent.duration}</p>
+                  <p className="text-gray-500 text-[13px]">{activeTestimonial.duration}</p>
                 </div>
               </div>
 

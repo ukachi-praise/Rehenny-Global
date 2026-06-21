@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import React from 'react'
 import Link from 'next/link';
+import Image from 'next/image';
 import 'flag-icons/css/flag-icons.min.css'
 import { Users, Building2, Globe, ShieldCheck } from "lucide-react"
 import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal"
@@ -14,10 +15,13 @@ export default function HeroSection() {
     <section id="hero" className="relative w-full min-h-screen md:min-h-0 md:h-screen flex items-center overflow-hidden bg-[#071320]">
       {/* ================= BACKGROUND ================= */}
       <div className="absolute inset-0 z-0">
-        <img
+        <Image
           src="/assets/hero_bg.png"
           alt="Abstract background with blue and gold gradients"
-          className="w-full h-full object-cover object-left md:object-top"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="left md:top"
+          priority
         />
         {/* Dark overlay specifically layered with the original gradient */}
         <div 
@@ -34,10 +38,14 @@ export default function HeroSection() {
 
         className="absolute bottom-0 right-[2%] md:right-[6%] lg:right-[10%] h-[55%] md:h-[92%] w-auto z-10 pointer-events-none flex justify-end will-change-[transform,opacity]"
       >
-        <img
+        <Image
           src="/assets/Hero_image.png"
           alt="Happy student looking at a laptop, representing a successful study abroad journey"
-          className="h-full w-auto max-w-[320px] md:max-w-[440px] lg:max-w-[540px] xl:max-w-[620px] object-contain object-bottom opacity-95 md:opacity-100"
+          layout="fill"
+          objectFit="contain"
+          objectPosition="bottom"
+          className="opacity-95 md:opacity-100"
+          priority
         />
       </motion.div>
 

@@ -5,6 +5,12 @@ import { Check, Users, Target, Award, Info } from 'lucide-react';
 import Link from 'next/link';
 import 'flag-icons/css/flag-icons.min.css';
 import { ReferralForm } from '@/components/ReferralForm';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Referral Programme | Rhinny Global',
+    description: 'Join the Rhinny Global referral programme. Refer a student and earn real money when they enrol in their school. It\'s a simple way to support our community.',
+};
 
 const ReferralPage = () => {
   const destinations = [

@@ -1,33 +1,24 @@
-import Navbar from '@/components/Navbar';
-import Hero from '@/components/Hero';
-import LatestUpdates from '@/components/blog/LatestUpdates';
-import TestimonialsSection from '@/components/TestimonialsSection';
-import Footer from '@/components/Footer';
-import Features from '@/components/Features';
-import Destinations from '@/components/Destinations';
-import WhyChoose from '@/components/WhyChoose';
-import ReferralCTA from '@/components/ReferralCTA';
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import Services from "@/components/Services";
+import Testimonials from "@/components/Testimonials";
+import WhyChoose from "@/components/WhyChoose";
+import "./globals.css";
+import Destinations from "@/components/Destinations";
+import { Footer } from "@/components/Footer";
 
-export default async function HomePage() {
+export default function Home() {
   return (
-    <main>
+    <>
       <Navbar />
-
-      <Hero />
-
-      <Features />
-
-      <WhyChoose />
-
-      <Destinations />
-
-      <ReferralCTA />
-
-      <TestimonialsSection />
-
-      <LatestUpdates />
-
+      <main className="flex-1">
+        <Hero />
+        <Services />
+        <WhyChoose />
+        <Testimonials />
+        <Destinations />
+      </main>
       <Footer />
-    </main>
-  )
+    </>
+  );
 }

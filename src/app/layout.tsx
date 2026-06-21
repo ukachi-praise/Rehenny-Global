@@ -3,6 +3,7 @@ import './globals.css'
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { Noto_Sans, Playfair_Display } from "next/font/google";
 import { cn } from "@/lib/utils";
+import ReferralPopup from '@/components/ReferralPopup';
 
 const playfairDisplayHeading = Playfair_Display({subsets:['latin'],variable:'--font-heading'});
 
@@ -90,6 +91,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         {children}
+        <ReferralPopup />
         <WhatsAppButton />
       </body>
     </html>
