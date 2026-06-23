@@ -11,8 +11,9 @@ export async function generateStaticParams() {
     }));
 }
 
-export default function ScholarshipPage({ params }: { params: { slug: string } }) {
-    const scholarship = getScholarshipBySlug(params.slug);
+export default async function ScholarshipPage({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params;
+    const scholarship = getScholarshipBySlug(slug);
 
     if (!scholarship) {
         notFound();

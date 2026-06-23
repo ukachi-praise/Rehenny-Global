@@ -22,7 +22,6 @@ import { usePathname } from 'next/navigation';
 
 const menuItems = [
   { name: "Home", icon: Home, href: "/" },
-  { name: "About Us", icon: User, href: "/#about" },
   {
     name: "Destinations",
     icon: Globe,
@@ -88,7 +87,7 @@ export default function PremiumMobileMenu({ onClose }: { onClose: () => void }) 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={onClose}
-                className="w-9 h-9 rounded-full flex items-center justify-center border border-white/10 text-[#E6B84E] bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))]">
+                className="w-9 h-9 rounded-full flex items-center justify-center border border-white/10 text-[#E6B84E] bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01)))]">
                 <X size={20} />
               </motion.button>
             </div>
@@ -121,7 +120,7 @@ export default function PremiumMobileMenu({ onClose }: { onClose: () => void }) 
                       className={`group relative w-full h-[58px] rounded-[20px] px-4 flex items-center justify-between transition-all duration-500 border ${isActive || isDropdownActive ? 'border-[rgba(255,215,0,0.25)] bg-[hsl(var(--theme-color)/0.25)]' : 'border-[rgba(255,255,255,0.1)] bg-[hsl(var(--theme-color)/0.15)]'}`}
                     >
                       <Link href={item.href} onClick={onClose} className="flex items-center gap-3 relative z-10 flex-grow">
-                        <div className="w-9 h-9 rounded-xl flex items-center justify-center bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))]">
+                        <div className="w-9 h-9 rounded-xl flex items-center justify-center bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01)))]">
                           <Icon
                             size={20}
                             className={`transition-colors duration-300 ${isActive || isDropdownActive ? 'text-[#E6B84E]' : 'text-slate-400'}`}
