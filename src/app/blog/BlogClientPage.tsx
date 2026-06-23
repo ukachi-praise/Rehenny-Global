@@ -313,7 +313,7 @@ function SidebarContent() {
           </svg>
         </div>
         <p className="text-xs text-gray-500 leading-relaxed mb-4">
-          At GlobalPathways, we believe information empowers decisions. Our blog is your go-to resource for trusted insights, real stories, and expert tips on studying abroad.
+          At Rhinny Global, we believe information empowers decisions. Our blog is your go-to resource for trusted insights, real stories, and expert tips on studying abroad.
         </p>
         <Link href="/#about">
             <button className="border border-gray-300 text-gray-700 text-xs font-semibold px-4 py-2 rounded-lg hover:border-royal-blue hover:text-royal-blue transition-colors">

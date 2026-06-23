@@ -11,6 +11,7 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
     { name: 'Destinations', href: '/destinations' },
     { name: 'Services', href: '/services' },
     { name: 'Scholarships', href: '/scholarships' },
@@ -30,7 +31,7 @@ export default function Navbar() {
               <div className="relative">
                 <img
                   src="/assets/Logo.png"
-                  alt="Study Now Logo"
+                  alt="Rhinny Global Logo"
                   className="relative h-[55px] md:h-[65px] w-auto max-w-[240px] object-contain drop-shadow-lg"
                 />
               </div>

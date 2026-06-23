@@ -84,7 +84,7 @@ export default function WhyChoose() {
                   <Building2 className="w-6 h-6" strokeWidth={2} />
                 </div>
                 <div className="text-left">
-                  <span className="block text-white text-xl font-bold leading-none">50+</span>
+                  <span className="block text-white text-xl font-bold leading-none">150+</span>
                   <span className="block text-white/50 text-sm font-sans mt-1">Partner Universities</span>
                 </div>
               </div>

@@ -74,7 +74,7 @@ const detailedServices = [
 const stats = [
   { number: "98%", label: "Visa Success Rate", icon: ShieldCheck },
   { number: "15+", label: "Countries Covered", icon: MapPin },
-  { number: "800+", label: "University Partners", icon: Building2 },
+  { number: "150+", label: "University Partners", icon: Building2 },
   { number: "24/7", label: "Expert Support", icon: Clock }
 ]
 
