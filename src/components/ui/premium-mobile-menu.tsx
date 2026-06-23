@@ -22,6 +22,7 @@ import { usePathname } from 'next/navigation';
 
 const menuItems = [
   { name: "Home", icon: Home, href: "/" },
+  { name: "About", icon: User, href: "/about" },
   {
     name: "Destinations",
     icon: Globe,

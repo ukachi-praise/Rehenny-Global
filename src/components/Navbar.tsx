@@ -25,14 +25,14 @@ export default function Navbar() {
       <nav className="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 border border-white/10 bg-[#071320]/75 backdrop-blur-xl rounded-3xl shadow-2xl shadow-black/50">
       
         <div className="mx-auto px-6 lg:px-10">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center cursor-pointer group">
               <div className="relative">
                 <img
                   src="/assets/Logo.png"
                   alt="Rhinny Global Logo"
-                  className="relative h-[55px] md:h-[65px] w-auto max-w-[240px] object-contain drop-shadow-lg"
+                  className="relative h-[45px] md:h-[65px] w-auto max-w-[240px] object-contain drop-shadow-lg"
                 />
               </div>
             </Link>
