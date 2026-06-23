@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
+import Link from 'next/link';
 
 export default function Footer() {
   const containerVariants = {
@@ -21,6 +22,31 @@ export default function Footer() {
       transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] },
     },
   }
+
+  const quickLinks = [
+    { name: 'Home', href: '/' },
+    { name: 'Destinations', href: '/destinations' },
+    { name: 'Services', href: '/services' },
+    { name: 'Scholarships', href: '/scholarships' },
+    { name: 'Contact', href: '/contact' },
+  ];
+
+  const services = [
+    { name: 'University Admission', href: '/services' },
+    { name: 'Visa Assistance', href: '/services' },
+    { name: 'Scholarships', href: '/scholarships' },
+    { name: 'Pre-Departure Support', href: '/services' },
+    { name: 'Career Guidance', href: '/services' },
+  ];
+
+  const destinations = [
+    { name: 'Canada', href: '/destinations/canada' },
+    { name: 'UK', href: '/destinations/uk' },
+    { name: 'USA', href: '/destinations/usa' },
+    { name: 'Australia', href: '/destinations/australia' },
+    { name: 'China', href: '/destinations/china' },
+    { name: 'Europe', href: '/destinations' },
+  ];
 
   return (
     <footer className="relative z-30 bg-[#030c14] text-white pt-20 pb-8 px-4 sm:px-6 lg:px-8 overflow-hidden">
@@ -137,14 +163,11 @@ export default function Footer() {
                   label: 'TikTok',
                   href: 'https://vm.tiktok.com/ZS9jv5oQe1hDu-XEhQu/',
                   svg: (
-                    <svg
+                    <img
+                      src="/assets/tiktok.svg"
+                      alt="TikTok"
                       className="w-5 h-5"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.65 4.31 1.72v3.12c-1.45-.04-2.88-.06-4.31-.09-.1-.28-.2-.57-.29-.85-.34-1.1-.8-2.19-1.39-3.23-.33-.56-.73-1.09-1.18-1.59-.2-.22-.43-.43-.66-.63-.04-.03-.08-.06-.13-.09-.03-.02-.05-.04-.08-.06-.05-.03-.1-.07-.15-.1-.03-.02-.05-.03-.08-.05-.04-.02-.09-.04-.13-.06-.06-.03-.11-.06-.17-.08-.02-.01-.04-.02-.07-.03-.05-.02-.09-.03-.14-.05-.06-.02-.12-.04-.18-.05-.03-.01-.05-.01-.08-.02-.06-.02-.13-.03-.19-.04-.03-.01-.05-.01-.08-.02-.07-.01-.13-.02-.2-.03-.02-.01-.04-.01-.07-.01-.07-.01-.14-.02-.21-.02-.02-.00-.04-.01-.06-.01-.07-.01-.14-.01-.21-.01-.04-.00-.08-.01-.12-.01-.07-.00-.13-.01-.2-.01h-.21c-2.02.02-3.88.75-5.28 2.05-1.41 1.3-2.16 3.01-2.2 4.91-.03 1.4.26 2.81.91 4.08 1.02 2.02 2.76 3.33 4.88 3.82 1.1.25 2.25.32 3.39.3.89-.02 1.79-.08 2.67-.21 1.22-.18 2.42-.47 3.58-.88v-3.11c-.88.29-1.78.47-2.69.56-1.13.11-2.26.1-3.37-.15-1.22-.28-2.31-.82-3.23-1.58-.33-.27-.63-.58-.9-1.01-.22-.35-.42-.73-.59-1.13-.19-.44-.34-.9-.46-1.38-.13-.52-.2-1.05-.23-1.61-.02-.45.03-.9.13-1.34.15-.65.41-1.28.75-1.86.3-.5.66-.96 1.09-1.36.26-.24.54-.45.85-.63.31-.18.63-.33.97-.44.3-.09.61-.15.93-.18.02-.00.04-.00.06-.01.3-.02.6-.02.9-.02.04.00.07.00.11.00.18.00.35.01.53.01.17.01.34.02.5.04.38.04.75.12 1.12.24.49.15.96.36 1.39.64.21.13.42.28.61.45.19.17.37.35.54.54.34.39.63.82.88 1.28.24.44.44.91.59 1.39.14.45.24.91.3 1.39.06.45.07.9.03 1.36-.1.97-.43 1.88-1.01 2.69-.14.2-.29.39-.45.56-.83 1-1.9 1.6-3.08 1.86-1.18.25-2.38.25-3.56.02-1.22-.24-2.37-.73-3.35-1.45v-3.07c.9.59 1.93.99 3.02 1.15.99.14 2 .1 2.97-.11.83-.18 1.64-.49 2.38-.93.02-.01.03-.02.05-.03v-2.73c-.22.06-.44.11-.66.16-.9.2-1.82.28-2.75.24-1.35-.06-2.66-.43-3.81-1.07-.6-.33-1.14-.75-1.61-1.24-.2-.21-.39-.44-.55-.68-.23-.34-.44-.71-.61-1.09-.15-.33-.28-.67-.39-1.02-.1-.31-.17-.63-.23-.95-.06-.38-.08-.76-.08-1.15.01-1.6.59-3.13 1.69-4.28 1.1-1.14 2.62-1.8 4.25-1.86.1-.00.19-.01.29-.01.02.00.05.00.07.00z" />
-                    </svg>
+                    />
                   )
                 },
                 {
@@ -186,14 +209,11 @@ export default function Footer() {
               Quick Links
             </h4>
             <ul className="space-y-3.5">
-              {['Home', 'About Us', 'Destinations', 'Services', 'Scholarships', 'Contact'].map((link) => (
-                <li key={link}>
-                  <a
-                    href="#"
-                    className="text-white/60 hover:text-[#D4AF37] transition-colors duration-300 text-[14px] font-medium block w-max"
-                  >
-                    {link}
-                  </a>
+              {quickLinks.map((link) => (
+                <li key={link.name}>
+                  <Link href={link.href} className="text-white/60 hover:text-[#D4AF37] transition-colors duration-300 text-[14px] font-medium block w-max">
+                    {link.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -205,20 +225,11 @@ export default function Footer() {
               Services
             </h4>
             <ul className="space-y-3.5">
-              {[
-                'University Admission',
-                'Visa Assistance',
-                'Scholarships',
-                'Pre-Departure Support',
-                'Career Guidance'
-              ].map((service) => (
-                <li key={service}>
-                  <a
-                    href="#"
-                    className="text-white/60 hover:text-[#D4AF37] transition-colors duration-300 text-[14px] font-medium block w-max"
-                  >
-                    {service}
-                  </a>
+              {services.map((service) => (
+                <li key={service.name}>
+                  <Link href={service.href} className="text-white/60 hover:text-[#D4AF37] transition-colors duration-300 text-[14px] font-medium block w-max">
+                    {service.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -230,14 +241,11 @@ export default function Footer() {
               Destinations
             </h4>
             <ul className="space-y-3.5">
-              {['Canada', 'UK', 'USA', 'Australia', 'China', 'Europe'].map((destination) => (
-                <li key={destination}>
-                  <a
-                    href="#"
-                    className="text-white/60 hover:text-[#D4AF37] transition-colors duration-300 text-[14px] font-medium block w-max"
-                  >
-                    {destination}
-                  </a>
+              {destinations.map((destination) => (
+                <li key={destination.name}>
+                  <Link href={destination.href} className="text-white/60 hover:text-[#D4AF37] transition-colors duration-300 text-[14px] font-medium block w-max">
+                    {destination.name}
+                  </Link>
                 </li>
               ))}
             </ul>
