@@ -161,11 +161,11 @@ export default function TestimonialsSection() {
     const diff = (index - activeIndex + total) % total;
     
     if (diff === 1 || diff === -(total - 1)) {
-      return "opacity-60 z-10 scale-[0.85] translate-x-[115%] bg-slate-100 border-slate-200 hidden md:block";
+      return "opacity-60 z-10 scale-[0.85] translate-x-[80%] bg-slate-100 border-slate-200 hidden md:block";
     }
     
     if (diff === total - 1 || diff === -1) {
-      return "opacity-60 z-10 scale-[0.85] -translate-x-[115%] bg-slate-100 border-slate-200 hidden md:block";
+      return "opacity-60 z-10 scale-[0.85] -translate-x-[80%] bg-slate-100 border-slate-200 hidden md:block";
     }
 
     return "opacity-0 z-0 scale-75 hidden absolute";
@@ -174,12 +174,6 @@ export default function TestimonialsSection() {
   return (
     <section ref={sectionRef} id="testimonials" className="relative w-full min-h-[100vh] pb-24 overflow-visible font-sans">
       <div className="absolute inset-0 z-0">
-        <Image 
-          src="/assets/Testimonials/bg.png" 
-          alt="Testimonials background" 
-          layout="fill"
-          objectFit="cover"
-        />
         <div className="absolute inset-0 bg-[#f1f5f9]/65 backdrop-blur-sm" />
       </div>
 
@@ -250,7 +244,7 @@ export default function TestimonialsSection() {
               <div
                 key={t.id}
                 onClick={() => setActiveIndex(index)}
-                className={`absolute transition-all duration-700 ease-in-out cursor-pointer border rounded-[2rem] p-8 pt-12 w-full max-w-[340px] md:max-w-[380px] ${getCardPositionClass(index)}`}
+                className={`absolute transition-all duration-1000 ease-in-out cursor-pointer border rounded-[2rem] p-8 pt-12 w-full max-w-[340px] md:max-w-[380px] ${getCardPositionClass(index)}`}
               >
                 <div className="absolute -top-10 left-1/2 -translate-x-1/2">
                   <div className="relative w-20 h-20 rounded-full border-4 border-white bg-gray-100 flex items-center justify-center shadow-lg">

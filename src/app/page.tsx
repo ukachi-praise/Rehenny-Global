@@ -1,11 +1,12 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import Testimonials from "@/components/Testimonials";
+import Features from "@/components/Features";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import WhyChoose from "@/components/WhyChoose";
 import "./globals.css";
 import Destinations from "@/components/Destinations";
-import { Footer } from "@/components/Footer";
+import Footer from "@/components/Footer";
+import LatestUpdates from "@/components/blog/LatestUpdates";
 
 export default function Home() {
   return (
@@ -13,9 +14,10 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
-        <Services />
+        <Features />
         <WhyChoose />
-        <Testimonials />
+        <TestimonialsSection />
+        <LatestUpdates />
         <Destinations />
       </main>
       <Footer />

@@ -18,9 +18,8 @@ export default function HeroSection() {
         <Image
           src="/assets/hero_bg.png"
           alt="Abstract background with blue and gold gradients"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="left md:top"
+          fill
+          className="object-cover object-left md:object-top"
           priority
         />
         {/* Dark overlay specifically layered with the original gradient */}
@@ -33,18 +32,16 @@ export default function HeroSection() {
       {/* ================= STUDENT IMAGE ================= */}
       <motion.div
         initial={{ opacity: 0, x: 40 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        animate={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
-
-        className="absolute bottom-0 right-[2%] md:right-[6%] lg:right-[10%] h-[55%] md:h-[92%] w-auto z-10 pointer-events-none flex justify-end will-change-[transform,opacity]"
+        transition={{ duration: 0.8, ease: "easeInOut", delay: 0.2 }}
+        className="absolute bottom-0 right-[2%] md:right-[6%] lg:right-[10%] h-[55%] md:h-[92%] w-[400px] md:w-[500px] lg:w-[600px] z-10 pointer-events-none"
       >
         <Image
           src="/assets/Hero_image.png"
           alt="Happy student looking at a laptop, representing a successful study abroad journey"
-          layout="fill"
-          objectFit="contain"
-          objectPosition="bottom"
-          className="opacity-95 md:opacity-100"
+          fill
+          className="object-contain object-bottom opacity-95 md:opacity-100"
           priority
         />
       </motion.div>

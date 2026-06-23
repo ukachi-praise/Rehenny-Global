@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Dialog, DialogContent, DialogHeader } from '@/components/ui/dialog';
-import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
 import { Button } from '@/components/button';
 import { motion } from 'framer-motion';
 import { Gift } from 'lucide-react';
@@ -46,7 +45,7 @@ export default function ReferralPopup() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
           <Link href="/">
-            <LiquidMetalButton label="Learn More" />
+            <Button>Learn More</Button>
           </Link>
           <Button variant="secondary" onClick={() => setIsOpen(false)}>
             Maybe Later

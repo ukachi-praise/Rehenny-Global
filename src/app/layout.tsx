@@ -14,12 +14,15 @@ const siteConfig = {
   url: "https://rhinnyglobal.com",
   ogImage: "https://rhinnyglobal.com/og.png", // Replace with your actual OG image URL
   description:
-    "Your journey. Our expertise. Global opportunities. Premium study abroad consultancy helping students achieve international education dreams.",
+    "Your journey. Our expertise. Global opportunities. Premium study abroad consultancy in Abuja, Nigeria, helping students achieve international education dreams.",
   links: {
-    twitter: "https://twitter.com/rhinnyglobal", // Replace with your actual Twitter URL
+    twitter: "https://twitter.com/rhinnyglobal",
     instagram: "https://instagram.com/rhinnyglobal",
+    facebook: "https://facebook.com/rhinnyglobal",
+    linkedin: "https://linkedin.com/company/rhinnyglobal",
+    youtube: "https://youtube.com/@rhinnyglobal",
   },
-  keywords: `study abroad, international education, university admissions, scholarships, visa assistance, Rhinny Global, Canada, UK, USA, Australia, student services`,
+  keywords: `study abroad, international education, university admissions, scholarships, visa assistance, Rhinny Global, Canada, UK, USA, Australia, student services, study abroad agency in Abuja, Nigeria`,
 };
 
 export const metadata: Metadata = {
@@ -88,10 +91,13 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
         />
+        <meta name="geo.region" content="NG-FC" />
+        <meta name="geo.placename" content="Abuja" />
+        <meta name="ICBM" content="9.0765, 7.3986" />
       </head>
       <body className="antialiased">
         {children}
-        <ReferralPopup />
+        {/* <ReferralPopup /> */}
         <WhatsAppButton />
       </body>
     </html>
