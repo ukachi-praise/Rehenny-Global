@@ -3,14 +3,48 @@
 import { Article } from '@/data/articles';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { Calendar, Clock, Share2, Users, FileText, MoreHorizontal, User } from 'lucide-react';
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
+import { Calendar, Clock, Share2, Users, FileText, MoreHorizontal, User, Copy } from 'lucide-react';
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
 import Link from 'next/link';
 import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
 import Image from 'next/image';
 import 'flag-icons/css/flag-icons.min.css';
+import { useState }_from 'react';
 
 const ArticleClientPage = ({ article, relatedArticles }: { article: Article, relatedArticles: Article[] }) => {
+  const [copied, setCopied] = useState(false);
+  const pageUrl = typeof window !== 'undefined' ? window.location.href : '';
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(pageUrl).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
+  const socialShares = [
+    {
+      icon: <FaFacebookF size={18} />,
+      label: 'Facebook',
+      href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}`,
+    },
+    {
+      icon: <FaTwitter size={18} />,
+      label: 'Twitter',
+      href: `https://twitter.com/intent/tweet?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(article.title)}`,
+    },
+    {
+      icon: <FaLinkedinIn size={18} />,
+      label: 'LinkedIn',
+      href: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(pageUrl)}&title=${encodeURIComponent(article.title)}&summary=${encodeURIComponent(article.desc)}`,
+    },
+    {
+      icon: <FaWhatsapp size={20} />,
+      label: 'WhatsApp',
+      href: `https://api.whatsapp.com/send?text=${encodeURIComponent(`${article.title} - ${pageUrl}`)}`,
+    },
+  ];
+
   return (
     <div className="bg-white text-slate-800 font-sans">
       <Navbar />
@@ -85,11 +119,13 @@ const ArticleClientPage = ({ article, relatedArticles }: { article: Article, rel
 
             <div className="bg-slate-50 border border-slate-200 rounded-lg p-6">
                 <h3 className="font-display font-bold text-lg text-slate-900 mb-4 flex items-center gap-3"><Share2 className="text-accent" size={20}/>Share This Guide</h3>
-                <div className="flex gap-3">
-                    <a href="#" aria-label="Share on Facebook" className="w-10 h-10 flex items-center justify-center rounded-lg bg-slate-100 border border-slate-200 text-slate-500 hover:bg-accent hover:text-white transition-colors"><FaFacebookF size={18}/></a>
-                    <a href="#" aria-label="Share on Twitter" className="w-10 h-10 flex items-center justify-center rounded-lg bg-slate-100 border border-slate-200 text-slate-500 hover:bg-accent hover:text-white transition-colors"><FaTwitter size={18}/></a>
-                    <a href="#" aria-label="Share on LinkedIn" className="w-10 h-10 flex items-center justify-center rounded-lg bg-slate-100 border border-slate-200 text-slate-500 hover:bg-accent hover:text-white transition-colors"><FaLinkedinIn size={18}/></a>
-                    <a href="#" aria-label="More options" className="w-10 h-10 flex items-center justify-center rounded-lg bg-slate-100 border border-slate-200 text-slate-500 hover:bg-accent hover:text-white transition-colors"><MoreHorizontal size={20}/></a>
+                <div className="flex gap-3 flex-wrap">
+                  {socialShares.map((share, index) => (
+                      <a key={index} href={share.href} aria-label={`Share on ${share.label}`} target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center rounded-lg bg-slate-100 border border-slate-200 text-slate-500 hover:bg-accent hover:text-white transition-colors">{share.icon}</a>
+                  ))}
+                  <button onClick={handleCopy} aria-label="Copy Link" className="w-10 h-10 flex items-center justify-center rounded-lg bg-slate-100 border border-slate-200 text-slate-500 hover:bg-accent hover:text-white transition-colors">
+                      {copied ? <span className="text-xs">Copied!</span> : <Copy size={18}/>}
+                  </button>
                 </div>
             </div>
         </aside>

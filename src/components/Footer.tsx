@@ -75,7 +75,7 @@ export default function Footer() {
           
           <div className="flex items-center gap-1.5">
             <span className="text-[#D4AF37]">🏛️</span>
-            <span>100+ Partner Universities</span>
+            <span>150+ Partner Universities</span>
           </div>
           <div className="hidden lg:block w-px h-4 bg-white/15" />
           

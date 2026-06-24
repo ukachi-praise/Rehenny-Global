@@ -3,7 +3,7 @@ import './globals.css'
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { Noto_Sans, Playfair_Display } from "next/font/google";
 import { cn } from "@/lib/utils";
-import ReferralPopup from '@/components/ReferralPopup';
+import ClientLayoutWrapper from '@/components/ClientLayoutWrapper';
 
 const playfairDisplayHeading = Playfair_Display({subsets:['latin'],variable:'--font-heading'});
 
@@ -96,8 +96,7 @@ export default function RootLayout({
         <meta name="ICBM" content="9.0765, 7.3986" />
       </head>
       <body className="antialiased">
-        {children}
-        {/* <ReferralPopup /> */}
+        <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
         <WhatsAppButton />
       </body>
     </html>

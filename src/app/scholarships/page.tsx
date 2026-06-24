@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { scholarships } from "@/data/scholarships";
 import ScholarshipCard from "@/components/ui/ScholarshipCard";
-
+import Link from 'next/link';
 
 const ScholarshipsPage = () => {
   const containerVariants = {
@@ -88,6 +88,29 @@ const ScholarshipsPage = () => {
             <motion.p variants={itemVariants} className="font-sans text-xl font-normal text-[#3a4a6a] mb-10 max-w-[540px] leading-relaxed">
                 At Rhinny Global, we believe in the power of education to transform lives. Our scholarships are designed to support ambitious students, remove financial barriers, and help you build a brighter future—one opportunity at a time.
             </motion.p>
+
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+                className="mt-12 p-8 bg-white/70 backdrop-blur-lg border border-gray-200/80 rounded-3xl max-w-3xl text-left shadow-xl"
+            >
+                <h3 className="text-2xl font-bold font-playfair text-[#1a1a24] mb-3">Student Loans & Financing</h3>
+                <p className="text-gray-700 mb-5 leading-relaxed">
+                    Worried about tuition fees and living costs? You don't have to pay everything upfront. Through our trusted financial partners, Rhinny Global students can now access student loans to fund their education abroad.
+                </p>
+                <div className="mb-6">
+                    <p className="font-semibold text-gray-800 mb-3">Eligible Destinations:</p>
+                    <div className="flex flex-wrap items-center gap-4 text-base">
+                        <span className="flex items-center gap-2 bg-gray-50 py-2 px-4 rounded-full font-medium border border-gray-200"><span className="fi fi-gb"></span>UK</span>
+                        <span className="flex items-center gap-2 bg-gray-50 py-2 px-4 rounded-full font-medium border border-gray-200"><span className="fi fi-ca"></span>Canada</span>
+                        <span className="flex items-center gap-2 bg-gray-50 py-2 px-4 rounded-full font-medium border border-gray-200"><span className="fi fi-us"></span>US</span>
+                    </div>
+                </div>
+                <Link href="/contact" className="inline-block bg-[#c4a35a] text-[#0a0a0f] font-bold py-3 px-8 rounded-xl hover:bg-opacity-90 transition-all transform hover:scale-105 shadow-md">
+                    Check Your Eligibility
+                </Link>
+            </motion.div>
           </motion.div>
         </div>
       </section>

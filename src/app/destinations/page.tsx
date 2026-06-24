@@ -53,17 +53,16 @@ export default function DestinationsPage() {
   }
 
   return (
-    <main className="bg-[#071320] min-h-screen flex flex-col font-montserrat">
+    <main className="bg-white min-h-screen flex flex-col font-montserrat">
       <Navbar />
 
       <header className="relative pt-40 pb-20 overflow-hidden bg-cover bg-center">
-        <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="text-4xl md:text-6xl font-playfair font-bold text-white leading-tight mb-4"
+            className="text-4xl md:text-6xl font-playfair font-bold text-[#1a1a24] leading-tight mb-4"
           >
             Explore Your Global Future
           </motion.h1>
@@ -71,10 +70,33 @@ export default function DestinationsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-            className="text-lg text-[#B8C0CC] max-w-3xl mx-auto"
+            className="text-lg text-[#555566] max-w-3xl mx-auto"
           >
             Discover world-class universities in the most sought-after study destinations. Each country offers a unique blend of culture, innovation, and academic excellence.
           </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+            className="mt-12 p-8 bg-white/70 backdrop-blur-lg border border-gray-200/80 rounded-3xl max-w-3xl mx-auto text-left shadow-xl"
+          >
+            <h3 className="text-2xl font-bold font-playfair text-[#1a1a24] mb-3">Student Loans & Financing</h3>
+            <p className="text-gray-700 mb-5 leading-relaxed">
+                Worried about tuition fees and living costs? You don't have to pay everything upfront. Through our trusted financial partners, Rhinny Global students can now access student loans to fund their education abroad.
+            </p>
+            <div className="mb-6">
+                <p className="font-semibold text-gray-800 mb-3">Eligible Destinations:</p>
+                <div className="flex flex-wrap items-center gap-4 text-base">
+                    <span className="flex items-center gap-2 bg-gray-50 py-2 px-4 rounded-full font-medium border border-gray-200"><span className="fi fi-gb"></span>UK</span>
+                    <span className="flex items-center gap-2 bg-gray-50 py-2 px-4 rounded-full font-medium border border-gray-200"><span className="fi fi-ca"></span>Canada</span>
+                    <span className="flex items-center gap-2 bg-gray-50 py-2 px-4 rounded-full font-medium border border-gray-200"><span className="fi fi-us"></span>US</span>
+                </div>
+            </div>
+            <Link href="/contact" className="inline-block bg-[#c4a35a] text-[#0a0a0f] font-bold py-3 px-8 rounded-xl hover:bg-opacity-90 transition-all transform hover:scale-105 shadow-md">
+                Check Your Eligibility
+            </Link>
+          </motion.div>
         </div>
       </header>
 
@@ -109,12 +131,12 @@ export default function DestinationsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white/5 border-y border-white/10">
+      <section className="py-20 bg-[#f9f9f9] border-y border-[#e0e0e0]">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-playfair font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl font-playfair font-bold text-[#1a1a24] mb-6">
             Not sure which destination is right for you?
           </h2>
-          <p className="text-[#B8C0CC] mb-10 max-w-2xl mx-auto">
+          <p className="text-[#555566] mb-10 max-w-2xl mx-auto">
             Our expert consultants provide personalized guidance based on your academic background and career goals.
           </p>
           <Link href="/contact">
