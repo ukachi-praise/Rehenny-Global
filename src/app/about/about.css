@@ -13,7 +13,17 @@
     --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.about-page {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
     font-family: var(--font-body);
     background-color: var(--color-bg);
     color: var(--color-text);
@@ -21,8 +31,88 @@
     overflow-x: hidden;
 }
 
+/* Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 1.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10, 10, 15, 0.8);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: var(--transition);
+}
+
+nav.scrolled {
+    padding: 1rem 4rem;
+    background: rgba(10, 10, 15, 0.95);
+}
+
+.logo {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+
+.logo span {
+    color: var(--color-accent);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-accent);
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--color-text);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--color-text);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
 /* Hero Section */
-.about-page .hero {
+.hero {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -34,7 +124,7 @@
     overflow: hidden;
 }
 
-.about-page .hero::before {
+.hero::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -46,36 +136,42 @@
     pointer-events: none;
 }
 
-.about-page .hero-label {
+.hero-label {
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 4px;
     color: var(--color-accent);
     margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.2s;
 }
 
-.about-page .hero h1 {
+.hero h1 {
     font-family: var(--font-display);
     font-size: clamp(3rem, 8vw, 6rem);
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.4s;
 }
 
-.about-page .hero h1 em {
+.hero h1 em {
     font-style: italic;
     color: var(--color-accent);
 }
 
-.about-page .hero-tagline {
+.hero-tagline {
     font-size: 1.1rem;
     color: var(--color-text-muted);
     max-width: 500px;
     margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.6s;
 }
 
-.about-page .hero-cta {
+.hero-cta {
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
@@ -87,27 +183,29 @@
     font-size: 0.9rem;
     border-radius: 100px;
     transition: var(--transition);
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.8s;
 }
 
-.about-page .hero-cta:hover {
+.hero-cta:hover {
     background: var(--color-accent-light);
     transform: translateY(-2px);
     box-shadow: 0 10px 40px rgba(196, 163, 90, 0.3);
 }
 
 /* Section Styling */
-.about-page section {
+section {
     padding: 8rem 4rem;
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
 }
 
-.about-page .section-header {
+.section-header {
     margin-bottom: 4rem;
 }
 
-.about-page .section-label {
+.section-label {
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -119,7 +217,7 @@
     gap: 1rem;
 }
 
-.about-page .section-label::before {
+.section-label::before {
     content: '';
     display: block;
     width: 40px;
@@ -127,7 +225,7 @@
     background: var(--color-accent);
 }
 
-.about-page .section-title {
+.section-title {
     font-family: var(--font-display);
     font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 600;
@@ -135,27 +233,27 @@
 }
 
 /* Our Story Section */
-.about-page .story-section {
+.story-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: start;
 }
 
-.about-page .story-content p {
+.story-content p {
     color: var(--color-text-muted);
     margin-bottom: 1.5rem;
     font-size: 1.05rem;
 }
 
-.about-page .story-content p.lead {
+.story-content p.lead {
     color: var(--color-text);
     font-size: 1.2rem;
     font-weight: 500;
     line-height: 1.6;
 }
 
-.about-page .story-quote {
+.story-quote {
     background: var(--color-surface);
     border-left: 3px solid var(--color-accent);
     padding: 2.5rem;
@@ -163,7 +261,7 @@
     position: relative;
 }
 
-.about-page .story-quote::before {
+.story-quote::before {
     content: '"';
     font-family: var(--font-display);
     font-size: 6rem;
@@ -175,7 +273,7 @@
     line-height: 1;
 }
 
-.about-page .story-quote p {
+.story-quote p {
     font-family: var(--font-display);
     font-size: 1.4rem;
     font-style: italic;
@@ -186,14 +284,14 @@
 }
 
 /* Values Grid */
-.about-page .values-grid {
+.values-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-top: 3rem;
 }
 
-.about-page .value-card {
+.value-card {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     padding: 2.5rem;
@@ -203,7 +301,7 @@
     overflow: hidden;
 }
 
-.about-page .value-card::before {
+.value-card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -215,17 +313,17 @@
     transition: var(--transition);
 }
 
-.about-page .value-card:hover {
+.value-card:hover {
     transform: translateY(-5px);
     border-color: rgba(196, 163, 90, 0.3);
     box-shadow: 0 20px 60px rgba(0,0,0,0.3);
 }
 
-.about-page .value-card:hover::before {
+.value-card:hover::before {
     transform: scaleX(1);
 }
 
-.about-page .value-icon {
+.value-icon {
     width: 48px;
     height: 48px;
     background: rgba(196, 163, 90, 0.1);
@@ -237,26 +335,26 @@
     font-size: 1.5rem;
 }
 
-.about-page .value-card h3 {
+.value-card h3 {
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 0.75rem;
 }
 
-.about-page .value-card p {
+.value-card p {
     color: var(--color-text-muted);
     font-size: 0.95rem;
     line-height: 1.6;
 }
 
 /* Vision & Mission */
-.about-page .vision-mission {
+.vision-mission {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
 }
 
-.about-page .vm-card {
+.vm-card {
     background: var(--color-surface);
     padding: 3rem;
     border-radius: 20px;
@@ -265,11 +363,11 @@
     transition: var(--transition);
 }
 
-.about-page .vm-card:hover {
+.vm-card:hover {
     border-color: rgba(196, 163, 90, 0.2);
 }
 
-.about-page .vm-icon {
+.vm-icon {
     width: 56px;
     height: 56px;
     background: rgba(196, 163, 90, 0.1);
@@ -281,24 +379,24 @@
     font-size: 1.75rem;
 }
 
-.about-page .vm-card h3 {
+.vm-card h3 {
     font-family: var(--font-display);
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
 }
 
-.about-page .vm-card p {
+.vm-card p {
     color: var(--color-text-muted);
     font-size: 1.05rem;
     line-height: 1.7;
 }
 
 /* Roadmap */
-.about-page .roadmap {
+.roadmap {
     position: relative;
 }
 
-.about-page .roadmap::before {
+.roadmap::before {
     content: '';
     position: absolute;
     left: 24px;
@@ -308,18 +406,18 @@
     background: var(--color-border);
 }
 
-.about-page .roadmap-item {
+.roadmap-item {
     display: flex;
     gap: 2.5rem;
     margin-bottom: 4rem;
     position: relative;
 }
 
-.about-page .roadmap-item:last-child {
+.roadmap-item:last-child {
     margin-bottom: 0;
 }
 
-.about-page .roadmap-marker {
+.roadmap-marker {
     width: 50px;
     height: 50px;
     background: var(--color-surface);
@@ -337,13 +435,13 @@
     transition: var(--transition);
 }
 
-.about-page .roadmap-item:hover .roadmap-marker {
+.roadmap-item:hover .roadmap-marker {
     background: var(--color-accent);
     color: var(--color-bg);
     transform: scale(1.1);
 }
 
-.about-page .roadmap-content {
+.roadmap-content {
     background: var(--color-surface);
     padding: 2.5rem;
     border-radius: 16px;
@@ -352,32 +450,32 @@
     transition: var(--transition);
 }
 
-.about-page .roadmap-item:hover .roadmap-content {
+.roadmap-item:hover .roadmap-content {
     border-color: rgba(196, 163, 90, 0.3);
     transform: translateX(5px);
 }
 
-.about-page .roadmap-content h3 {
+.roadmap-content h3 {
     font-family: var(--font-display);
     font-size: 1.5rem;
     margin-bottom: 0.75rem;
     color: var(--color-accent);
 }
 
-.about-page .roadmap-content p {
+.roadmap-content p {
     color: var(--color-text-muted);
     font-size: 1rem;
     line-height: 1.7;
 }
 
 /* Why Choose Us */
-.about-page .features-grid {
+.features-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
 }
 
-.about-page .feature-item {
+.feature-item {
     text-align: center;
     padding: 3rem 2rem;
     background: var(--color-surface);
@@ -386,32 +484,32 @@
     transition: var(--transition);
 }
 
-.about-page .feature-item:hover {
+.feature-item:hover {
     transform: translateY(-5px);
     border-color: rgba(196, 163, 90, 0.2);
     box-shadow: 0 20px 60px rgba(0,0,0,0.2);
 }
 
-.about-page .feature-item .icon {
+.feature-item .icon {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
     display: block;
 }
 
-.about-page .feature-item h3 {
+.feature-item h3 {
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 1rem;
 }
 
-.about-page .feature-item p {
+.feature-item p {
     color: var(--color-text-muted);
     font-size: 0.95rem;
     line-height: 1.6;
 }
 
 /* CTA Section */
-.about-page .cta-section {
+.cta-section {
     text-align: center;
     padding: 6rem 2rem;
     background: var(--color-surface);
@@ -422,7 +520,7 @@
     overflow: hidden;
 }
 
-.about-page .cta-section::before {
+.cta-section::before {
     content: '';
     position: absolute;
     top: -50%;
@@ -433,19 +531,19 @@
     pointer-events: none;
 }
 
-.about-page .cta-section h2 {
+.cta-section h2 {
     font-family: var(--font-display);
     font-size: clamp(2rem, 4vw, 3rem);
     margin-bottom: 1rem;
     position: relative;
 }
 
-.about-page .cta-section h2 em {
+.cta-section h2 em {
     color: var(--color-accent);
     font-style: italic;
 }
 
-.about-page .cta-section p {
+.cta-section p {
     color: var(--color-text-muted);
     max-width: 500px;
     margin: 0 auto 2rem;
@@ -453,7 +551,7 @@
     position: relative;
 }
 
-.about-page .cta-btn {
+.cta-btn {
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
@@ -468,48 +566,97 @@
     position: relative;
 }
 
-.about-page .cta-btn:hover {
+.cta-btn:hover {
     background: var(--color-accent-light);
     transform: translateY(-2px);
     box-shadow: 0 10px 40px rgba(196, 163, 90, 0.3);
 }
 
+/* Footer */
+footer {
+    border-top: 1px solid var(--color-border);
+    padding: 3rem 4rem;
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+footer .logo {
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Responsive */
 @media (max-width: 968px) {
-    .about-page section {
+    .nav-links {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    nav {
+        padding: 1rem 2rem;
+    }
+
+    section {
         padding: 5rem 2rem;
     }
 
-    .about-page .story-section,
-    .about-page .vision-mission,
-    .about-page .values-grid,
-    .about-page .features-grid {
+    .story-section,
+    .vision-mission,
+    .values-grid,
+    .features-grid {
         grid-template-columns: 1fr;
     }
 
-    .about-page .roadmap::before {
+    .roadmap::before {
         left: 19px;
     }
 
-    .about-page .roadmap-item {
+    .roadmap-item {
         gap: 1.5rem;
     }
 }
 
 @media (max-width: 640px) {
-    .about-page .hero h1 {
+    .hero h1 {
         font-size: 2.5rem;
     }
 
-    .about-page .section-title {
+    .section-title {
         font-size: 2rem;
     }
 
-    .about-page .story-quote p {
+    .story-quote p {
         font-size: 1.1rem;
     }
 
-    .about-page .vm-card {
+    .vm-card {
         padding: 2rem;
     }
 }
