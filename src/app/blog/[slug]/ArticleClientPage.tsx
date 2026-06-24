@@ -9,7 +9,7 @@ import Link from 'next/link';
 import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
 import Image from 'next/image';
 import 'flag-icons/css/flag-icons.min.css';
-import { useState }_from 'react';
+import { useState } from 'react';
 
 const ArticleClientPage = ({ article, relatedArticles }: { article: Article, relatedArticles: Article[] }) => {
   const [copied, setCopied] = useState(false);
