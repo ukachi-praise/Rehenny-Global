@@ -7,6 +7,7 @@ import "./globals.css";
 import Destinations from "@/components/Destinations";
 import Footer from "@/components/Footer";
 import LatestUpdates from "@/components/blog/LatestUpdates";
+import TopScholarships from "@/components/TopScholarships";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <Features />
+        <TopScholarships />
         <WhyChoose />
         <TestimonialsSection />
         <LatestUpdates />
