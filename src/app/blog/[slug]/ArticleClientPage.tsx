@@ -1,4 +1,4 @@
-'use client';
+a'usee client';
 
 import { Article } from '@/data/articles';
 import Navbar from '@/components/Navbar';
