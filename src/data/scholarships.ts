@@ -627,6 +627,146 @@ export const scholarships: Scholarship[] = [
       </section>
       `
     ]
+  },
+  {
+    id: 8,
+    slug: "london-metropolitan-university-bright-futures-scholarship-july-2026",
+    image: "/assets/scholarship/london-met.png",
+    university: "London Metropolitan University",
+    country: "UK",
+    title: "Bright Futures Scholarship",
+    description: "London Metropolitan University offers the Bright Futures Scholarship to support international students progressing from pathway programmes to full degrees.",
+    amount: "£5,000",
+    intake: "September 2026",
+    content: [
+      `
+      <section id="scholarship-details">
+          <h2 class="text-3xl font-bold font-display mb-4">Scholarship Details</h2>
+          <p>London Metropolitan University offers the Bright Futures Scholarship to support international students progressing from pathway programmes to full degrees.</p>
+          <div class="mt-6">
+            <h3 class="text-2xl font-bold">International Foundation Programme & International Year One</h3>
+            <ul class="list-disc list-inside space-y-2 mt-2">
+                <li>£5,000 Bright Futures Scholarship for each year of the undergraduate degree after successful progression.</li>
+                <li>5% Prompt Payment Discount for students who pay their tuition fees in full.</li>
+            </ul>
+          </div>
+          <div class="mt-6">
+            <h3 class="text-2xl font-bold">Pre-Master's Programme</h3>
+            <ul class="list-disc list-inside space-y-2 mt-2">
+                <li>£5,000 Bright Futures Scholarship towards the postgraduate degree after successful progression.</li>
+                <li>5% Prompt Payment Discount for students who pay their tuition fees in full.</li>
+            </ul>
+          </div>
+      </section>
+      `,
+       `
+      <section id="update-date">
+          <h2 class="text-3xl font-bold font-display mb-4">Update Date</h2>
+          <p>12 July 2026</p>
+      </section>
+      `
+    ]
+  },
+  {
+    id: 9,
+    slug: "university-of-sussex-india-scholarship-july-2026",
+    image: "/assets/scholarship/sussex.png",
+    university: "University of Sussex",
+    country: "UK",
+    title: "Scholarships & Funding (India Focus)",
+    description: "The University of Sussex offers multiple funding opportunities for eligible Master's students, with a focus on Indian applicants. Update Date: 12 July 2026.",
+    amount: "Up to £7,000",
+    intake: "September 2026",
+    content: [
+      `
+      <section id="scholarship-details">
+          <h2 class="text-3xl font-bold font-display mb-4">Scholarships & Funding (India Focus)</h2>
+          <p>The University of Sussex offers multiple funding opportunities for eligible Master's students, with a focus on Indian applicants. Update Date: 12 July 2026.</p>
+          <div class="mt-6">
+            <h3 class="text-2xl font-bold">Available Awards</h3>
+            <ul class="list-disc list-inside space-y-2 mt-2">
+                <li>£5,000 Sussex India Scholarship for eligible Master's students.</li>
+                <li>£1,000 Agent Exclusive Nomination Scholarship (excluding IDS programmes).</li>
+                <li>£1,000 Travel Bursary — Business School students must meet the India Team in person; Science, Engineering & Medicine students may meet in person or virtually. Note: Deposit must not be paid before the meeting.</li>
+            </ul>
+          </div>
+          <div class="mt-6">
+            <h3 class="text-2xl font-bold">Eligibility Criteria</h3>
+            <ul class="list-disc list-inside space-y-2 mt-2">
+                <li>Deposit not yet paid.</li>
+                <li>No agent change cases.</li>
+                <li>For UG applicants, Sussex must not already be the firm choice.</li>
+            </ul>
+            <p class="mt-4 font-bold">Eligible Master's students can receive up to £7,000 in guaranteed funding.</p>
+          </div>
+          <div class="mt-6">
+            <h3 class="text-2xl font-bold">Deadline</h3>
+            <p>30 July 2026 (First-come, first-served basis).</p>
+          </div>
+          <div class="mt-6">
+            <h3 class="text-2xl font-bold">Location & Intake</h3>
+            <p>United Kingdom | Intake: September 2026</p>
+          </div>
+      </section>
+      `,
+       `
+      <section id="update-date">
+          <h2 class="text-3xl font-bold font-display mb-4">Update Date</h2>
+          <p>12 July 2026</p>
+      </section>
+      `
+    ]
+  },
+  {
+    id: 10,
+    slug: "brunel-university-london-september-2026-undergraduate-offer",
+    image: "/assets/scholarship/brunel.png",
+    university: "Brunel University London",
+    country: "UK",
+    title: "September 2026 Undergraduate Offer",
+    description: "Brunel University London is celebrating its 60th anniversary with exclusive scholarship and accommodation offers for international undergraduate students starting in September 2026.",
+    amount: "Up to £2,000",
+    intake: "September 2026",
+    content: [
+      `
+      <section id="scholarship-details">
+          <h2 class="text-3xl font-bold font-display mb-4">September 2026 Undergraduate Offer</h2>
+          <p>Brunel University London is celebrating its 60th anniversary with exclusive scholarship and accommodation offers for international undergraduate students starting in September 2026.</p>
+          <div class="mt-6">
+            <h3 class="text-2xl font-bold">£1,000 per year — Brunel 60th Anniversary International Scholarship</h3>
+            <ul class="list-disc list-inside space-y-2 mt-2">
+                <li>For eligible international undergraduate students starting in September 2026.</li>
+                <li>Must hold an offer and pay a £5,000 tuition fee deposit by 31 August 2026.</li>
+                <li>Must meet all offer conditions before registration.</li>
+                <li>No separate application required — automatic consideration upon meeting criteria.</li>
+            </ul>
+          </div>
+          <div class="mt-6">
+            <h3 class="text-2xl font-bold">£1,000 Accommodation Discount</h3>
+            <ul class="list-disc list-inside space-y-2 mt-2">
+                <li>Available for eligible self-funded international undergraduate students.</li>
+                <li>Valid for Band 2 Ensuite rooms in Bishop Complex.</li>
+                <li>Accommodation application must be submitted by 31 August 2026.</li>
+                <li>Subject to availability and eligibility.</li>
+            </ul>
+          </div>
+          <div class="mt-6">
+            <h3 class="text-2xl font-bold">Total Potential Benefit</h3>
+            <p>Up to £2,000 (£1,000 scholarship + £1,000 accommodation discount).</p>
+          </div>
+          <div class="mt-6">
+            <h3 class="text-2xl font-bold">Intake</h3>
+            <p>September 2026 Undergraduate Students</p>
+          </div>
+      </section>
+      `,
+       `
+      <section id="update-date">
+          <h2 class="text-3xl font-bold font-display mb-4">Update Date</h2>
+          <p>12 July 2026</p>
+      </section>
+      `
+    ]
   }
 ];
 
