@@ -21,6 +21,274 @@ export interface Article {
 
 export const articles: Article[] = [
     {
+        id: 11,
+        slug: "mohawk-college-may-2027-applications-open",
+        image: "/assets/articles/seneca.png",
+        tag: "Admissions",
+        title: "Mohawk College Opens May 2027 Applications: 3 In-Demand Programs for International Students",
+        desc: "Mohawk College is now accepting applications for May 2027! Explore Personal Support Worker, Early Childhood Education, and Cyber Security Analytics programs.",
+        date: "August 21, 2026",
+        readTime: "5 Min Read",
+        author: {
+            name: "Rhinny Global",
+            role: "Admissions Team",
+            avatar: "/assets/rhinny-logo.png"
+        },
+        tableOfContents: [
+            { id: "intro", label: "Introduction" },
+            { id: "programs-open", label: "Programs Open for May 2027" },
+            { id: "why-apply-early", label: "Why Apply Early?" },
+            { id: "how-rhinny-helps", label: "How Rhinny Global Can Help" }
+        ],
+        content: [
+            `
+            <section id="intro">
+                <h2 class="text-3xl font-bold font-display mb-4">Mohawk College Opens May 2027 Applications</h2>
+                <p>Mohawk College has officially opened its doors to May 2027 applicants, and if you\'re considering studying in Canada, now is the time to act. Located in Hamilton, Ontario—one of Canada\'s most affordable and student-friendly cities—Mohawk College combines practical, career-focused education with strong industry connections.</p>
+            </section>
+            `,
+            `
+            <section id="programs-open">
+                <h2 class="text-3xl font-bold font-display mb-4 mt-8">Programs Open for May 2027 Intake</h2>
+                <ul class="list-disc list-inside space-y-4 mt-4">
+                    <li><strong>Certificate in Personal Support Worker:</strong> Canada\'s aging population has created a critical demand for healthcare support professionals. This program prepares you for immediate employment in hospitals, long-term care facilities, and home care settings. With a pathway to permanent residency through healthcare-focused immigration streams, this is a strategic choice for students seeking both career stability and settlement opportunities.</li>
+                    <li><strong>Diploma in Early Childhood Education:</strong> With Ontario investing heavily in affordable childcare and early learning, ECE graduates are in high demand. This diploma qualifies you to work in licensed childcare centers, kindergarten classrooms, and early intervention programs. The program includes hands-on placements, ensuring you graduate with real classroom experience.</li>
+                    <li><strong>Graduate Certificate in Cyber Security Analytics:</strong> As cyber threats grow more sophisticated, organizations across every sector need skilled security analysts. This postgraduate program is designed for students with prior education or experience in IT who want to specialize in threat detection, risk assessment, and security architecture. Canada\'s tech sector is booming, and cybersecurity professionals command competitive salaries from day one.</li>
+                </ul>
+            </section>
+            `,
+            `
+            <section id="why-apply-early">
+                <h2 class="text-3xl font-bold font-display mb-4 mt-8">Why Apply Early for May 2027?</h2>
+                <ul class="list-disc list-inside space-y-2 mt-4">
+                    <li><strong>Program availability:</strong> Popular programs fill quickly, and early applicants have the best selection.</li>
+                    <li><strong>Study permit processing:</strong> Canadian visa processing can take several months; early application ensures you won\'t be rushing against deadlines.</li>
+                    <li><strong>Housing planning:</strong> Securing affordable accommodation in Hamilton becomes more challenging closer to intake dates.</li>
+                    <li><strong>Scholarship opportunities:</strong> Many institutional scholarships prioritize early applicants.</li>
+                </ul>
+            </section>
+            `,
+            `
+            <section id="how-rhinny-helps">
+                <h2 class="text-3xl font-bold font-display mb-4 mt-8">How Rhinny Global Can Help</h2>
+                <p>From program selection and application preparation to study permit documentation and pre-departure orientation, we guide you through every step. Our team has helped hundreds of students secure admission to Mohawk College and transition successfully to life and study in Canada.</p>
+                <p class="mt-4">Ready to apply? Contact our advisors today to start your Mohawk College application for May 2027.</p>
+            </section>
+            `
+        ]
+    },
+    {
+        id: 12,
+        slug: "sait-admission-deadlines-september-2026-may-2027",
+        image: "/assets/articles/norquest.png",
+        tag: "Admissions",
+        title: "SAIT September 2026 Deadline Alert + May & September 2027 Now Open for Applications",
+        desc: "Don't miss the August 5, 2026 deadline for SAIT's September 2026 intake. Plus, applications are now open for May and September 2027!",
+        date: "August 21, 2026",
+        readTime: "6 Min Read",
+        author: {
+            name: "Rhinny Global",
+            role: "Admissions Team",
+            avatar: "/assets/rhinny-logo.png"
+        },
+        tableOfContents: [
+            { id: "intro", label: "Introduction" },
+            { id: "critical-deadline", label: "Critical Deadline: Sept 2026" },
+            { id: "new-opportunities", label: "New Opportunities: 2027 Intakes" },
+            { id: "why-sait", label: "Why Calgary? Why SAIT?" },
+            { id: "application-strategy", label: "Application Strategy" },
+            { id: "next-step", label: "Your Next Step" }
+        ],
+        content: [
+            `
+            <section id="intro">
+                <h2 class="text-3xl font-bold font-display mb-4">SAIT Admission Deadlines & Upcoming Intakes</h2>
+                <p>Southern Alberta Institute of Technology (SAIT) has issued an important deadline reminder for prospective students, alongside exciting news about upcoming 2027 intakes. If Calgary—Canada\'s most affordable major city and a hub for energy, technology, and business—is on your study destination list, this update is essential reading.</p>
+            </section>
+            `,
+            `
+            <section id="critical-deadline">
+                <h2 class="text-3xl font-bold font-display mb-4 mt-8">Critical Deadline: September 2026 Intake</h2>
+                <p><strong>August 5, 2026</strong> is the firm deadline for three key requirements:</p>
+                <table class="w-full mt-4 border-collapse">
+                    <thead>
+                        <tr>
+                            <th class="border p-2 text-left">Requirement</th>
+                            <th class="border p-2 text-left">What You Need to Do</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="border p-2 font-bold">Registration</td>
+                            <td class="border p-2">Complete your official enrollment and course selection.</td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2 font-bold">Tuition Fee Payment</td>
+                            <td class="border p-2">Submit full payment or approved payment plan to secure your seat.</td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2 font-bold">Deferral Requests</td>
+                            <td class="border p-2">If you need to postpone your start date, submit your deferral application.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="mt-4">Missing this deadline means losing your offer of admission. SAIT\'s programs are competitive, and seats are not held beyond the deadline date. We strongly advise all accepted students to complete these steps immediately—or contact us if you need assistance with payment processing or deferral documentation.</p>
+            </section>
+            `,
+            `
+            <section id="new-opportunities">
+                <h2 class="text-3xl font-bold font-display mb-4 mt-8">New Opportunities: May 2027 & September 2027 Intakes</h2>
+                <ul class="list-disc list-inside space-y-4 mt-4">
+                    <li><strong>May 2027 Intake:</strong> Ideal for students who want to begin their Canadian journey in the spring. Smaller cohort sizes often mean more personalized attention during your first term. Perfect alignment with Calgary\'s summer job market for students seeking part-time work.</li>
+                    <li><strong>September 2027 Intake:</strong> SAIT\'s largest and most comprehensive intake with the widest program selection. Fall start aligns with the traditional academic calendar and maximum scholarship opportunities. Best availability for on-campus housing and student services.</li>
+                </ul>
+            </section>
+            `,
+            `
+            <section id="why-sait">
+                <h2 class="text-3xl font-bold font-display mb-4 mt-8">Why Calgary? Why SAIT?</h2>
+                <p>SAIT is one of Canada\'s leading polytechnic institutions, known for programs that integrate classroom learning with industry experience. Calgary offers:</p>
+                 <ul class="list-disc list-inside space-y-2 mt-4">
+                    <li>Affordable living costs compared to Toronto or Vancouver</li>
+                    <li>Strong job market in energy, technology, healthcare, and construction</li>
+                    <li>Post-graduation work permits that qualify for Alberta\'s streamlined immigration pathways</li>
+                    <li>Vibrant international student community with excellent support services</li>
+                </ul>
+            </section>
+            `,
+            `
+            <section id="application-strategy">
+                <h2 class="text-3xl font-bold font-display mb-4 mt-8">Application Strategy: Start Early</h2>
+                <p>Early application isn\'t just about securing a seat—it\'s about building the strongest possible file:</p>
+                <ul class="list-disc list-inside space-y-2 mt-4">
+                    <li><strong>Document preparation:</strong> Transcripts, English test scores, and reference letters take time to compile and verify.</li>
+                    <li><strong>Statement of purpose:</strong> A compelling, tailored application letter significantly improves admission chances.</li>
+                    <li><strong>Financial documentation:</strong> Study permit success depends on clearly demonstrated funding.</li>
+                    <li><strong>Program research:</strong> Understanding SAIT\'s competitive programs helps you make informed backup choices.</li>
+                </ul>
+            </section>
+            `,
+            `
+            <section id="next-step">
+                <h2 class="text-3xl font-bold font-display mb-4 mt-8">Your Next Step</h2>
+                <p>Whether you\'re racing to meet the August 5, 2026 deadline or planning ahead for 2027, Rhinny Global provides end-to-end support. We handle application review, document verification, visa guidance, and even pre-departure briefings so you arrive in Calgary prepared and confident.</p>
+                <p class="mt-4"><strong>September 2026 applicants:</strong> Urgently contact us to complete your requirements before August 5. | <strong>2027 applicants:</strong> Schedule a free consultation to plan your SAIT application timeline.</p>
+            </section>
+            `
+        ]
+    },
+    {
+        id: 13,
+        slug: "niagara-college-4000-global-scholarship-2027",
+        image: "/assets/articles/niagara.png",
+        tag: "Scholarships",
+        title: "Niagara College Launches $4,000 Global Scholarship for January & May 2027 International Students",
+        desc: "Niagara College offers a new CAD $4,000 Global Scholarship for international students starting in January or May 2027. Learn eligibility and how to apply.",
+        date: "August 21, 2026",
+        readTime: "5 Min Read",
+        author: {
+            name: "Rhinny Global",
+            role: "Admissions Team",
+            avatar: "/assets/rhinny-logo.png"
+        },
+        tableOfContents: [
+            { id: "intro", label: "Introduction" },
+            { id: "scholarship-details", label: "Scholarship Details" },
+            { id: "retroactive-eligibility", label: "Retroactive Eligibility" },
+            { id: "why-niagara", label: "Why Niagara College?" },
+            { id: "how-to-secure", label: "How to Secure Your Scholarship" },
+            { id: "rhinny-support", label: "Rhinny Global Support" }
+        ],
+        content: [
+            `
+            <section id="intro">
+                <h2 class="text-3xl font-bold font-display mb-4">Niagara College Launches $4,000 Global Scholarship</h2>
+                <p>Great news for students planning to study in Ontario\'s beautiful Niagara Region: Niagara College has introduced the Global Scholarship, a CAD $4,000 award for international students beginning their studies in January 2027 or May 2027. This scholarship represents a significant opportunity to reduce your first-year costs while studying at one of Ontario\'s most student-centered colleges, located in a region famous for its wineries, tourism industry, and proximity to both Toronto and the U.S. border.</p>
+            </section>
+            `,
+            `
+            <section id="scholarship-details">
+                <h2 class="text-3xl font-bold font-display mb-4 mt-8">Scholarship Details at a Glance</h2>
+                <table class="w-full mt-4 border-collapse">
+                    <thead>
+                        <tr>
+                            <th class="border p-2 text-left">Feature</th>
+                            <th class="border p-2 text-left">Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="border p-2 font-bold">Award Amount</td>
+                            <td class="border p-2">CAD $4,000</td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2 font-bold">Disbursement</td>
+                            <td class="border p-2">Applied to Term 1 tuition fees</td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2 font-bold">Eligible Intakes</td>
+                            <td class="border p-2">January 2027 and May 2027</td>
+                        </tr>
+                         <tr>
+                            <td class="border p-2 font-bold">Who Qualifies</td>
+                            <td class="border p-2">All international students beginning a new program in these intakes</td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2 font-bold">Application Process</td>
+                            <td class="border p-2">Simple scholarship form submitted before program start date</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            `,
+            `
+            <section id="retroactive-eligibility">
+                <h2 class="text-3xl font-bold font-display mb-4 mt-8">Retroactive Eligibility: Already Applied? You\'re Included</h2>
+                <p>This is where Niagara College distinguishes itself from many institutions. Students who applied for January or May 2027 before the scholarship announcement are not excluded. If you have already received an offer of admission or submitted your application, you simply need to complete the scholarship form to be considered. This retroactive approach ensures fairness and rewards early planners—a rare and welcome policy in international education.</p>
+            </section>
+            `,
+            `
+            <section id="why-niagara">
+                <h2 class="text-3xl font-bold font-display mb-4 mt-8">Why Niagara College?</h2>
+                <ul class="list-disc list-inside space-y-2 mt-4">
+                    <li><strong>Location Advantage:</strong> The Niagara Region offers a unique study environment: affordable living costs compared to Toronto, a thriving tourism and hospitality sector for part-time and post-graduation employment, and stunning natural scenery including Niagara Falls.</li>
+                    <li><strong>Industry Connections:</strong> Niagara College is renowned for its programs in hospitality, tourism, business, and environmental studies, with curriculum designed alongside industry partners. Many programs include co-op placements or field placements in the region\'s robust tourism and agriculture sectors.</li>
+                    <li><strong>Pathway to Permanent Residency:</strong> Ontario\'s provincial immigration programs favor graduates with Canadian credentials and work experience. Niagara College graduates benefit from the region\'s lower competition for skilled jobs compared to major metropolitan areas, potentially accelerating your path to Canadian permanent residency.</li>
+                </ul>
+            </section>
+            `,
+            `
+            <section id="how-to-secure">
+                <h2 class="text-3xl font-bold font-display mb-4 mt-8">How to Secure Your $4,000 Scholarship</h2>
+                <ul class="list-disc list-inside space-y-2 mt-4">
+                    <li>Apply to Niagara College for January 2027 or May 2027 (if you haven\'t already).</li>
+                    <li>Receive your offer of admission.</li>
+                    <li>Complete the Global Scholarship form before your program start date.</li>
+                    <li>See the $4,000 credited to your first-term tuition invoice.</li>
+                </ul>
+                 <h3 class="text-2xl font-bold font-display mb-2 mt-4">Strategic Considerations</h3>
+                 <ul class="list-disc list-inside space-y-4 mt-4">
+                    <li><strong>January 2027 Intake:</strong> Start the new year with your Canadian education journey. Graduate in time for summer employment cycles. Less competitive for on-campus housing and services.</li>
+                    <li><strong>May 2027 Intake:</strong> Begin during Niagara\'s beautiful spring season. Align your studies with the region\'s peak tourism season for relevant work experience. Potential for summer job opportunities immediately after your first term.</li>
+                </ul>
+            </section>
+            `,
+            `
+            <section id="rhinny-support">
+                <h2 class="text-3xl font-bold font-display mb-4 mt-8">Rhinny Global Scholarship Support</h2>
+                <p>Navigating scholarship applications while managing admission requirements and study permit documentation can be overwhelming. Our advisors ensure you:</p>
+                <ul class="list-disc list-inside space-y-2 mt-4">
+                    <li>Meet all scholarship deadlines and form requirements.</li>
+                    <li>Understand how the scholarship integrates with your overall financial planning.</li>
+                    <li>Maximize your chances of admission to competitive Niagara College programs.</li>
+                    <li>Prepare complete study permit applications that reference your scholarship award.</li>
+                </ul>
+                <p class="mt-4">Don\'t leave $4,000 on the table. Contact Rhinny Global today to apply for Niagara College and secure your Global Scholarship for 2027.</p>
+            </section>
+            `
+        ]
+    },
+    {
         id: 7,
         slug: "niagara-college-may-2026-intake-open",
         image: "/assets/articles/niagara.png",
@@ -101,8 +369,8 @@ export const articles: Article[] = [
             `,
             `
             <section id="what-has-changed">
-                <h2 class="text-3xl font-bold font-display mb-4 mt-8">Understanding Canada's Provincial Attestation Letter (PAL)</h2>
-                <p>The Canadian federal government introduced the Provincial Attestation Letter framework to manage international student volumes and ensure system integrity. A PAL serves as formal verification from the provincial government confirming that an applicant has been allocated a position within the region's designated international student quota.</p>
+                <h2 class="text-3xl font-bold font-display mb-4 mt-8">Understanding Canada\'s Provincial Attestation Letter (PAL)</h2>
+                <p>The Canadian federal government introduced the Provincial Attestation Letter framework to manage international student volumes and ensure system integrity. A PAL serves as formal verification from the provincial government confirming that an applicant has been allocated a position within the region\'s designated international student quota.</p>
                 <p class="mt-4">Because PAL allocations are finite, institutions must manage their distribution strategically. Niagara College’s current administrative protocol reflects this shift, requiring applicants to demonstrate complete readiness before an attestation letter is requested.</p>
             </section>
             `,
@@ -115,7 +383,7 @@ export const articles: Article[] = [
             `
             <section id="new-process-loo">
                 <h2 class="text-3xl font-bold font-display mb-4 mt-8">New Process for Students with an Existing Letter of Acceptance (LOA)</h2>
-                <p>Undergraduate and graduate applicants who have received an official Letter of Acceptance (LOA) and executed their required tuition deposits must satisfy additional verification standards. These candidates are required to submit their draft study permit documentation to the admissions team for a completeness review. Once approved, the college initiates the formal request to the Ontario government to secure and issue the student's physical PAL.</p>
+                <p>Undergraduate and graduate applicants who have received an official Letter of Acceptance (LOA) and executed their required tuition deposits must satisfy additional verification standards. These candidates are required to submit their draft study permit documentation to the admissions team for a completeness review. Once approved, the college initiates the formal request to the Ontario government to secure and issue the student\'s physical PAL.</p>
             </section>
             `,
             `
@@ -395,9 +663,9 @@ export const articles: Article[] = [
             `,
             `
             <section id="what-has-changed">
-                <h2 class="text-3xl font-bold font-display mb-4 mt-8">Understanding Canada's Provincial Attestation Letter (PAL)</h2>
+                <h2 class="text-3xl font-bold font-display mb-4 mt-8">Understanding Canada\'s Provincial Attestation Letter (PAL)</h2>
                 <p>The Canadian government’s PAL requirement has introduced an additional verification layer for undergraduate admissions. Undergraduate applicants must secure a British Columbia Provincial Attestation Letter before submitting their study permit applications.</p>
-                <p class="mt-4">Notably, international scholars enrolled in Master's or Doctoral programs at UBC are exempt from the PAL requirement, allowing graduate admits to proceed directly to the visa application stage.</p>
+                <p class="mt-4">Notably, international scholars enrolled in Master\'s or Doctoral programs at UBC are exempt from the PAL requirement, allowing graduate admits to proceed directly to the visa application stage.</p>
             </section>
             `,
             `
@@ -439,7 +707,7 @@ export const articles: Article[] = [
             `
             <section id="new-process-loo">
                 <h2 class="text-3xl font-bold font-display mb-4 mt-8">New Process for Students with an Existing Letter of Acceptance (LOA)</h2>
-                <p>Undergraduate applicants who have received an official LOA must secure their BC PAL through UBC's coordinated provincial allocation. Admissions validates each candidate’s record to ensure complete readiness before requesting the attestation letter, protecting the province's limited allocation spots.</p>
+                <p>Undergraduate applicants who have received an official LOA must secure their BC PAL through UBC\'s coordinated provincial allocation. Admissions validates each candidate’s record to ensure complete readiness before requesting the attestation letter, protecting the province\'s limited allocation spots.</p>
             </section>
             `,
             `
@@ -500,7 +768,7 @@ export const articles: Article[] = [
                         </tr>
                         <tr>
                             <td class="border p-2">Step 4: PAL Eligibility Review</td>
-                            <td class="border p-2">UBC admissions assesses the candidate's profile for provincial PAL eligibility.</td>
+                            <td class="border p-2">UBC admissions assesses the candidate\'s profile for provincial PAL eligibility.</td>
                         </tr>
                         <tr>
                             <td class="border p-2">Step 5: Deposit Payment</td>
@@ -601,7 +869,7 @@ export const articles: Article[] = [
                 </ul>
                 
                 <h2 class="text-3xl font-bold font-display mb-4 mt-8">Frequently Asked Questions</h2>
-                <details class="py-4 border-b border-gray-200"><summary class="font-bold text-lg">Are graduate students at UBC required to submit a PAL?</summary><p class="mt-2 text-gray-600">No. Under IRCC guidelines, international scholars enrolled in Master's or Doctoral degree programs at UBC are exempt from the PAL requirement.</p></details>
+                <details class="py-4 border-b border-gray-200"><summary class="font-bold text-lg">Are graduate students at UBC required to submit a PAL?</summary><p class="mt-2 text-gray-600">No. Under IRCC guidelines, international scholars enrolled in Master\'s or Doctoral degree programs at UBC are exempt from the PAL requirement.</p></details>
                 <details class="py-4 border-b border-gray-200"><summary class="font-bold text-lg">What is the standard undergraduate deadline for the Winter Session?</summary><p class="mt-2 text-gray-600">The general undergraduate application deadline for the Winter Session is January 15, 2026.</p></details>
                 <details class="py-4 border-b border-gray-200"><summary class="font-bold text-lg">How long is the Bachelor of Music supplemental application extension?</summary><p class="mt-2 text-gray-600">The supplemental portfolio and reference letter deadline has been extended to January 20.</p></details>
                 <details class="py-4 border-b border-gray-200"><summary class="font-bold text-lg">Can students submit delayed English language test scores?</summary><p class="mt-2 text-gray-600">Yes, under specific conditions, provided the applicant notifies admissions and submits their final results before the designated review window closes.</p></details>
@@ -616,7 +884,7 @@ export const articles: Article[] = [
         image: "/assets/articles/norquest.png",
         tag: "Admissions",
         title: "NorQuest College May 2026 Intake Open: What Applicants Need to Know",
-        desc: "Apply for NorQuest College's May 2026 intake. Learn about popular programs, entry criteria, and the Alberta PAL queue process with Rhinny Global Education.",
+        desc: "Apply for NorQuest College\'s May 2026 intake. Learn about popular programs, entry criteria, and the Alberta PAL queue process with Rhinny Global Education.",
         date: "June 14, 2026",
         readTime: "6 Min Read",
         author: {
@@ -626,7 +894,7 @@ export const articles: Article[] = [
         },
         tableOfContents: [
             { id: "why-norquest", label: "Why Choose NorQuest College" },
-            { id: "what-is-pal", label: "Understanding Canada's PAL" },
+            { id: "what-is-pal", label: "Understanding Canada\'s PAL" },
             { id: "what-has-changed", label: "What Has Changed at NorQuest?" },
             { id: "new-process-loa", label: "New Process for LOA Holders" },
             { id: "new-process-loo", label: "New Process for LOO Holders" },
@@ -641,7 +909,7 @@ export const articles: Article[] = [
             `
             <section id="why-norquest">
                 <h2 class="text-3xl font-bold font-display mb-4">Important Update for Students Planning to Study in Canada</h2>
-                <p>For international students pursuing career-focused programs in health, technology, or community services, Alberta's public colleges provide exceptional post-graduation pathways. However, managing the latest Canadian study permit guidelines requires precise planning and execution.</p>
+                <p>For international students pursuing career-focused programs in health, technology, or community services, Alberta\'s public colleges provide exceptional post-graduation pathways. However, managing the latest Canadian study permit guidelines requires precise planning and execution.</p>
                 <p class="mt-4">The introduction of the Provincial Attestation Letter (PAL) system has changed the admissions timeline. Because Alberta Advanced Education distributes a limited number of PALs, public institutions like NorQuest College have revised their admissions and deposit frameworks.</p>
                 <p class="mt-4">Rhinny Global Education provides expert support throughout this process, helping candidates complete their admission files and navigate the PAL queue with confidence.</p>
             </section>
@@ -649,7 +917,7 @@ export const articles: Article[] = [
             `
             <section id="what-is-pal">
                 <h2 class="text-3xl font-bold font-display mb-4 mt-8">Why Students Choose NorQuest College</h2>
-                <p>Located in Edmonton, NorQuest College is a premier public post-secondary institution specializing in applied, hands-on programs that align directly with Western Canada's high-demand job sectors.</p>
+                <p>Located in Edmonton, NorQuest College is a premier public post-secondary institution specializing in applied, hands-on programs that align directly with Western Canada\'s high-demand job sectors.</p>
                 <table class="w-full mt-4 border-collapse">
                     <thead>
                         <tr>
@@ -685,7 +953,7 @@ export const articles: Article[] = [
             `,
             `
             <section id="what-has-changed">
-                <h2 class="text-3xl font-bold font-display mb-4 mt-8">Understanding Canada's Provincial Attestation Letter (PAL)</h2>
+                <h2 class="text-3xl font-bold font-display mb-4 mt-8">Understanding Canada\'s Provincial Attestation Letter (PAL)</h2>
                 <p>The PAL system serves as a federal verification layer to manage international student numbers. An Alberta Study Permit Attestation Letter, issued by Advanced Education, confirms that a student has been allocated a spot under the province’s annual international cap. This document must be attached to the IRCC study permit application to be accepted for processing.</p>
             </section>
             `,
@@ -743,7 +1011,7 @@ export const articles: Article[] = [
                         <tr>
                             <td class="border p-2">Step 3</td>
                             <td class="border p-2">Pay the tuition deposit immediately to trigger the official PAL request.</td>
-                            <td class="border p-2">Secures your position in the Alberta government's PAL allocation queue.</td>
+                            <td class="border p-2">Secures your position in the Alberta government\'s PAL allocation queue.</td>
                         </tr>
                     </tbody>
                 </table>
@@ -775,7 +1043,7 @@ export const articles: Article[] = [
                         </tr>
                         <tr>
                             <td class="border p-2">Step 4: PAL Eligibility Review</td>
-                            <td class="border p-2">Admissions evaluates the candidate's documentation and PAL eligibility.</td>
+                            <td class="border p-2">Admissions evaluates the candidate\'s documentation and PAL eligibility.</td>
                         </tr>
                         <tr>
                             <td class="border p-2">Step 5: Tuition Deposit</td>
@@ -864,7 +1132,7 @@ export const articles: Article[] = [
             `
             <section id="faq">
                 <h2 class="text-3xl font-bold font-display mb-4 mt-8">Starting the NorQuest College Application with Confidence</h2>
-                <p>The May 2026 intake is a premier opportunity to build a career in Alberta's growing economy. Partnering with Rhinny Global Education helps applicants successfully navigate each step of the college admissions and PAL process.</p>
+                <p>The May 2026 intake is a premier opportunity to build a career in Alberta\'s growing economy. Partnering with Rhinny Global Education helps applicants successfully navigate each step of the college admissions and PAL process.</p>
                 
                 <h3 class="text-2xl font-bold font-display mb-2 mt-4">Booking a Complimentary Consultation</h3>
                 <p>Advisors assist applicants to:</p>
@@ -910,7 +1178,7 @@ export const articles: Article[] = [
             `
             <section id="why-seneca">
                 <h2 class="text-3xl font-bold font-display mb-4">Looking to Study in Canada? Seneca Polytechnic May 2026 Applications Are Now Open</h2>
-                <p>Canada continues to be one of the most sought-after destinations for international students, offering world-class education, multicultural communities, and opportunities to gain valuable work experience after graduation. For students planning to begin their studies in 2026, Seneca Polytechnic has officially opened applications for the May 2026 intake, creating new opportunities across diploma, bachelor's degree, graduate certificate, and master's programs.</p>
+                <p>Canada continues to be one of the most sought-after destinations for international students, offering world-class education, multicultural communities, and opportunities to gain valuable work experience after graduation. For students planning to begin their studies in 2026, Seneca Polytechnic has officially opened applications for the May 2026 intake, creating new opportunities across diploma, bachelor\'s degree, graduate certificate, and master\'s programs.</p>
                 <p class="mt-4">With a strong reputation for career-focused education, industry partnerships, and Post-Graduation Work Permit (PGWP) eligible programs, Seneca Polytechnic remains one of the most attractive public institutions in Canada for international students.</p>
                 <p class="mt-4">However, applying to study abroad involves much more than choosing a program. Students must select the right course, prepare admission documents, understand visa requirements, secure scholarships, and meet important deadlines.</p>
                 <p class="mt-4">That is where Rhinny Global Education comes in.</p>
@@ -920,7 +1188,7 @@ export const articles: Article[] = [
             `
             <section id="may-2026-intake">
                 <h2 class="text-3xl font-bold font-display mb-4 mt-8">Why International Students Choose Seneca Polytechnic</h2>
-                <p>Located in Toronto, Ontario, Seneca Polytechnic welcomes thousands of international students every year and offers programs designed to meet the demands of today's global job market.</p>
+                <p>Located in Toronto, Ontario, Seneca Polytechnic welcomes thousands of international students every year and offers programs designed to meet the demands of today\'s global job market.</p>
                 <p class="mt-4">Some of the key reasons students choose Seneca include:</p>
                 <ul class="list-disc list-inside space-y-2 mt-4">
                     <li>PGWP-eligible programs across multiple disciplines</li>
@@ -938,15 +1206,15 @@ export const articles: Article[] = [
             `
             <section id="scholarships">
                 <h2 class="text-3xl font-bold font-display mb-4 mt-8">May 2026 Intake: Applications Are Now Open</h2>
-                <p>According to Seneca Polytechnic's latest international admissions updates, applications for the May 2026 intake are currently open for international applicants. Students are encouraged to apply early because many popular programs fill up quickly.</p>
+                <p>According to Seneca Polytechnic\'s latest international admissions updates, applications for the May 2026 intake are currently open for international applicants. Students are encouraged to apply early because many popular programs fill up quickly.</p>
                 <p class="mt-4">Programs available include:</p>
                 <h3 class="text-2xl font-bold font-display mb-2 mt-4">Diploma Programs</h3>
                 <p>Career-focused diploma programs designed to provide practical skills and industry experience.</p>
-                <h3 class="text-2xl font-bold font-display mb-2 mt-4">Bachelor's Degrees</h3>
+                <h3 class="text-2xl font-bold font-display mb-2 mt-4">Bachelor\'s Degrees</h3>
                 <p>Four-year degree programs that combine academic knowledge with applied learning.</p>
                 <h3 class="text-2xl font-bold font-display mb-2 mt-4">Graduate Certificates</h3>
                 <p>Ideal for students who already hold a diploma or degree and want specialized career training.</p>
-                <h3 class="text-2xl font-bold font-display mb-2 mt-4">Master's Programs</h3>
+                <h3 class="text-2xl font-bold font-display mb-2 mt-4">Master\'s Programs</h3>
                 <p>Advanced qualifications for professionals seeking leadership and specialized expertise.</p>
             </section>
             `,
@@ -1009,7 +1277,7 @@ export const articles: Article[] = [
         image: "/assets/articles/latrobe.png",
         tag: "Admissions",
         title: "La Trobe University 2026 Admissions Guide | Deadlines, Health Programs & Application Support",
-        desc: "Explore La Trobe University's 2026 admissions process, competitive health programs, application deadlines, and expert support from Rhinny Global Education for international students.",
+        desc: "Explore La Trobe University\'s 2026 admissions process, competitive health programs, application deadlines, and expert support from Rhinny Global Education for international students.",
         date: "June 11, 2026",
         readTime: "6 Min Read",
         author: {
@@ -1031,9 +1299,9 @@ export const articles: Article[] = [
         content: [
             `
             <section id="why-latrobe">
-                <h2 class="text-3xl font-bold font-display mb-4">Planning to Study Health Sciences in Australia? Here's What You Need to Know About La Trobe University's 2026 Admissions</h2>
+                <h2 class="text-3xl font-bold font-display mb-4">Planning to Study Health Sciences in Australia? Here\'s What You Need to Know About La Trobe University\'s 2026 Admissions</h2>
                 <p>La Trobe University has released important admissions updates for several of its most competitive health and medical programs for the 2026 intake. For international students aspiring to build careers in dentistry, physiotherapy, occupational therapy, psychology, nursing, social work, and allied health professions, understanding these admission timelines is essential.</p>
-                <p class="mt-4">As one of Australia's leading universities, La Trobe is globally recognized for its health-related programs, practical learning opportunities, research excellence, and strong graduate outcomes. The university ranks among the world's top universities and is particularly respected for health, nursing, rehabilitation, and allied health education.</p>
+                <p class="mt-4">As one of Australia\'s leading universities, La Trobe is globally recognized for its health-related programs, practical learning opportunities, research excellence, and strong graduate outcomes. The university ranks among the world\'s top universities and is particularly respected for health, nursing, rehabilitation, and allied health education.</p>
                 <p class="mt-4">Because many of these programs are highly competitive and assessed through ranking systems or interviews, students who apply late or submit incomplete applications risk missing out on available places.</p>
                 <p class="mt-4">This is why many students choose to work with Rhinny Global Education to ensure their applications are prepared correctly, submitted on time, and supported throughout the admissions process.</p>
             </section>
@@ -1053,13 +1321,13 @@ export const articles: Article[] = [
                     <li>International student support services</li>
                     <li>Research excellence</li>
                 </ul>
-                <p>The university is ranked among the world's top universities and is particularly recognized for health and medical sciences programs.</p>
+                <p>The university is ranked among the world\'s top universities and is particularly recognized for health and medical sciences programs.</p>
             </section>
             `,
             `
             <section id="group-1">
-                <h2 class="text-3xl font-bold font-display mb-4 mt-8">Understanding La Trobe's 2026 Select Course Admissions Process</h2>
-                <p>Unlike standard university admissions, several of La Trobe's most sought-after programs use competitive ranking systems, admissions rounds, or interview-based assessments.</p>
+                <h2 class="text-3xl font-bold font-display mb-4 mt-8">Understanding La Trobe\'s 2026 Select Course Admissions Process</h2>
+                <p>Unlike standard university admissions, several of La Trobe\'s most sought-after programs use competitive ranking systems, admissions rounds, or interview-based assessments.</p>
                 <p>This means meeting the minimum requirements alone may not guarantee admission.</p>
                 <p>Instead, applicants compete against other qualified students for a limited number of available places.</p>
                 <p>Understanding which category your program falls into can significantly improve your admission strategy.</p>
@@ -1075,7 +1343,7 @@ export const articles: Article[] = [
                 <p>Occupational therapists help individuals improve independence and quality of life through rehabilitation and therapeutic interventions.</p>
                 <h3 class="text-2xl font-bold font-display mb-2 mt-4">Master of Physiotherapy Practice</h3>
                 <p>Physiotherapists play an essential role in injury rehabilitation, movement restoration, and long-term physical wellbeing.</p>
-                <p>These health disciplines remain among Australia's most in-demand healthcare professions. La Trobe is particularly known for its strong allied health programs and extensive placement opportunities.</p>
+                <p>These health disciplines remain among Australia\'s most in-demand healthcare professions. La Trobe is particularly known for its strong allied health programs and extensive placement opportunities.</p>
                 <h3 class="text-2xl font-bold font-display mb-2 mt-4">Primary Round</h3>
                 <ul class="list-disc list-inside space-y-2 mt-2">
                     <li>Application Deadline: 2 August 2025</li>
@@ -1153,8 +1421,8 @@ export const articles: Article[] = [
             `
             <section id="start-application">
                 <h2 class="text-3xl font-bold font-display mb-4 mt-8">Why Students Are Choosing Health Sciences at La Trobe</h2>
-                <p>Healthcare remains one of Australia's fastest-growing employment sectors.</p>
-                <p>La Trobe's health programs provide:</p>
+                <p>Healthcare remains one of Australia\'s fastest-growing employment sectors.</p>
+                <p>La Trobe\'s health programs provide:</p>
                 <ul class="list-disc list-inside space-y-2 mt-4">
                     <li>Clinical placements</li>
                     <li>Industry exposure</li>
@@ -1163,7 +1431,7 @@ export const articles: Article[] = [
                     <li>Access to healthcare networks</li>
                     <li>Strong graduate employment outcomes</li>
                 </ul>
-                <p>The university is ranked among the world's top institutions for medical and health education and maintains strong industry partnerships throughout Australia.</p>
+                <p>The university is ranked among the world\'s top institutions for medical and health education and maintains strong industry partnerships throughout Australia.</p>
             </section>
             `,
             `
@@ -1210,14 +1478,14 @@ export const articles: Article[] = [
                     <li>Develop a competitive application strategy</li>
                     <li>Navigate the Australian student visa process</li>
                 </ul>
-                <p>Take the first step toward studying at one of Australia's leading universities by speaking with our admissions team today.</p>
+                <p>Take the first step toward studying at one of Australia\'s leading universities by speaking with our admissions team today.</p>
                 <a href="/contact" class="inline-block bg-blue-500 text-white font-bold py-2 px-4 rounded mt-4">Book a Free Consultation</a>
             </section>
             `,
             `
             <section id="faq">
                 <h2 class="text-3xl font-bold font-display mb-4 mt-8">Frequently Asked Questions</h2>
-                <details class="py-4 border-b border-gray-200"><summary class="font-bold text-lg">Is La Trobe University a good university?</summary><p class="mt-2 text-gray-600">Yes. La Trobe is ranked among the world's top universities and is particularly recognized for health, nursing, and medical sciences education.</p></details>
+                <details class="py-4 border-b border-gray-200"><summary class="font-bold text-lg">Is La Trobe University a good university?</summary><p class="mt-2 text-gray-600">Yes. La Trobe is ranked among the world\'s top universities and is particularly recognized for health, nursing, and medical sciences education.</p></details>
                 <details class="py-4 border-b border-gray-200"><summary class="font-bold text-lg">Are La Trobe health programs competitive?</summary><p class="mt-2 text-gray-600">Many health-related programs such as Dentistry, Occupational Therapy, Physiotherapy, and Psychology are highly competitive and use ranking-based admissions processes.</p></details>
                 <details class="py-4 border-b border-gray-200"><summary class="font-bold text-lg">Do all programs require interviews?</summary><p class="mt-2 text-gray-600">No. Some programs use interviews while others are assessed through academic ranking or first-come, first-served admissions.</p></details>
                 <details class="py-4 border-b border-gray-200"><summary class="font-bold text-lg">Should I apply early?</summary><p class="mt-2 text-gray-600">Yes. Early applications improve the chances of securing admission, particularly for first-come, first-served programs.</p></details>
@@ -1232,7 +1500,7 @@ export const articles: Article[] = [
         image: "/assets/articles/fdu.png",
         tag: "Admissions",
         title: "Fairleigh Dickinson University Vancouver PAL Update 2026 | Admission Guide for International Students",
-        desc: "Learn about Fairleigh Dickinson University Vancouver's new PAL allocation process, admission requirements, programs, and how Rhinny Global Education can help you successfully study in Canada.",
+        desc: "Learn about Fairleigh Dickinson University Vancouver\'s new PAL allocation process, admission requirements, programs, and how Rhinny Global Education can help you successfully study in Canada.",
         date: "June 11, 2026",
         readTime: "7 Min Read",
         author: {
@@ -1279,22 +1547,22 @@ export const articles: Article[] = [
                     <li>Modern campus facilities</li>
                     <li>Strong business and technology programs</li>
                 </ul>
-                <p>The university is also scheduled to move into its new Oakridge Park campus facility, providing enhanced learning spaces and stronger connections with Vancouver's business community.</p>
+                <p>The university is also scheduled to move into its new Oakridge Park campus facility, providing enhanced learning spaces and stronger connections with Vancouver\'s business community.</p>
             </section>
             `,
             `
             <section id="what-has-changed">
-                <h2 class="text-3xl font-bold font-display mb-4 mt-8">Understanding Canada's Provincial Attestation Letter (PAL)</h2>
+                <h2 class="text-3xl font-bold font-display mb-4 mt-8">Understanding Canada\'s Provincial Attestation Letter (PAL)</h2>
                 <p>The Canadian government introduced the Provincial Attestation Letter system as part of new international student regulations.</p>
                 <p>A PAL confirms that a province has allocated one of its available international student spaces to a specific applicant. In many cases, students now require a PAL before they can submit a study permit application.</p>
                 <p>Because PAL allocations are limited, universities have become more strategic about how they distribute them.</p>
-                <p>FDU Vancouver's latest policy reflects this shift.</p>
+                <p>FDU Vancouver\'s latest policy reflects this shift.</p>
             </section>
             `,
             `
             <section id="new-process-loa">
                 <h2 class="text-3xl font-bold font-display mb-4 mt-8">What Has Changed at FDU Vancouver?</h2>
-                <p>According to the university's latest admissions update, PALs will now be prioritized for students who demonstrate readiness to submit a complete and strong study permit application.</p>
+                <p>According to the university\'s latest admissions update, PALs will now be prioritized for students who demonstrate readiness to submit a complete and strong study permit application.</p>
                 <p>This means students may need to provide study permit documentation for review before receiving a PAL allocation.</p>
                 <p>The goal is to ensure that PALs are issued to applicants who are fully prepared to move forward with their visa application process.</p>
             </section>
@@ -1421,8 +1689,8 @@ export const articles: Article[] = [
             `
             <section id="book-consultation">
                 <h2 class="text-3xl font-bold font-display mb-4 mt-8">Start Your FDU Vancouver Application with Confidence</h2>
-                <p>FDU Vancouver remains an excellent option for students seeking internationally recognized qualifications, practical learning opportunities, and the chance to study in one of Canada's most dynamic cities.</p>
-                <p>However, with the university's new PAL allocation process now in place, proper preparation is more important than ever.</p>
+                <p>FDU Vancouver remains an excellent option for students seeking internationally recognized qualifications, practical learning opportunities, and the chance to study in one of Canada\'s most dynamic cities.</p>
+                <p>However, with the university\'s new PAL allocation process now in place, proper preparation is more important than ever.</p>
                 <p>Rather than navigating admissions, PAL requirements, and study permit applications alone, let Rhinny Global Education help you every step of the way.</p>
                 <div class="mt-8">
                     <a href="/contact" class="rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">Book a Free Consultation</a>
@@ -1613,12 +1881,12 @@ export const articles: Article[] = [
             `
             <section id="why-wlu">
                 <h2 class="text-3xl font-bold font-display mb-4 mt-8">Why Apply to Wilfrid Laurier University?</h2>
-                <p>Wilfrid Laurier University stands out as one of Canada's premier institutions for undergraduate education. Here's why international students consistently choose WLU:</p>
+                <p>Wilfrid Laurier University stands out as one of Canada\'s premier institutions for undergraduate education. Here\'s why international students consistently choose WLU:</p>
                 <ul class="list-disc list-inside space-y-2 mt-4">
                     <li><strong>Career-Focused Education:</strong> Programs are designed with direct industry input, ensuring graduates possess the skills employers actively seek.</li>
                     <li><strong>Strong Academic Reputation:</strong> WLU is recognized nationally for innovative teaching and research excellence.</li>
                     <li><strong>Supportive International Environment:</strong> From dedicated international student advisors to peer mentoring programs, WLU ensures you never navigate your journey alone.</li>
-                    <li><strong>Prime Ontario Location:</strong> Situated in one of Canada's most economically vibrant provinces, students gain access to exceptional co-op placements, networking events, and post-graduation career opportunities.</li>
+                    <li><strong>Prime Ontario Location:</strong> Situated in one of Canada\'s most economically vibrant provinces, students gain access to exceptional co-op placements, networking events, and post-graduation career opportunities.</li>
                 </ul>
             </section>
             `,
@@ -1642,18 +1910,18 @@ export const articles: Article[] = [
                     <li><strong>Post-Graduation Work Opportunities:</strong> Canadian credentials open doors to the Post-Graduation Work Permit (PGWP), allowing graduates to gain valuable Canadian work experience.</li>
                     <li><strong>Pathway to Permanent Residency:</strong> Canadian education significantly strengthens Express Entry and Provincial Nominee Program (PNP) applications.</li>
                     <li><strong>Quality of Life:</strong> Consistently ranked among the safest countries globally, Canada offers an inclusive, multicultural environment where international students thrive.</li>
-                    <li><strong>Institutional Investment:</strong> As seen with Niagara College's new scholarship, Canadian institutions are actively investing in attracting and supporting global talent.</li>
+                    <li><strong>Institutional Investment:</strong> As seen with Niagara College\'s new scholarship, Canadian institutions are actively investing in attracting and supporting global talent.</li>
                 </ol>
             </section>
             `,
             `
             <section id="how-rhinny-helps">
                 <h2 class="text-3xl font-bold font-display mb-4 mt-8">How Rhinny Global Can Help</h2>
-                <p>Navigating international admissions, scholarship applications, and study permit requirements can feel overwhelming — but you don't have to do it alone.</p>
+                <p>Navigating international admissions, scholarship applications, and study permit requirements can feel overwhelming — but you don\'t have to do it alone.</p>
                 <p class="mt-4">At Rhinny Global, we specialize in guiding students through every stage of their study abroad journey:</p>
                 <ul class="list-disc list-inside space-y-2 mt-4">
                     <li><strong>Application Assistance:</strong> We help you submit polished, competitive applications to institutions like Niagara College and Wilfrid Laurier University.</li>
-                    <li><strong>Scholarship Guidance:</strong> Our team ensures you don't miss financial aid opportunities like the Niagara College Global Scholarship.</li>
+                    <li><strong>Scholarship Guidance:</strong> Our team ensures you don\'t miss financial aid opportunities like the Niagara College Global Scholarship.</li>
                     <li><strong>Document Preparation:</strong> From transcripts to statement of purpose reviews, we make sure your paperwork is flawless.</li>
                     <li><strong>Study Permit Support:</strong> We provide step-by-step guidance through the Canadian study permit process, helping you avoid common delays and rejections.</li>
                 </ul>
@@ -1662,14 +1930,14 @@ export const articles: Article[] = [
             `
             <section id="next-steps">
                 <h2 class="text-3xl font-bold font-display mb-4 mt-8">Next Steps: Your 2027 Canada Study Plan</h2>
-                <p><strong>If you're targeting Niagara College:</strong></p>
+                <p><strong>If you\'re targeting Niagara College:</strong></p>
                 <ol class="list-decimal list-inside space-y-2 mt-2">
                     <li>Confirm your program start date (January 2027 or May 2027).</li>
                     <li>Complete or verify your program application.</li>
                     <li>Submit the Global Scholarship form before your program start date.</li>
                     <li>Begin your study permit application process.</li>
                 </ol>
-                <p class="mt-4"><strong>If you're targeting Wilfrid Laurier University:</strong></p>
+                <p class="mt-4"><strong>If you\'re targeting Wilfrid Laurier University:</strong></p>
                 <ol class="list-decimal list-inside space-y-2 mt-2">
                     <li>Review available undergraduate programs for Winter 2027.</li>
                     <li>Gather all required academic documents and English proficiency scores.</li>
@@ -1677,7 +1945,7 @@ export const articles: Article[] = [
                     <li>Begin preparing your study permit documentation immediately after receiving your offer.</li>
                 </ol>
                 <p class="mt-6"><strong>Ready to Start Your Journey?</strong></p>
-                <p>Opportunities like the Niagara College Global Scholarship don't come around every intake, and competitive programs at Wilfrid Laurier University fill quickly. Whether you're just beginning your research or ready to submit applications, Rhinny Global is here to ensure your 2027 Canada education goals become reality.</p>
+                <p>Opportunities like the Niagara College Global Scholarship don\'t come around every intake, and competitive programs at Wilfrid Laurier University fill quickly. Whether you\'re just beginning your research or ready to submit applications, Rhinny Global is here to ensure your 2027 Canada education goals become reality.</p>
                 <p class="mt-4">Contact us today to schedule your free consultation and take the first step toward studying in Canada.</p>
             </section>
             `
