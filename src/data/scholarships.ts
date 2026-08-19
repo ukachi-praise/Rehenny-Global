@@ -767,6 +767,66 @@ export const scholarships: Scholarship[] = [
       </section>
       `
     ]
+  },
+  {
+    id: 11,
+    slug: "niagara-college-global-scholarship-january-may-2027",
+    image: "/assets/articles/niagara.png",
+    university: "Niagara College",
+    country: "Canada",
+    title: "Niagara College Launches New $4,000 Global Scholarship",
+    description: "Niagara College has introduced a brand-new CAD $4,000 Global Scholarship for its January and May 2027 intakes.",
+    amount: "CAD $4,000",
+    intake: "January & May 2027",
+    content: [
+        `
+        <section id="introduction">
+            <h2 class="text-3xl font-bold font-display mb-4">Exciting Opportunities for 2027: Niagara College Launches New $4,000 Global Scholarship & Wilfrid Laurier University Opens Winter Applications</h2>
+            <p>August 2026 — If you\'re an international student planning to study in Canada in 2027, this is your moment. Two major Ontario institutions have just announced opportunities that could define your academic journey: Niagara College has introduced a brand-new CAD $4,000 Global Scholarship for its January and May 2027 intakes, while Wilfrid Laurier University (WLU) has officially opened undergraduate applications for its Winter 2027 intake.</p>
+            <p class="mt-4">At Rhinny Global, we believe every student deserves access to world-class education without unnecessary financial barriers. Here\'s everything you need to know about these updates and how to position yourself for success.</p>
+        </section>
+        `,
+        `
+        <section id="scholarship-details">
+            <h2 class="text-3xl font-bold font-display mb-4 mt-8">🎓 Niagara College Global Scholarship — January & May 2027</h2>
+            <p>Niagara College has officially launched the Global Scholarship, a dedicated financial award designed specifically for international students entering programs in the January 2027 and May 2027 intakes.</p>
+            <h3 class="text-2xl font-bold font-display mt-6 mb-2">Scholarship Highlights</h3>
+            <table class="w-full text-left border-collapse mt-4">
+                <thead>
+                    <tr>
+                        <th class="border-b-2 p-2">Feature</th>
+                        <th class="border-b-2 p-2">Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border-b p-2">Award Value</td>
+                        <td class="border-b p-2">CAD $4,000</td>
+                    </tr>
+                    <tr>
+                        <td class="border-b p-2">Disbursement</td>
+                        <td class="border-b p-2">Awarded in Term 1</td>
+                    </tr>
+                    <tr>
+                        <td class="border-b p-2">Eligibility</td>
+                        <td class="border-b p-2">International students beginning their program in January 2027 or May 2027</td>
+                    </tr>
+                    <tr>
+                        <td class="border-b p-2">Application Process</td>
+                        <td class="border-b p-2">Simple scholarship form required before program start</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        `,
+        `
+        <section id="retroactive-eligibility">
+            <h3 class="text-2xl font-bold font-display mt-6 mb-2">Important: Retroactive Eligibility</h3>
+            <p>Here\'s the best part — this scholarship isn\'t just for new applicants. If you have already applied to Niagara College for the January or May 2027 intakes before this scholarship was announced, you are still eligible. You simply need to complete the scholarship form to be considered.</p>
+            <p class="mt-4">This is a rare opportunity to have your existing application complemented by significant financial support. We strongly encourage all eligible students to complete the form as early as possible.</p>
+        </section>
+        `
+    ]
   }
 ];
 
